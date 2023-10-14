@@ -18,6 +18,11 @@ enum Resources {
         static let white = UIColor.white
         static let red = UIColor.red
         
+        enum TabBarModule {
+            static let tabBarFillColor = UIColor(hexString: "#2D2B2B")
+            static let tabBarTintColor = UIColor.white
+            static let tabBarUnselectedItem = UIColor(hexString: "#999898")
+        }
     }
     
     enum Fonts {
@@ -27,12 +32,9 @@ enum Resources {
     enum Images {
         
         enum TabBarModule {
-            static let main = UIImage(named: "main") ?? UIImage()
-            static let mainSelected = UIImage(named: "mainSelected") ?? UIImage()
-            static let pet = UIImage(named: "pet") ?? UIImage()
-            static let petSelected = UIImage(named: "petSelected") ?? UIImage()
-            static let friends = UIImage(named: "friends") ?? UIImage()
-            static let friendsSelected = UIImage(named: "friendsSelected") ?? UIImage()
+            static let favourities = UIImage(systemName: "star.fill") ?? UIImage()
+            static let main = UIImage(systemName: "plus") ?? UIImage()
+            static let settings = UIImage(systemName: "gear") ?? UIImage()
         }
     }
 }

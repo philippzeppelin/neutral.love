@@ -12,42 +12,63 @@ final class TabBarController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setup()
+        createTabBar()
+        setupTabBar()
     }
     
-    private func setup() {
+    private func createTabBar() {
         let favouritesVC = UIViewController()
-        let mainVC = UIViewController()
+        let mainVC = ViewController()
         let settingsVC = UIViewController()
         
         self.viewControllers = [
             generateNavigationController(for: favouritesVC,
-                                         title: "",
-                                         image: Resources.Images.TabBarModule.main,
-                                         selectedImage: Resources.Images.TabBarModule.mainSelected,
-                                         tag: 0),
+                                         title: "Favourites",
+                                         image: Resources.Images.TabBarModule.favourities),
             generateNavigationController(for: mainVC,
-                                         title: "",
-                                         image: Resources.Images.TabBarModule.pet,
-                                         selectedImage: Resources.Images.TabBarModule.petSelected,
-                                         tag: 1),
+                                         title: "Generate",
+                                         image: Resources.Images.TabBarModule.main),
             generateNavigationController(for: settingsVC,
-                                         title: "",
-                                         image: Resources.Images.TabBarModule.friends,
-                                         selectedImage: Resources.Images.TabBarModule.friendsSelected,
-                                         tag: 2),
+                                         title: "Settings",
+                                         image: Resources.Images.TabBarModule.settings)
         ]
     }
 }
 
 private extension TabBarController {
-     func generateNavigationController (for vc: UIViewController, title: String, image: UIImage, selectedImage: UIImage, tag: Int) -> UIViewController {
-        let navController = UINavigationController(rootViewController: vc)
-        navController.tabBarItem.title = title
-        navController.tabBarItem.tag = tag
-        navController.tabBarItem.image = image
-        navController.tabBarItem.imageInsets = .init(top: 10, left: 0, bottom: 0, right: 0)
-        navController.tabBarItem.selectedImage = selectedImage
-        return navController
+    
+     func generateNavigationController (for vc: UIViewController, title: String, image: UIImage) -> UIViewController {
+         vc.tabBarItem.title = title
+         vc.tabBarItem.image = image
+        return vc
+    }
+    
+    func setupTabBar() {
+        let positionOnX: CGFloat = 10
+        let positionOnY: CGFloat = 14
+        let widht = tabBar.bounds.width - positionOnX * 2
+        let height = tabBar.bounds.height + positionOnY * 2
+        
+        let roundLayer = CAShapeLayer()
+        
+        let rect = CGRect(
+            x: positionOnX,
+            y: tabBar.bounds.minY - positionOnY,
+            width: widht,
+            height: height
+        )
+        let bezierPath = UIBezierPath(
+            roundedRect: rect,
+            cornerRadius: height / 4
+        )
+        
+        roundLayer.path = bezierPath.cgPath
+        roundLayer.fillColor = Resources.Colors.TabBarModule.tabBarFillColor.cgColor
+        
+        tabBar.layer.insertSublayer(roundLayer, at: 0)
+        tabBar.itemWidth = widht / 3
+        tabBar.itemPositioning = .centered
+        tabBar.tintColor = Resources.Colors.TabBarModule.tabBarTintColor
+        tabBar.unselectedItemTintColor = Resources.Colors.TabBarModule.tabBarUnselectedItem
     }
 }
