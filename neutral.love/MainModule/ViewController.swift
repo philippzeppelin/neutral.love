@@ -11,6 +11,10 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+<<<<<<<< HEAD:neutral.love/MainView/ViewController.swift
+        view.backgroundColor = .red
+========
         view.backgroundColor = UIColor(hexString: "#666666")
+>>>>>>>> develop:neutral.love/MainModule/ViewController.swift
     }
 }
