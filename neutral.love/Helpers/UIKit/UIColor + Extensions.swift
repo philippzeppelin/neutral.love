@@ -1,5 +1,5 @@
 //
-//  UIColor + extensions.swift
+//  UIColor + Extensions.swift
 //  neutral.love
 //
 //  Created by Sergei Smirnov on 14.10.2023.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-extension UIColor { // swiftlint:disable identifier_name
+extension UIColor { 
     convenience init(hexString: String) {
         let hex = hexString.trimmingCharacters(in: CharacterSet.alphanumerics.inverted)
         var int = UInt64()

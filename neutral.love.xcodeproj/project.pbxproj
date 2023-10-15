@@ -16,9 +16,15 @@
 		E7626D212ADC13AC00223037 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D202ADC13AC00223037 /* ViewController.swift */; };
 		E7626D252ADC13C300223037 /* TabBarAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D232ADC13C200223037 /* TabBarAssembly.swift */; };
 		E7626D262ADC13C300223037 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D242ADC13C200223037 /* TabBarController.swift */; };
-		E7626D2B2ADC13F800223037 /* UIColor + extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D292ADC13F800223037 /* UIColor + extensions.swift */; };
+		E7626D2B2ADC13F800223037 /* UIColor + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D292ADC13F800223037 /* UIColor + Extensions.swift */; };
 		E7626D2C2ADC13F800223037 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D2A2ADC13F800223037 /* Resources.swift */; };
 		E7626D312ADC152F00223037 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D302ADC152F00223037 /* SignInViewController.swift */; };
+		E7626D332ADC15D300223037 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D322ADC15D300223037 /* SignUpViewController.swift */; };
+		E7626D372ADC1DD700223037 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D362ADC1DD700223037 /* SignInView.swift */; };
+		E7626D3A2ADC202D00223037 /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D392ADC202D00223037 /* AuthTextField.swift */; };
+		E7626D3C2ADC28E000223037 /* UIView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D3B2ADC28E000223037 /* UIView + Extensions.swift */; };
+		E7626D3F2ADC4DAE00223037 /* SignInCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D3E2ADC4DAE00223037 /* SignInCollectionViewCell.swift */; };
+		E7626D412ADC564000223037 /* EmailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D402ADC564000223037 /* EmailCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,9 +41,15 @@
 		E7626D202ADC13AC00223037 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E7626D232ADC13C200223037 /* TabBarAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarAssembly.swift; sourceTree = "<group>"; };
 		E7626D242ADC13C200223037 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
-		E7626D292ADC13F800223037 /* UIColor + extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor + extensions.swift"; sourceTree = "<group>"; };
+		E7626D292ADC13F800223037 /* UIColor + Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor + Extensions.swift"; sourceTree = "<group>"; };
 		E7626D2A2ADC13F800223037 /* Resources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		E7626D302ADC152F00223037 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		E7626D322ADC15D300223037 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		E7626D362ADC1DD700223037 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		E7626D392ADC202D00223037 /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
+		E7626D3B2ADC28E000223037 /* UIView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extensions.swift"; sourceTree = "<group>"; };
+		E7626D3E2ADC4DAE00223037 /* SignInCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInCollectionViewCell.swift; sourceTree = "<group>"; };
+		E7626D402ADC564000223037 /* EmailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmailCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,8 +121,8 @@
 		E74396EE2ACE9FA1003B06B9 /* neutral.love */ = {
 			isa = PBXGroup;
 			children = (
-				E7626D2D2ADC14F400223037 /* AuthorizationModule */,
 				E7007D752ADAC2E4000DCBE0 /* Application */,
+				E7626D2D2ADC14F400223037 /* AuthorizationModule */,
 				E7626D1F2ADC13AC00223037 /* MainModule */,
 				E7626D272ADC13F800223037 /* Helpers */,
 				E7626D222ADC13C200223037 /* TabBarModule */,
@@ -150,7 +162,8 @@
 		E7626D282ADC13F800223037 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				E7626D292ADC13F800223037 /* UIColor + extensions.swift */,
+				E7626D292ADC13F800223037 /* UIColor + Extensions.swift */,
+				E7626D3B2ADC28E000223037 /* UIView + Extensions.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -160,6 +173,7 @@
 			children = (
 				E7626D2E2ADC14FF00223037 /* SignIn */,
 				E7626D2F2ADC150D00223037 /* SignUp */,
+				E7626D392ADC202D00223037 /* AuthTextField.swift */,
 			);
 			path = AuthorizationModule;
 			sourceTree = "<group>";
@@ -167,7 +181,9 @@
 		E7626D2E2ADC14FF00223037 /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
-				E7626D302ADC152F00223037 /* SignInViewController.swift */,
+				E7626D3D2ADC4D9700223037 /* Cell */,
+				E7626D342ADC1D8600223037 /* View */,
+				E7626D352ADC1D8F00223037 /* Controller */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -175,8 +191,34 @@
 		E7626D2F2ADC150D00223037 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
+				E7626D322ADC15D300223037 /* SignUpViewController.swift */,
 			);
 			path = SignUp;
+			sourceTree = "<group>";
+		};
+		E7626D342ADC1D8600223037 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E7626D362ADC1DD700223037 /* SignInView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E7626D352ADC1D8F00223037 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E7626D302ADC152F00223037 /* SignInViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E7626D3D2ADC4D9700223037 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E7626D3E2ADC4DAE00223037 /* SignInCollectionViewCell.swift */,
+				E7626D402ADC564000223037 /* EmailCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -297,13 +339,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7626D252ADC13C300223037 /* TabBarAssembly.swift in Sources */,
-				E7626D2B2ADC13F800223037 /* UIColor + extensions.swift in Sources */,
+				E7626D2B2ADC13F800223037 /* UIColor + Extensions.swift in Sources */,
 				E7626D2C2ADC13F800223037 /* Resources.swift in Sources */,
+				E7626D412ADC564000223037 /* EmailCollectionViewCell.swift in Sources */,
+				E7626D3F2ADC4DAE00223037 /* SignInCollectionViewCell.swift in Sources */,
 				E74396F02ACE9FA1003B06B9 /* AppDelegate.swift in Sources */,
+				E7626D3C2ADC28E000223037 /* UIView + Extensions.swift in Sources */,
+				E7626D372ADC1DD700223037 /* SignInView.swift in Sources */,
 				E7626D312ADC152F00223037 /* SignInViewController.swift in Sources */,
 				E7626D262ADC13C300223037 /* TabBarController.swift in Sources */,
+				E7626D332ADC15D300223037 /* SignUpViewController.swift in Sources */,
 				E7626D212ADC13AC00223037 /* ViewController.swift in Sources */,
 				E74396F22ACE9FA1003B06B9 /* SceneDelegate.swift in Sources */,
+				E7626D3A2ADC202D00223037 /* AuthTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
