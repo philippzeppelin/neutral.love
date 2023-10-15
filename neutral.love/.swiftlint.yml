@@ -1,1 +1,8 @@
+excluded:
+  - Pods
 
+line_length:
+   warning: 150
+
+disabled_rules:
+    trailing_whitespace

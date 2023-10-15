@@ -8,13 +8,9 @@
 import UIKit
 
 enum Resources {
-    
-    enum Strings {
-        
-    }
-    
+    enum Strings {}
+
     enum Colors {
-        
         static let white = UIColor.white
         static let red = UIColor.red
         
@@ -24,18 +20,14 @@ enum Resources {
             static let tabBarUnselectedItem = UIColor(hexString: "#999898")
         }
     }
-    
-    enum Fonts {
-        
-    }
+
+    enum Fonts {}
 
     enum Images {
-        
-        enum TabBarModule {
+        enum TabBarModule { 
             static let favourities = UIImage(systemName: "star.fill") ?? UIImage()
             static let main = UIImage(systemName: "plus") ?? UIImage()
             static let settings = UIImage(systemName: "gear") ?? UIImage()
         }
     }
 }
-

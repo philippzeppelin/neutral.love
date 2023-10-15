@@ -10,10 +10,15 @@
 		9BAA0FC91BA5EBFB3E4084E2 /* Pods_neutral_love.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CA9FD68FEBBF1CE66C412E6 /* Pods_neutral_love.framework */; };
 		E74396F02ACE9FA1003B06B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74396EF2ACE9FA1003B06B9 /* AppDelegate.swift */; };
 		E74396F22ACE9FA1003B06B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74396F12ACE9FA1003B06B9 /* SceneDelegate.swift */; };
-		E74396F42ACE9FA1003B06B9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74396F32ACE9FA1003B06B9 /* ViewController.swift */; };
 		E74396F92ACE9FA5003B06B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E74396F82ACE9FA5003B06B9 /* Assets.xcassets */; };
 		E74396FC2ACE9FA5003B06B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E74396FA2ACE9FA5003B06B9 /* LaunchScreen.storyboard */; };
 		E74729362ADB03E200348D8A /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = E74729352ADB03E200348D8A /* .swiftlint.yml */; };
+		E7626D212ADC13AC00223037 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D202ADC13AC00223037 /* ViewController.swift */; };
+		E7626D252ADC13C300223037 /* TabBarAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D232ADC13C200223037 /* TabBarAssembly.swift */; };
+		E7626D262ADC13C300223037 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D242ADC13C200223037 /* TabBarController.swift */; };
+		E7626D2B2ADC13F800223037 /* UIColor + extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D292ADC13F800223037 /* UIColor + extensions.swift */; };
+		E7626D2C2ADC13F800223037 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D2A2ADC13F800223037 /* Resources.swift */; };
+		E7626D312ADC152F00223037 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D302ADC152F00223037 /* SignInViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,11 +28,16 @@
 		E74396EC2ACE9FA1003B06B9 /* neutral.love.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = neutral.love.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E74396EF2ACE9FA1003B06B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E74396F12ACE9FA1003B06B9 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		E74396F32ACE9FA1003B06B9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		E74396F82ACE9FA5003B06B9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E74396FB2ACE9FA5003B06B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E74396FD2ACE9FA5003B06B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E74729352ADB03E200348D8A /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
+		E7626D202ADC13AC00223037 /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E7626D232ADC13C200223037 /* TabBarAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarAssembly.swift; sourceTree = "<group>"; };
+		E7626D242ADC13C200223037 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		E7626D292ADC13F800223037 /* UIColor + extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor + extensions.swift"; sourceTree = "<group>"; };
+		E7626D2A2ADC13F800223037 /* Resources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
+		E7626D302ADC152F00223037 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,14 +88,6 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
-		E7007D772ADAC314000DCBE0 /* MainView */ = {
-			isa = PBXGroup;
-			children = (
-				E74396F32ACE9FA1003B06B9 /* ViewController.swift */,
-			);
-			path = MainView;
-			sourceTree = "<group>";
-		};
 		E74396E32ACE9FA1003B06B9 = {
 			isa = PBXGroup;
 			children = (
@@ -107,12 +109,74 @@
 		E74396EE2ACE9FA1003B06B9 /* neutral.love */ = {
 			isa = PBXGroup;
 			children = (
+				E7626D2D2ADC14F400223037 /* AuthorizationModule */,
 				E7007D752ADAC2E4000DCBE0 /* Application */,
-				E7007D772ADAC314000DCBE0 /* MainView */,
+				E7626D1F2ADC13AC00223037 /* MainModule */,
+				E7626D272ADC13F800223037 /* Helpers */,
+				E7626D222ADC13C200223037 /* TabBarModule */,
 				E7007D762ADAC2F9000DCBE0 /* Resources */,
 				E74729352ADB03E200348D8A /* .swiftlint.yml */,
 			);
 			path = neutral.love;
+			sourceTree = "<group>";
+		};
+		E7626D1F2ADC13AC00223037 /* MainModule */ = {
+			isa = PBXGroup;
+			children = (
+				E7626D202ADC13AC00223037 /* ViewController.swift */,
+			);
+			path = MainModule;
+			sourceTree = "<group>";
+		};
+		E7626D222ADC13C200223037 /* TabBarModule */ = {
+			isa = PBXGroup;
+			children = (
+				E7626D232ADC13C200223037 /* TabBarAssembly.swift */,
+				E7626D242ADC13C200223037 /* TabBarController.swift */,
+			);
+			name = TabBarModule;
+			path = neutral.love/TabBarModule;
+			sourceTree = SOURCE_ROOT;
+		};
+		E7626D272ADC13F800223037 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				E7626D282ADC13F800223037 /* UIKit */,
+				E7626D2A2ADC13F800223037 /* Resources.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		E7626D282ADC13F800223037 /* UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				E7626D292ADC13F800223037 /* UIColor + extensions.swift */,
+			);
+			path = UIKit;
+			sourceTree = "<group>";
+		};
+		E7626D2D2ADC14F400223037 /* AuthorizationModule */ = {
+			isa = PBXGroup;
+			children = (
+				E7626D2E2ADC14FF00223037 /* SignIn */,
+				E7626D2F2ADC150D00223037 /* SignUp */,
+			);
+			path = AuthorizationModule;
+			sourceTree = "<group>";
+		};
+		E7626D2E2ADC14FF00223037 /* SignIn */ = {
+			isa = PBXGroup;
+			children = (
+				E7626D302ADC152F00223037 /* SignInViewController.swift */,
+			);
+			path = SignIn;
+			sourceTree = "<group>";
+		};
+		E7626D2F2ADC150D00223037 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -232,8 +296,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E74396F42ACE9FA1003B06B9 /* ViewController.swift in Sources */,
+				E7626D252ADC13C300223037 /* TabBarAssembly.swift in Sources */,
+				E7626D2B2ADC13F800223037 /* UIColor + extensions.swift in Sources */,
+				E7626D2C2ADC13F800223037 /* Resources.swift in Sources */,
 				E74396F02ACE9FA1003B06B9 /* AppDelegate.swift in Sources */,
+				E7626D312ADC152F00223037 /* SignInViewController.swift in Sources */,
+				E7626D262ADC13C300223037 /* TabBarController.swift in Sources */,
+				E7626D212ADC13AC00223037 /* ViewController.swift in Sources */,
 				E74396F22ACE9FA1003B06B9 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,19 +8,19 @@
 import UIKit
 
 final class TabBarController: UITabBarController {
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         createTabBar()
         setupTabBar()
     }
-    
+
     private func createTabBar() {
         let favouritesVC = UIViewController()
         let mainVC = ViewController()
         let settingsVC = UIViewController()
-        
+
         self.viewControllers = [
             generateNavigationController(for: favouritesVC,
                                          title: "Favourites",
@@ -36,21 +36,22 @@ final class TabBarController: UITabBarController {
 }
 
 private extension TabBarController {
-    
-     func generateNavigationController (for vc: UIViewController, title: String, image: UIImage) -> UIViewController {
-         vc.tabBarItem.title = title
-         vc.tabBarItem.image = image
-        return vc
+    func generateNavigationController (for viewController: UIViewController, 
+                                       title: String,
+                                       image: UIImage) -> UIViewController {
+         viewController.tabBarItem.title = title
+         viewController.tabBarItem.image = image
+        return viewController
     }
-    
+
     func setupTabBar() {
         let positionOnX: CGFloat = 10
         let positionOnY: CGFloat = 14
         let widht = tabBar.bounds.width - positionOnX * 2
         let height = tabBar.bounds.height + positionOnY * 2
-        
+
         let roundLayer = CAShapeLayer()
-        
+
         let rect = CGRect(
             x: positionOnX,
             y: tabBar.bounds.minY - positionOnY,
@@ -61,10 +62,10 @@ private extension TabBarController {
             roundedRect: rect,
             cornerRadius: height / 4
         )
-        
+
         roundLayer.path = bezierPath.cgPath
         roundLayer.fillColor = Resources.Colors.TabBarModule.tabBarFillColor.cgColor
-        
+
         tabBar.layer.insertSublayer(roundLayer, at: 0)
         tabBar.itemWidth = widht / 3
         tabBar.itemPositioning = .centered
