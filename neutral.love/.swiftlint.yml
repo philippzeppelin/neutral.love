@@ -1,1 +1,10 @@
+excluded:
+    - Pods
 
+line_length:
+   warning: 150
+
+disabled_rules:
+    - trailing_whitespace
+    - identifier_name
+    - nesting

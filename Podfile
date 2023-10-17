@@ -6,6 +6,6 @@ target 'neutral.love' do
   use_frameworks!
 
   # Pods for neutral.love
-pod 'SwiftLint' -> 0.52.3
+pod 'SwiftLint'
 
 end

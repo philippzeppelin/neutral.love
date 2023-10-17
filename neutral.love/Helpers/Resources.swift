@@ -8,29 +8,36 @@
 import UIKit
 
 enum Resources {
-    
+
     enum Strings {
-        
+
     }
-    
+
     enum Colors {
-        
+
         static let white = UIColor.white
         static let red = UIColor.red
-        
+
         enum TabBarModule {
             static let tabBarFillColor = UIColor(hexString: "#2D2B2B")
             static let tabBarTintColor = UIColor.white
             static let tabBarUnselectedItem = UIColor(hexString: "#999898")
+            static let backgroundMainViewController = UIColor(hexString: "#666666")
+        }
+        
+        enum MainModule {
+            static let backgroundMainViewController = UIColor(hexString: "#666666")
+            static let mainCollectionBackground = UIColor(hexString: "#666666")
+            static let mainCollectionCellBackground = UIColor(hexString: "#D9D9D9")
         }
     }
-    
+
     enum Fonts {
-        
+
     }
 
     enum Images {
-        
+
         enum TabBarModule {
             static let favourities = UIImage(systemName: "star.fill") ?? UIImage()
             static let main = UIImage(systemName: "plus") ?? UIImage()
@@ -38,4 +45,3 @@ enum Resources {
         }
     }
 }
-
