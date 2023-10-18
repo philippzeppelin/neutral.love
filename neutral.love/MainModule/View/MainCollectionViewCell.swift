@@ -8,11 +8,13 @@
 import UIKit
 
 final class MainCollectionViewCell: UICollectionViewCell {
+    
     // MARK: - Init
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
+        configure()
         setupViews()
         setConstraints()
     }
@@ -21,18 +23,48 @@ final class MainCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: - Private constants
+    
+    private enum UIConstants {
+        static let cornerRadius: CGFloat = 10
+    }
+    
+    // MARK: - Static properties
+    
+    static let identifier = "MainCollectionViewCell"
+    
     // MARK: - Private properties
     
-    static let identifier = "MainInfoCell"
+    private let generatedImage: UIImageView = {
+        let image = UIImageView()
+        image.image = UIImage(systemName: "photo.on.rectangle.angled")
+        image.contentMode = .scaleAspectFit
+        image.tintColor = .systemGray2
+        image.translatesAutoresizingMaskIntoConstraints = false
+        return image
+    }()
     
     // MARK: - Methods
     
-    private func setupViews() {
+    private func configure() {
         contentView.backgroundColor = Resources.Colors.MainModule.mainCollectionCellBackground
-//        contentView.addSubview(background)
+        layer.cornerRadius = UIConstants.cornerRadius
+        clipsToBounds = true
     }
     
+    private func setupViews() {
+        contentView.addSubview(generatedImage)
+        generatedImage.frame = contentView.frame
+    }
+}
+
+// MARK: - Set Constraints
+
+extension MainCollectionViewCell {
+    
     private func setConstraints() {
-        
+        NSLayoutConstraint.activate([
+            
+        ])
     }
 }
