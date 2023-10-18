@@ -6,6 +6,12 @@
 //
 
 import UIKit
+// TODO: Сделать классы для текстфилдов и кнопок?
+// TODO: Сделать ячейки
+// TODO: Сделать кнопки Sign In & Sign Up
+// TODO: Добавить лейблы Email и Password выше текстфилдов
+// TODO: Добавить текстфилды
+// TODO: Добавить скроллвью для авторизации (когда нажимаешь на текстфилд,окно уходит наверх)
 
 final class SignInViewController: UIViewController {
     private let signInCollectionView: UICollectionView = {
@@ -16,6 +22,8 @@ final class SignInViewController: UIViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
+
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,14 +58,15 @@ private extension SignInViewController {
 
 extension SignInViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 4
+        return 4 // TODO: Вывести в глобальные константы цифру 4
     }
     
+    // Information about cell. For Email: email cell with textfield
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: SignInCollectionViewCell.cellIdentifier, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: EmailCollectionViewCell.cellIdentifier, for: indexPath)
         cell.backgroundColor = .systemGreen
         return cell
-    }
+    } // TODO: Добавить возможность выводить нужные ячейки по цифрам
 }
 
 // MARK: - UICollectionViewDelegateFlowLayout

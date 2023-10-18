@@ -7,9 +7,9 @@
 
 import UIKit
 
-class EmailCollectionViewCell: UICollectionViewCell {
+final class EmailCollectionViewCell: UICollectionViewCell {
     static let cellIdentifier = "EmailCollectionViewCell"
-    let emailTextField = AuthTextField(placeholder: "Email")
+    let emailTextField = AuthTextField(placeholder: "Email") // TODO: Перекинуть в глобальные константы
 
     // MARK: Init
     override init(frame: CGRect) {
