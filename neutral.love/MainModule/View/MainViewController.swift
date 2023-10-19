@@ -101,9 +101,9 @@ class MainViewController: UIViewController {
 
 // MARK: - Set Constraints
 
-extension MainViewController {
+private extension MainViewController {
     
-    private func setConstraints() {
+    func setConstraints() {
         NSLayoutConstraint.activate(
             [
                 mainCollectionView.widthAnchor.constraint(
