@@ -15,27 +15,14 @@ class MainViewController: UIViewController {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
-
+    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
-    }
-    
-    // MARK: - Private constants
-    
-    private enum UIConstants {
-        static let generateButtonCornerRadius: CGFloat = 15
-        static let generateButtonTop: CGFloat = 40
-        static let generateButtonHeight: CGFloat = 50
-        static let generateButtonWidth: CGFloat = 200
-        static let mainCollectionViewSpacing: CGFloat = 20
-        static let pageControlHeigth: CGFloat = 40
     }
     
     // MARK: - Properties
     
     let viewModel: MainViewModel
-    
-    // MARK: - Private properties
     
     private let mainCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -44,9 +31,9 @@ class MainViewController: UIViewController {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
         collection.register(MainCollectionViewCell.self,
-                            forCellWithReuseIdentifier: MainCollectionViewCell.identifier)
+                            forCellWithReuseIdentifier: .MainCollectionViewCellIdentifier)
         collection.register(UICollectionViewCell.self,
-                                forCellWithReuseIdentifier: "cell")
+                            forCellWithReuseIdentifier: "cell")
         collection.backgroundColor = Resources.Colors.MainModule.mainCollectionBackground
         collection.bounces = false
         collection.showsHorizontalScrollIndicator = false
@@ -70,7 +57,7 @@ class MainViewController: UIViewController {
     private lazy var generateButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = Resources.Colors.MainModule.generateButtonBackground
-        button.layer.cornerRadius = UIConstants.generateButtonCornerRadius
+        button.layer.cornerRadius = Constants.generateButtonCornerRadius
         button.setTitle(Resources.Strings.MainModule.generateButton, for: .normal)
         button.titleLabel?.font = Resources.Fonts.SFProTextSemibold17
         button.tintColor = Resources.Colors.white
@@ -79,7 +66,7 @@ class MainViewController: UIViewController {
     }()
     
     // MARK: - Methods
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -119,8 +106,12 @@ extension MainViewController {
     private func setConstraints() {
         NSLayoutConstraint.activate(
             [
-                mainCollectionView.widthAnchor.constraint(equalToConstant: view.frame.width - UIConstants.mainCollectionViewSpacing * 2),
-                mainCollectionView.heightAnchor.constraint(equalToConstant: view.frame.width - UIConstants.mainCollectionViewSpacing * 2),
+                mainCollectionView.widthAnchor.constraint(
+                    equalToConstant: view.frame.width - Constants.mainCollectionViewSpacing * 2
+                ),
+                mainCollectionView.heightAnchor.constraint(
+                    equalToConstant: view.frame.width - Constants.mainCollectionViewSpacing * 2
+                ),
                 mainCollectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                 mainCollectionView.topAnchor.constraint(
                     equalTo: view.safeAreaLayoutGuide.topAnchor,
@@ -128,13 +119,13 @@ extension MainViewController {
                 ),
                 
                 pageControl.topAnchor.constraint(equalTo: mainCollectionView.bottomAnchor),
-                pageControl.heightAnchor.constraint(equalToConstant: UIConstants.pageControlHeigth),
+                pageControl.heightAnchor.constraint(equalToConstant: Constants.pageControlHeigth),
                 pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
                 
-                generateButton.topAnchor.constraint(equalTo: pageControl.bottomAnchor, constant: UIConstants.generateButtonTop),
+                generateButton.topAnchor.constraint(equalTo: pageControl.bottomAnchor, constant: Constants.generateButtonTop),
                 generateButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                generateButton.heightAnchor.constraint(equalToConstant: UIConstants.generateButtonHeight),
-                generateButton.widthAnchor.constraint(equalToConstant: UIConstants.generateButtonWidth)
+                generateButton.heightAnchor.constraint(equalToConstant: Constants.generateButtonHeight),
+                generateButton.widthAnchor.constraint(equalToConstant: Constants.generateButtonWidth)
             ]
         )
     }
@@ -143,6 +134,7 @@ extension MainViewController {
 // MARK: - UICollectionViewDelegate
 
 extension MainViewController: UICollectionViewDelegate {
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         let page = Int( ( Float(mainCollectionView.contentOffset.x) / Float(mainCollectionView.frame.width) ) )
         pageControl.currentPage = page
@@ -159,10 +151,10 @@ extension MainViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-            guard let cell = mainCollectionView.dequeueReusableCell(
-                withReuseIdentifier: MainCollectionViewCell.identifier,
-                for: indexPath
-            ) as? MainCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = mainCollectionView.dequeueReusableCell(
+            withReuseIdentifier: .MainCollectionViewCellIdentifier,
+            for: indexPath
+        ) as? MainCollectionViewCell else { return UICollectionViewCell() }
         return cell
     }
 }
@@ -177,6 +169,20 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
         CGSize(width: mainCollectionView.frame.width,
-                height: mainCollectionView.frame.height)
+               height: mainCollectionView.frame.height)
+    }
+}
+
+// MARK: - Constants
+
+extension MainViewController {
+    
+    private enum Constants {
+        static let generateButtonCornerRadius: CGFloat = 15
+        static let generateButtonTop: CGFloat = 40
+        static let generateButtonHeight: CGFloat = 50
+        static let generateButtonWidth: CGFloat = 200
+        static let mainCollectionViewSpacing: CGFloat = 20
+        static let pageControlHeigth: CGFloat = 40
     }
 }

@@ -23,16 +23,6 @@ final class MainCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    // MARK: - Private constants
-    
-    private enum UIConstants {
-        static let cornerRadius: CGFloat = 10
-    }
-    
-    // MARK: - Static properties
-    
-    static let identifier = "MainCollectionViewCell"
-    
     // MARK: - Private properties
     
     private let generatedImage: UIImageView = {
@@ -43,19 +33,6 @@ final class MainCollectionViewCell: UICollectionViewCell {
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
-    
-    // MARK: - Methods
-    
-    private func configure() {
-        contentView.backgroundColor = Resources.Colors.MainModule.mainCollectionCellBackground
-        layer.cornerRadius = UIConstants.cornerRadius
-        clipsToBounds = true
-    }
-    
-    private func setupViews() {
-        contentView.addSubview(generatedImage)
-        generatedImage.frame = contentView.frame
-    }
 }
 
 // MARK: - Set Constraints
@@ -67,4 +44,38 @@ extension MainCollectionViewCell {
             
         ])
     }
+}
+
+// MARK: - Configure
+
+extension MainCollectionViewCell {
+    
+    private func configure() {
+        contentView.backgroundColor = Resources.Colors.MainModule.mainCollectionCellBackground
+        layer.cornerRadius = Constants.cornerRadius
+        clipsToBounds = true
+    }
+}
+
+// MARK: - SetupViews
+
+extension MainCollectionViewCell {
+    
+    private func setupViews() {
+        contentView.addSubview(generatedImage)
+        generatedImage.frame = contentView.frame
+    }
+}
+
+// MARK: - Constants
+
+extension MainCollectionViewCell {
+    
+    private enum Constants {
+        static let cornerRadius: CGFloat = 10
+    }
+}
+
+extension String {
+    static let MainCollectionViewCellIdentifier = "MainCollectionViewCell"
 }

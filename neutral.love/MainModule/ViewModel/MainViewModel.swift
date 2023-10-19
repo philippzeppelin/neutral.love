@@ -7,10 +7,6 @@
 
 import Foundation
 
-protocol MainViewModelProtocol {
-    
-}
+protocol MainViewModelProtocol {}
 
-final class MainViewModel: MainViewModelProtocol {
-    
-}
+final class MainViewModel: MainViewModelProtocol {}
