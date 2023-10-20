@@ -7,22 +7,11 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
-    
-    // MARK: - Init
-    
-    init(viewModel: MainViewModel) {
-        self.viewModel = viewModel
-        super.init(nibName: nil, bundle: nil)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+final class MainViewController: UIViewController {
     
     // MARK: - Properties
     
-    let viewModel: MainViewModel
+    private let viewModel: MainViewModelProtocol
     
     private let mainCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -31,10 +20,10 @@ class MainViewController: UIViewController {
         let collection = UICollectionView(frame: .zero, collectionViewLayout: layout)
         
         collection.register(MainCollectionViewCell.self,
-                            forCellWithReuseIdentifier: .MainCollectionViewCellIdentifier)
+                            forCellWithReuseIdentifier: .mainCollectionViewCellIdentifier)
         collection.register(UICollectionViewCell.self,
                             forCellWithReuseIdentifier: "cell")
-        collection.backgroundColor = Resources.Colors.MainModule.mainCollectionBackground
+        collection.backgroundColor = Resources.Colors.backgroundGray
         collection.bounces = false
         collection.showsHorizontalScrollIndicator = false
         collection.delaysContentTouches = false
@@ -61,9 +50,21 @@ class MainViewController: UIViewController {
         button.setTitle(Resources.Strings.MainModule.generateButton, for: .normal)
         button.titleLabel?.font = Resources.Fonts.SFProTextSemibold17
         button.tintColor = Resources.Colors.white
+        button.addTarget(self, action: #selector(presentGenerateViewController), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
+    
+    // MARK: - Init
+    
+    init(viewModel: MainViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
     // MARK: - Methods
     
@@ -72,11 +73,11 @@ class MainViewController: UIViewController {
         
         setupViews()
         setDelagates()
-        setConstraints()
+        setupConstraints()
     }
     
     private func setupViews() {
-        view.backgroundColor = Resources.Colors.MainModule.backgroundMainViewController
+        view.backgroundColor = Resources.Colors.backgroundGray
         view.addSubview(mainCollectionView)
         view.addSubview(pageControl)
         view.addSubview(generateButton)
@@ -93,41 +94,44 @@ class MainViewController: UIViewController {
         )
     }
     
+    @objc private func presentGenerateViewController() {
+        let viewController = GenerateAssembly.configure()
+        present(viewController, animated: true)
+    }
+    
     private func setDelagates() {
         mainCollectionView.dataSource = self
         mainCollectionView.delegate = self
     }
 }
 
-// MARK: - Set Constraints
+// MARK: - Setup Constraints
 
 private extension MainViewController {
     
-    func setConstraints() {
-        NSLayoutConstraint.activate(
-            [
-                mainCollectionView.widthAnchor.constraint(
-                    equalToConstant: view.frame.width - Constants.mainCollectionViewSpacing * 2
-                ),
-                mainCollectionView.heightAnchor.constraint(
-                    equalToConstant: view.frame.width - Constants.mainCollectionViewSpacing * 2
-                ),
-                mainCollectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                mainCollectionView.topAnchor.constraint(
-                    equalTo: view.safeAreaLayoutGuide.topAnchor,
-                    constant: view.frame.height / 7
-                ),
-                
-                pageControl.topAnchor.constraint(equalTo: mainCollectionView.bottomAnchor),
-                pageControl.heightAnchor.constraint(equalToConstant: Constants.pageControlHeigth),
-                pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                
-                generateButton.topAnchor.constraint(equalTo: pageControl.bottomAnchor, constant: Constants.generateButtonTop),
-                generateButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-                generateButton.heightAnchor.constraint(equalToConstant: Constants.generateButtonHeight),
-                generateButton.widthAnchor.constraint(equalToConstant: Constants.generateButtonWidth)
-            ]
-        )
+    func setupConstraints() {
+        NSLayoutConstraint.activate([
+            mainCollectionView.widthAnchor.constraint(
+                equalToConstant: view.frame.width - Constants.mainCollectionViewSpacing * 2
+            ),
+            mainCollectionView.heightAnchor.constraint(
+                equalToConstant: view.frame.width - Constants.mainCollectionViewSpacing * 2
+            ),
+            mainCollectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            mainCollectionView.topAnchor.constraint(
+                equalTo: view.safeAreaLayoutGuide.topAnchor,
+                constant: view.frame.height / 7
+            ),
+            
+            pageControl.topAnchor.constraint(equalTo: mainCollectionView.bottomAnchor),
+            pageControl.heightAnchor.constraint(equalToConstant: Constants.pageControlHeigth),
+            pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            
+            generateButton.topAnchor.constraint(equalTo: pageControl.bottomAnchor, constant: Constants.generateButtonTop),
+            generateButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            generateButton.heightAnchor.constraint(equalToConstant: Constants.generateButtonHeight),
+            generateButton.widthAnchor.constraint(equalToConstant: Constants.generateButtonWidth)
+        ])
     }
 }
 
@@ -152,7 +156,7 @@ extension MainViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         guard let cell = mainCollectionView.dequeueReusableCell(
-            withReuseIdentifier: .MainCollectionViewCellIdentifier,
+            withReuseIdentifier: .mainCollectionViewCellIdentifier,
             for: indexPath
         ) as? MainCollectionViewCell else { return UICollectionViewCell() }
         return cell

@@ -13,11 +13,20 @@ enum Resources {
         enum MainModule {
             static let generateButton = "Generate"
         }
+        
+        enum GenerateModule {
+            static let headerLabel = "Generate"
+            static let styleLabel = "Style"
+            static let layoutLabel = "Layout"
+            static let amountLabel = "Amount"
+        }
     }
 
     enum Colors {
         static let white = UIColor.white
         static let red = UIColor.red
+        static let backgroundGray = UIColor(hexString: "#666666")
+        static let backgroundHeader = UIColor(hexString: "#2D2B2B")
 
         enum TabBarModule {
             static let tabBarFillColor = UIColor(hexString: "#2D2B2B")
@@ -26,18 +35,20 @@ enum Resources {
         }
         
         enum MainModule {
-            static let backgroundMainViewController = UIColor(hexString: "#666666")
-            
-            static let mainCollectionBackground = UIColor(hexString: "#666666")
             static let mainCollectionCellBackground = UIColor(hexString: "#D9D9D9")
-            
             static let generateButtonBackground = UIColor(hexString: "#5B5B93")
+        }
+        
+        enum GenerateModule {
+            static let textFildTextColor = UIColor(hexString: "#8E8EAC")
+            static let textFildBackgroundColor = UIColor(hexString: "#D1D1D6")
         }
     }
 
     enum Fonts {
             // Semi-bold
             static let SFProTextSemibold17 = UIFont(name: "SFProText-Semibold", size: 17)
+            static let SFProTextSemibold35 = UIFont(name: "SFProText-Semibold", size: 35)
     }
 
     enum Images {

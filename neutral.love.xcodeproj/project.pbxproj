@@ -16,6 +16,11 @@
 		50696D902ADDAE6300E4B1AC /* MainViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50696D8F2ADDAE6300E4B1AC /* MainViewModel.swift */; };
 		50696D922ADDB16900E4B1AC /* MainAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50696D912ADDB16900E4B1AC /* MainAssembly.swift */; };
 		50696D942ADEFD5E00E4B1AC /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50696D932ADEFD5E00E4B1AC /* MainCollectionViewCell.swift */; };
+		50B5D4522AE4105800C10CC1 /* GenerateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B5D4512AE4105800C10CC1 /* GenerateViewController.swift */; };
+		50B5D4562AE4109400C10CC1 /* GenerateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B5D4552AE4109400C10CC1 /* GenerateViewModel.swift */; };
+		50B5D45A2AE41AB000C10CC1 /* GenerateAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B5D4592AE41AB000C10CC1 /* GenerateAssembly.swift */; };
+		50B5D45F2AE4F76D00C10CC1 /* SF-Pro-Text-Semibold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 50B5D45E2AE4F76D00C10CC1 /* SF-Pro-Text-Semibold.otf */; };
+		50B5D4622AE504C100C10CC1 /* GenerateTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B5D4612AE504C100C10CC1 /* GenerateTextField.swift */; };
 		E74396F02ACE9FA1003B06B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74396EF2ACE9FA1003B06B9 /* AppDelegate.swift */; };
 		E74396F22ACE9FA1003B06B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74396F12ACE9FA1003B06B9 /* SceneDelegate.swift */; };
 		E74396F92ACE9FA5003B06B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E74396F82ACE9FA5003B06B9 /* Assets.xcassets */; };
@@ -33,6 +38,11 @@
 		50696D8F2ADDAE6300E4B1AC /* MainViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewModel.swift; sourceTree = "<group>"; };
 		50696D912ADDB16900E4B1AC /* MainAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainAssembly.swift; sourceTree = "<group>"; };
 		50696D932ADEFD5E00E4B1AC /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
+		50B5D4512AE4105800C10CC1 /* GenerateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateViewController.swift; sourceTree = "<group>"; };
+		50B5D4552AE4109400C10CC1 /* GenerateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateViewModel.swift; sourceTree = "<group>"; };
+		50B5D4592AE41AB000C10CC1 /* GenerateAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateAssembly.swift; sourceTree = "<group>"; };
+		50B5D45E2AE4F76D00C10CC1 /* SF-Pro-Text-Semibold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "SF-Pro-Text-Semibold.otf"; sourceTree = "<group>"; };
+		50B5D4612AE504C100C10CC1 /* GenerateTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateTextField.swift; sourceTree = "<group>"; };
 		5CA9FD68FEBBF1CE66C412E6 /* Pods_neutral_love.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_neutral_love.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DF88B9BD92F7AC9E5C764B8D /* Pods-neutral.love.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-neutral.love.release.xcconfig"; path = "Target Support Files/Pods-neutral.love/Pods-neutral.love.release.xcconfig"; sourceTree = "<group>"; };
 		E74396EC2ACE9FA1003B06B9 /* neutral.love.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = neutral.love.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -67,6 +77,7 @@
 		500BF1AC2ADC1A3B00CA5E09 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				50B5D45B2AE4F11200C10CC1 /* Fonts */,
 				500BF1AD2ADC1A3B00CA5E09 /* UIKit */,
 				500BF1AF2ADC1A3B00CA5E09 /* Resources.swift */,
 			);
@@ -93,9 +104,9 @@
 		500BF1B72ADC1A4B00CA5E09 /* MainModule */ = {
 			isa = PBXGroup;
 			children = (
+				50B5D4572AE41A7100C10CC1 /* Assembly */,
 				50696D8E2ADDAE4900E4B1AC /* ViewModel */,
 				50696D8D2ADDAE4100E4B1AC /* View */,
-				50696D912ADDB16900E4B1AC /* MainAssembly.swift */,
 			);
 			path = MainModule;
 			sourceTree = "<group>";
@@ -115,6 +126,65 @@
 				50696D8F2ADDAE6300E4B1AC /* MainViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		50B5D4502AE2F31300C10CC1 /* GenerateModule */ = {
+			isa = PBXGroup;
+			children = (
+				50B5D4582AE41A8000C10CC1 /* Assembly */,
+				50B5D4542AE4107700C10CC1 /* ViewModel */,
+				50B5D4532AE4106A00C10CC1 /* View */,
+			);
+			path = GenerateModule;
+			sourceTree = "<group>";
+		};
+		50B5D4532AE4106A00C10CC1 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				50B5D4602AE504AB00C10CC1 /* SubViews */,
+				50B5D4512AE4105800C10CC1 /* GenerateViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		50B5D4542AE4107700C10CC1 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				50B5D4552AE4109400C10CC1 /* GenerateViewModel.swift */,
+			);
+			name = ViewModel;
+			sourceTree = "<group>";
+		};
+		50B5D4572AE41A7100C10CC1 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				50696D912ADDB16900E4B1AC /* MainAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		50B5D4582AE41A8000C10CC1 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				50B5D4592AE41AB000C10CC1 /* GenerateAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		50B5D45B2AE4F11200C10CC1 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				50B5D45E2AE4F76D00C10CC1 /* SF-Pro-Text-Semibold.otf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		50B5D4602AE504AB00C10CC1 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				50B5D4612AE504C100C10CC1 /* GenerateTextField.swift */,
+			);
+			path = SubViews;
 			sourceTree = "<group>";
 		};
 		690A6E56A2A1C5DC00C7D4D7 /* Pods */ = {
@@ -169,6 +239,7 @@
 				E7007D752ADAC2E4000DCBE0 /* Application */,
 				500BF1B22ADC1A4400CA5E09 /* TabBarModule */,
 				500BF1B72ADC1A4B00CA5E09 /* MainModule */,
+				50B5D4502AE2F31300C10CC1 /* GenerateModule */,
 				500BF1AC2ADC1A3B00CA5E09 /* Helpers */,
 				E7007D762ADAC2F9000DCBE0 /* Resources */,
 				E74729352ADB03E200348D8A /* .swiftlint.yml */,
@@ -236,6 +307,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				50B5D45F2AE4F76D00C10CC1 /* SF-Pro-Text-Semibold.otf in Resources */,
 				E74729362ADB03E200348D8A /* .swiftlint.yml in Resources */,
 				E74396FC2ACE9FA5003B06B9 /* LaunchScreen.storyboard in Resources */,
 				E74396F92ACE9FA5003B06B9 /* Assets.xcassets in Resources */,
@@ -294,14 +366,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				500BF1B52ADC1A4400CA5E09 /* TabBarAssembly.swift in Sources */,
+				50B5D4522AE4105800C10CC1 /* GenerateViewController.swift in Sources */,
 				50696D922ADDB16900E4B1AC /* MainAssembly.swift in Sources */,
+				50B5D45A2AE41AB000C10CC1 /* GenerateAssembly.swift in Sources */,
 				500BF1B02ADC1A3B00CA5E09 /* UIColor + extensions.swift in Sources */,
 				E74396F02ACE9FA1003B06B9 /* AppDelegate.swift in Sources */,
 				500BF1B62ADC1A4400CA5E09 /* TabBarController.swift in Sources */,
 				500BF1B12ADC1A3B00CA5E09 /* Resources.swift in Sources */,
 				500BF1B92ADC1A4B00CA5E09 /* MainViewController.swift in Sources */,
 				50696D942ADEFD5E00E4B1AC /* MainCollectionViewCell.swift in Sources */,
+				50B5D4562AE4109400C10CC1 /* GenerateViewModel.swift in Sources */,
 				E74396F22ACE9FA1003B06B9 /* SceneDelegate.swift in Sources */,
+				50B5D4622AE504C100C10CC1 /* GenerateTextField.swift in Sources */,
 				50696D902ADDAE6300E4B1AC /* MainViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
