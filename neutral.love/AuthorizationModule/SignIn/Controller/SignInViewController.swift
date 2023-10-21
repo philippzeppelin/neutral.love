@@ -20,7 +20,7 @@ class SignInViewController: UIViewController {
 
 private extension SignInViewController {
     func configureView() {
-        view.backgroundColor = .systemBackground
+        view.backgroundColor = .systemGray5
     }
 }
 
@@ -32,7 +32,7 @@ private extension SignInViewController {
 
     func signInViewConstraints() {
         NSLayoutConstraint.activate([
-            signInView.heightAnchor.constraint(equalToConstant: 400),
+            signInView.heightAnchor.constraint(equalToConstant: 260),
             signInView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
             signInView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 43),
             signInView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -43)
