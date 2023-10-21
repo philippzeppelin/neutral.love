@@ -36,12 +36,12 @@ class AuthSegmentedControl: UIView {
 }
 
 // MARK: - Constraints
-extension AuthSegmentedControl {
-    private func setupView() {
+private extension AuthSegmentedControl {
+    func setupView() {
         addSubview(segmentedControl)
     }
 
-    private func addConstraints() {
+    func addConstraints() {
         NSLayoutConstraint.activate([
             segmentedControl.topAnchor.constraint(equalTo: topAnchor),
             segmentedControl.leftAnchor.constraint(equalTo: leftAnchor),
