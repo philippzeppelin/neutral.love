@@ -30,7 +30,6 @@ class AuthTextField: UITextField {
 
     private func configureTextField() {
         backgroundColor = .systemYellow
-//        borderStyle = .line
         translatesAutoresizingMaskIntoConstraints = false
     }
 }

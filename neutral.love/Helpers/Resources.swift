@@ -8,7 +8,14 @@
 import UIKit
 
 enum Resources {
-    enum Strings {}
+    enum Strings {
+        enum SignInModule {
+            static let emailText: String = "Email"
+            static let passwordText: String = "******"
+            static let signInButtonText: String = "Sign In"
+            static let signUpButtonText: String = "Sign Up"
+        }
+    }
 
     enum Colors {
         static let white = UIColor.white
@@ -21,7 +28,9 @@ enum Resources {
         }
     }
 
-    enum Fonts {}
+    enum Fonts {
+        static let arial17 = UIFont(name: "Arial", size: 17)
+    }
 
     enum Images {
         enum TabBarModule { 

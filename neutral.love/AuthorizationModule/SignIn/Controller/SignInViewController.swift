@@ -15,6 +15,11 @@ class SignInViewController: UIViewController {
         configureView()
         setupView()
         signInViewConstraints()
+        setupDelegates()
+    }
+
+    private func setupDelegates() {
+        signInView.delegate = self
     }
 }
 
@@ -32,10 +37,30 @@ private extension SignInViewController {
 
     func signInViewConstraints() {
         NSLayoutConstraint.activate([
-            signInView.heightAnchor.constraint(equalToConstant: 260),
+            signInView.heightAnchor.constraint(equalToConstant: Constants.signInViewHeight),
             signInView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            signInView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 43),
-            signInView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -43)
+            signInView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: Constants.signInViewPadding),
+            view.rightAnchor.constraint(equalTo: signInView.rightAnchor, constant: Constants.signInViewPadding)
         ])
+    }
+}
+
+// MARK: - SignInViewDelegate
+extension SignInViewController: SignInViewDelegate {
+    func signUpButtonPressed() {
+        print("\(#function) tapped ViewController")
+    }
+    
+    func signInButtonPressed() {
+        print("\(#function) tapped ViewController")
+    }
+}
+
+// TODO: Сделать ассембли
+
+extension SignInViewController {
+    private enum Constants {
+        static let signInViewHeight: CGFloat = 260
+        static let signInViewPadding: CGFloat = 43
     }
 }

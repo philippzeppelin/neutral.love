@@ -7,10 +7,17 @@
 
 import UIKit
 
+protocol SignInViewDelegate: AnyObject {
+    func signInButtonPressed()
+    func signUpButtonPressed()
+}
+
 class SignInView: UIView {
+    weak var delegate: SignInViewDelegate?
+
     private let emailTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "Email" // Перенести в общие стринги
+        textField.placeholder = Resources.Strings.SignInModule.emailText // Перенести в общие стринги
         textField.textColor = .label
         textField.layer.cornerRadius = 10
         textField.addPaddingToTextField()
@@ -21,7 +28,7 @@ class SignInView: UIView {
 
     private let passwordTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = "******" // Перенести в общие стринги
+        textField.placeholder = Resources.Strings.SignInModule.passwordText // Перенести в общие стринги
         textField.textColor = .label
         textField.layer.cornerRadius = 10
         textField.addPaddingToTextField()
@@ -30,24 +37,26 @@ class SignInView: UIView {
         return textField
     }()
 
-    private let signInButton = {
+    private lazy var signInButton = {
         let button = UIButton()
         button.setTitle("Sign In", for: .normal)
         button.setTitleColor(.label, for: .normal)
-        button.titleLabel?.font = UIFont(name: "Arial", size: 17)
+        button.titleLabel?.font = Resources.Fonts.arial17
         button.layer.cornerRadius = 10
         button.backgroundColor = UIColor(hexString: "5B5B93")
+        button.addTarget(self, action: #selector(signInButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
 
-    private let signUpButton = {
+    private lazy var signUpButton = {
         let button = UIButton()
         button.setTitle("Sign Up", for: .normal)
         button.setTitleColor(.label, for: .normal)
-        button.titleLabel?.font = UIFont(name: "Arial", size: 17)
+        button.titleLabel?.font = Resources.Fonts.arial17
         button.layer.cornerRadius = 10
         button.backgroundColor = UIColor(hexString: "5B5B93")
+        button.addTarget(nil, action: #selector(signUpButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
@@ -109,8 +118,21 @@ class SignInView: UIView {
         signButtonsStackView.addArrangedSubview(signInButton)
         signButtonsStackView.addArrangedSubview(signUpButton)
     }
+
+    @objc
+    private func signInButtonTapped() {
+        print("\(#function) pressed")
+        delegate?.signInButtonPressed()
+    }
+
+    @objc
+    private func signUpButtonTapped() {
+        print("\(#function) pressed")
+        delegate?.signUpButtonPressed()
+    }
 }
 
+// MARK: - Configuring View
 extension SignInView {
     private func configureView() {
         backgroundColor = .systemGray4
@@ -119,6 +141,7 @@ extension SignInView {
     }
 }
 
+// MARK: - Setup View and Constraints
 private extension SignInView {
     func setupView() {
         addSubviews(emailTextField,
@@ -131,48 +154,60 @@ private extension SignInView {
 
     func emailTextFieldConstraints() {
         NSLayoutConstraint.activate([
-            emailTextField.heightAnchor.constraint(equalToConstant: 40),
-            emailTextField.topAnchor.constraint(equalTo: topAnchor, constant: 50),
-            emailTextField.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
-            emailTextField.rightAnchor.constraint(equalTo: rightAnchor, constant: -20)
+            emailTextField.heightAnchor.constraint(equalToConstant: Constants.textFieldsHeight),
+            emailTextField.topAnchor.constraint(equalTo: topAnchor, constant: Constants.emailTextFieldTop),
+            emailTextField.leftAnchor.constraint(equalTo: leftAnchor, constant: Constants.viewElementsPadding),
+            rightAnchor.constraint(equalTo: emailTextField.rightAnchor, constant: Constants.viewElementsPadding)
         ])
     }
 
     func passwordTextFieldConstraints() {
         NSLayoutConstraint.activate([
-            passwordTextField.heightAnchor.constraint(equalToConstant: 40),
-            passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: 30),
-            passwordTextField.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
-            passwordTextField.rightAnchor.constraint(equalTo: rightAnchor, constant: -20)
+            passwordTextField.heightAnchor.constraint(equalToConstant: Constants.textFieldsHeight),
+            passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: Constants.elementsHeightWithEachOther),
+            passwordTextField.leftAnchor.constraint(equalTo: leftAnchor, constant: Constants.viewElementsPadding),
+            rightAnchor.constraint(equalTo: passwordTextField.rightAnchor, constant: Constants.viewElementsPadding)
         ])
     }
 
     func signButtonsStackViewConstraints() {
         NSLayoutConstraint.activate([
-            signButtonsStackView.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: 30),
-            signButtonsStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: 20),
-            signButtonsStackView.rightAnchor.constraint(equalTo: rightAnchor, constant: -20)
+            signButtonsStackView.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: Constants.elementsHeightWithEachOther),
+            signButtonsStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: Constants.viewElementsPadding),
+            rightAnchor.constraint(equalTo: signButtonsStackView.rightAnchor, constant: Constants.viewElementsPadding)
         ])
     }
 
     func loginLabelConstraints() {
         NSLayoutConstraint.activate([
-            loginLabel.bottomAnchor.constraint(equalTo: emailTextField.topAnchor, constant: -3),
-            loginLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 20)
+            loginLabel.bottomAnchor.constraint(equalTo: emailTextField.topAnchor, constant: Constants.labelsTop),
+            loginLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: Constants.viewElementsPadding)
         ])
     }
 
     func passwordLabelConstraints() {
         NSLayoutConstraint.activate([
-            passwordLabel.bottomAnchor.constraint(equalTo: passwordTextField.topAnchor, constant: -3),
-            passwordLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: 20)
+            passwordLabel.bottomAnchor.constraint(equalTo: passwordTextField.topAnchor, constant: Constants.labelsTop),
+            passwordLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: Constants.viewElementsPadding)
         ])
     }
 
     func dontHaveAccountLabelConstraints() {
         NSLayoutConstraint.activate([
-            dontHaveAccountLabel.bottomAnchor.constraint(equalTo: signUpButton.topAnchor, constant: -3),
+            dontHaveAccountLabel.bottomAnchor.constraint(equalTo: signUpButton.topAnchor, constant: Constants.labelsTop),
             dontHaveAccountLabel.leftAnchor.constraint(equalTo: signUpButton.leftAnchor)
         ])
+    }
+}
+
+// MARK: - Setting Constants
+extension SignInView {
+    private enum Constants {
+        static let textFieldsHeight: CGFloat = 40
+        static let emailTextFieldTop: CGFloat = 50
+        static let viewElementsPadding: CGFloat = 20
+
+        static let elementsHeightWithEachOther: CGFloat = 30
+        static let labelsTop: CGFloat = -3
     }
 }
