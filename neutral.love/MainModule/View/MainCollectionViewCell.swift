@@ -77,5 +77,5 @@ extension MainCollectionViewCell {
 }
 
 extension String {
-    static let MainCollectionViewCellIdentifier = "MainCollectionViewCell"
+    static let mainCollectionViewCellIdentifier = "MainCollectionViewCell"
 }
