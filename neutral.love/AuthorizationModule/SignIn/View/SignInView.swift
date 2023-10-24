@@ -17,9 +17,9 @@ class SignInView: UIView {
 
     private let emailTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = Resources.Strings.SignInModule.emailText // Перенести в общие стринги
+        textField.placeholder = Resources.Strings.SignInModule.emailText
         textField.textColor = .label
-        textField.layer.cornerRadius = 10
+        textField.layer.cornerRadius = Constants.elementsCornerRadius
         textField.addPaddingToTextField()
         textField.backgroundColor = .secondarySystemBackground
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -28,9 +28,9 @@ class SignInView: UIView {
 
     private let passwordTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = Resources.Strings.SignInModule.passwordText // Перенести в общие стринги
+        textField.placeholder = Resources.Strings.SignInModule.passwordAsterisksText
         textField.textColor = .label
-        textField.layer.cornerRadius = 10
+        textField.layer.cornerRadius = Constants.elementsCornerRadius
         textField.addPaddingToTextField()
         textField.backgroundColor = .secondarySystemBackground
         textField.translatesAutoresizingMaskIntoConstraints = false
@@ -39,11 +39,11 @@ class SignInView: UIView {
 
     private lazy var signInButton = {
         let button = UIButton()
-        button.setTitle("Sign In", for: .normal)
+        button.setTitle(Resources.Strings.SignInModule.signInButtonText, for: .normal)
         button.setTitleColor(.label, for: .normal)
-        button.titleLabel?.font = Resources.Fonts.arial17
-        button.layer.cornerRadius = 10
-        button.backgroundColor = UIColor(hexString: "5B5B93")
+        button.titleLabel?.font = Resources.Fonts.SignInModule.arial17
+        button.layer.cornerRadius = Constants.elementsCornerRadius
+        button.backgroundColor = Resources.Colors.SignInModule.signButtonsColor
         button.addTarget(self, action: #selector(signInButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -51,11 +51,11 @@ class SignInView: UIView {
 
     private lazy var signUpButton = {
         let button = UIButton()
-        button.setTitle("Sign Up", for: .normal)
+        button.setTitle(Resources.Strings.SignInModule.signUpButtonText, for: .normal)
         button.setTitleColor(.label, for: .normal)
-        button.titleLabel?.font = Resources.Fonts.arial17
-        button.layer.cornerRadius = 10
-        button.backgroundColor = UIColor(hexString: "5B5B93")
+        button.titleLabel?.font = Resources.Fonts.SignInModule.arial17
+        button.layer.cornerRadius = Constants.elementsCornerRadius
+        button.backgroundColor = Resources.Colors.SignInModule.signButtonsColor
         button.addTarget(nil, action: #selector(signUpButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -70,10 +70,10 @@ class SignInView: UIView {
         return stackView
     }()
 
-    private let loginLabel: UILabel = {
+    private let emailLabel: UILabel = {
         let label = UILabel()
-        label.text = "Login"
-        label.font = UIFont(name: "Arial", size: 17)
+        label.text = Resources.Strings.SignInModule.emailText
+        label.font = Resources.Fonts.SignInModule.arial17
         label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -81,8 +81,8 @@ class SignInView: UIView {
 
     private let passwordLabel: UILabel = {
         let label = UILabel()
-        label.text = "Password"
-        label.font = UIFont(name: "Arial", size: 17)
+        label.text = Resources.Strings.SignInModule.passwordText
+        label.font = Resources.Fonts.SignInModule.arial17
         label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -90,8 +90,8 @@ class SignInView: UIView {
 
     private let dontHaveAccountLabel: UILabel = {
         let label = UILabel()
-        label.text = "Don't have an account?"
-        label.font = UIFont(name: "Arial", size: 12)
+        label.text = Resources.Strings.SignInModule.dontHaveAnAccountText
+        label.font = Resources.Fonts.SignInModule.arial12
         label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -99,12 +99,12 @@ class SignInView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        configureView()
-        setupView()
+        setupAppearence()
+        embedViews()
         emailTextFieldConstraints()
         passwordTextFieldConstraints()
         signButtonsStackViewConstraints()
-        setupStackView()
+        addingButtonsToStackView()
         loginLabelConstraints()
         passwordLabelConstraints()
         dontHaveAccountLabelConstraints()
@@ -114,27 +114,25 @@ class SignInView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    private func setupStackView() {
+    private func addingButtonsToStackView() {
         signButtonsStackView.addArrangedSubview(signInButton)
         signButtonsStackView.addArrangedSubview(signUpButton)
     }
 
     @objc
     private func signInButtonTapped() {
-        print("\(#function) pressed")
         delegate?.signInButtonPressed()
     }
 
     @objc
     private func signUpButtonTapped() {
-        print("\(#function) pressed")
         delegate?.signUpButtonPressed()
     }
 }
 
 // MARK: - Configuring View
 extension SignInView {
-    private func configureView() {
+    private func setupAppearence() {
         backgroundColor = .systemGray4
         layer.cornerRadius = 10
         translatesAutoresizingMaskIntoConstraints = false
@@ -143,19 +141,19 @@ extension SignInView {
 
 // MARK: - Setup View and Constraints
 private extension SignInView {
-    func setupView() {
-        addSubviews(emailTextField,
-                    passwordTextField,
-                    signButtonsStackView,
-                    loginLabel,
-                    passwordLabel,
-                    dontHaveAccountLabel)
+    func embedViews() {
+        [emailTextField,
+         passwordTextField,
+         signButtonsStackView,
+         emailLabel,
+         passwordLabel,
+         dontHaveAccountLabel].forEach { addSubview($0) }
     }
 
     func emailTextFieldConstraints() {
         NSLayoutConstraint.activate([
             emailTextField.heightAnchor.constraint(equalToConstant: Constants.textFieldsHeight),
-            emailTextField.topAnchor.constraint(equalTo: topAnchor, constant: Constants.emailTextFieldTop),
+            emailTextField.topAnchor.constraint(equalTo: topAnchor, constant: 50),
             emailTextField.leftAnchor.constraint(equalTo: leftAnchor, constant: Constants.viewElementsPadding),
             rightAnchor.constraint(equalTo: emailTextField.rightAnchor, constant: Constants.viewElementsPadding)
         ])
@@ -180,8 +178,8 @@ private extension SignInView {
 
     func loginLabelConstraints() {
         NSLayoutConstraint.activate([
-            loginLabel.bottomAnchor.constraint(equalTo: emailTextField.topAnchor, constant: Constants.labelsTop),
-            loginLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: Constants.viewElementsPadding)
+            emailLabel.bottomAnchor.constraint(equalTo: emailTextField.topAnchor, constant: Constants.labelsTop),
+            emailLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: Constants.viewElementsPadding)
         ])
     }
 
@@ -204,10 +202,9 @@ private extension SignInView {
 extension SignInView {
     private enum Constants {
         static let textFieldsHeight: CGFloat = 40
-        static let emailTextFieldTop: CGFloat = 50
         static let viewElementsPadding: CGFloat = 20
-
         static let elementsHeightWithEachOther: CGFloat = 30
         static let labelsTop: CGFloat = -3
+        static let elementsCornerRadius: CGFloat = 10
     }
 }

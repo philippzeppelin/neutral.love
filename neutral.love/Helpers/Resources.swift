@@ -11,9 +11,11 @@ enum Resources {
     enum Strings {
         enum SignInModule {
             static let emailText: String = "Email"
-            static let passwordText: String = "******"
+            static let passwordAsterisksText: String = "******"
             static let signInButtonText: String = "Sign In"
             static let signUpButtonText: String = "Sign Up"
+            static let passwordText: String = "Password"
+            static let dontHaveAnAccountText: String = "Don't have an account?"
         }
     }
 
@@ -26,10 +28,17 @@ enum Resources {
             static let tabBarTintColor = UIColor.white
             static let tabBarUnselectedItem = UIColor(hexString: "#999898")
         }
+
+        enum SignInModule {
+            static let signButtonsColor = UIColor(hexString: "5B5B93")
+        }
     }
 
     enum Fonts {
-        static let arial17 = UIFont(name: "Arial", size: 17)
+        enum SignInModule {
+            static let arial17 = UIFont(name: "Arial", size: 17)
+            static let arial12 = UIFont(name: "Arial", size: 12)
+        }
     }
 
     enum Images {

@@ -21,10 +21,11 @@
 		E7626D332ADC15D300223037 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D322ADC15D300223037 /* SignUpViewController.swift */; };
 		E7626D3A2ADC202D00223037 /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D392ADC202D00223037 /* AuthTextField.swift */; };
 		E7626D3C2ADC28E000223037 /* UIView + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D3B2ADC28E000223037 /* UIView + Extensions.swift */; };
-		E7626D4C2AE1394100223037 /* SignInAuthViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D4B2AE1394100223037 /* SignInAuthViewModel.swift */; };
+		E7626D4C2AE1394100223037 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D4B2AE1394100223037 /* SignInViewModel.swift */; };
 		E7626D4F2AE3B19000223037 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D4E2AE3B19000223037 /* SignInView.swift */; };
 		E7626D512AE3B1A100223037 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D502AE3B1A100223037 /* SignInViewController.swift */; };
 		E7626D532AE3D11200223037 /* UITextField + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D522AE3D11200223037 /* UITextField + Extensions.swift */; };
+		E7626D562AE7B31800223037 /* SignInAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D552AE7B31800223037 /* SignInAssembly.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,10 +47,11 @@
 		E7626D322ADC15D300223037 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
 		E7626D392ADC202D00223037 /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
 		E7626D3B2ADC28E000223037 /* UIView + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extensions.swift"; sourceTree = "<group>"; };
-		E7626D4B2AE1394100223037 /* SignInAuthViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInAuthViewModel.swift; sourceTree = "<group>"; };
+		E7626D4B2AE1394100223037 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		E7626D4E2AE3B19000223037 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		E7626D502AE3B1A100223037 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
 		E7626D522AE3D11200223037 /* UITextField + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extensions.swift"; sourceTree = "<group>"; };
+		E7626D552AE7B31800223037 /* SignInAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInAssembly.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -182,6 +184,7 @@
 		E7626D2E2ADC14FF00223037 /* SignIn */ = {
 			isa = PBXGroup;
 			children = (
+				E7626D542AE7B30400223037 /* Assembly */,
 				E7626D352ADC1D8F00223037 /* View */,
 				E7626D4D2AE3B14D00223037 /* Controller */,
 				E7626D4A2AE1392900223037 /* ViewModel */,
@@ -208,7 +211,7 @@
 		E7626D4A2AE1392900223037 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				E7626D4B2AE1394100223037 /* SignInAuthViewModel.swift */,
+				E7626D4B2AE1394100223037 /* SignInViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -219,6 +222,14 @@
 				E7626D502AE3B1A100223037 /* SignInViewController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		E7626D542AE7B30400223037 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				E7626D552AE7B31800223037 /* SignInAssembly.swift */,
+			);
+			path = Assembly;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -346,7 +357,8 @@
 				E74396F02ACE9FA1003B06B9 /* AppDelegate.swift in Sources */,
 				E7626D3C2ADC28E000223037 /* UIView + Extensions.swift in Sources */,
 				E7626D262ADC13C300223037 /* TabBarController.swift in Sources */,
-				E7626D4C2AE1394100223037 /* SignInAuthViewModel.swift in Sources */,
+				E7626D562AE7B31800223037 /* SignInAssembly.swift in Sources */,
+				E7626D4C2AE1394100223037 /* SignInViewModel.swift in Sources */,
 				E7626D332ADC15D300223037 /* SignUpViewController.swift in Sources */,
 				E7626D212ADC13AC00223037 /* ViewController.swift in Sources */,
 				E74396F22ACE9FA1003B06B9 /* SceneDelegate.swift in Sources */,

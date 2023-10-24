@@ -9,29 +9,39 @@ import UIKit
 
 class SignInViewController: UIViewController {
     private let signInView = SignInView()
+    private let viewModel: SignInViewModelProtocol
 
+    init(viewModel: SignInViewModelProtocol) {
+        self.viewModel = viewModel
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        configureView()
-        setupView()
+        setupAppearence()
+        embedView()
         signInViewConstraints()
-        setupDelegates()
+        setupDelegate()
     }
 
-    private func setupDelegates() {
+    private func setupDelegate() {
         signInView.delegate = self
     }
 }
 
 private extension SignInViewController {
-    func configureView() {
+    func setupAppearence() {
         view.backgroundColor = .systemGray5
     }
 }
 
 // MARK: - Setup View and Constraints
 private extension SignInViewController {
-    func setupView() {
+    func embedView() {
         view.addSubview(signInView)
     }
 
@@ -48,15 +58,15 @@ private extension SignInViewController {
 // MARK: - SignInViewDelegate
 extension SignInViewController: SignInViewDelegate {
     func signUpButtonPressed() {
-        print("\(#function) tapped ViewController")
+        let signUpViewController = SignUpViewController()
+        signUpViewController.modalPresentationStyle = .fullScreen
+        present(signUpViewController, animated: true)
     }
     
     func signInButtonPressed() {
         print("\(#function) tapped ViewController")
     }
 }
-
-// TODO: Сделать ассембли
 
 extension SignInViewController {
     private enum Constants {
