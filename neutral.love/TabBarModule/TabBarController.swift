@@ -18,28 +18,37 @@ final class TabBarController: UITabBarController {
 
     private func createTabBar() {
         let favouritesVC = UIViewController()
-        let mainVC = MainAssembly.configure()
+        let mainVC = ViewController()
         let settingsVC = UIViewController()
 
         self.viewControllers = [
-            generateNavigationController(for: favouritesVC,
-                                         title: "Favourites",
-                                         image: Resources.Images.TabBarModule.favourities),
-            generateNavigationController(for: mainVC,
-                                         title: "Generate",
-                                         image: Resources.Images.TabBarModule.main),
-            generateNavigationController(for: settingsVC,
-                                         title: "Settings",
-                                         image: Resources.Images.TabBarModule.settings)
+            generateNavigationController(
+                for: favouritesVC,
+                title: "Favourites",
+                image: Resources.Images.TabBarModule.favourities
+            ),
+            generateNavigationController(
+                for: mainVC,
+                title: "Generate",
+                image: Resources.Images.TabBarModule.main
+            ),
+            generateNavigationController(
+                for: settingsVC,
+                title: "Settings",
+                image: Resources.Images.TabBarModule.settings
+            )
         ]
     }
 }
 
 private extension TabBarController {
-
-     func generateNavigationController (for viewController: UIViewController, title: String, image: UIImage) -> UIViewController {
-         viewController.tabBarItem.title = title
-         viewController.tabBarItem.image = image
+    func generateNavigationController(
+        for viewController: UIViewController,
+        title: String,
+        image: UIImage
+    ) -> UIViewController {
+        viewController.tabBarItem.title = title
+        viewController.tabBarItem.image = image
         return viewController
     }
 
