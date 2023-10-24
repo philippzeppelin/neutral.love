@@ -8,8 +8,8 @@
 import UIKit
 
 final class GenerateAssembly {
-    static func configure() -> GenerateViewController {
-        let viewModel = GenerateViewModel()
+    static func configure(viewModel: MainViewModelProtocol) -> GenerateViewController {
+        
         let viewController = GenerateViewController(viewModel: viewModel)
         return viewController
     }

@@ -7,5 +7,4 @@ target 'neutral.love' do
 
   # Pods for neutral.love
 pod 'SwiftLint'
-
 end

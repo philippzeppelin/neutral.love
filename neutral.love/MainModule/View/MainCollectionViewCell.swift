@@ -35,6 +35,15 @@ final class MainCollectionViewCell: UICollectionViewCell {
     }()
 }
 
+// MARK: - Bind image
+
+extension MainCollectionViewCell {
+    
+    func bindImage(urlString: String) {
+        generatedImage.load(urlString: urlString)
+    }
+}
+
 // MARK: - Set Constraints
 
 extension MainCollectionViewCell {
