@@ -7,6 +7,16 @@
 
 import Foundation
 
-protocol SignInViewModelProtocol {}
+protocol SignInViewModelProtocol {
+    func signIn()
+}
 
-final class SignInViewModel: SignInViewModelProtocol {}
+final class SignInViewModel: SignInViewModelProtocol {
+
+    // MARK: Init
+    init() {}
+
+    public func signIn() {
+        print("Sign In View Model")
+    }
+}

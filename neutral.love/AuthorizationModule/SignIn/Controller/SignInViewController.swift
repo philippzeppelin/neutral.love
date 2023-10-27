@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignInViewController: UIViewController {
+final class SignInViewController: UIViewController {
     private let signInView = SignInView()
     private let viewModel: SignInViewModelProtocol
 
@@ -22,7 +22,6 @@ class SignInViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupAppearence()
         embedView()
         signInViewConstraints()
         setupDelegate()
@@ -30,12 +29,6 @@ class SignInViewController: UIViewController {
 
     private func setupDelegate() {
         signInView.delegate = self
-    }
-}
-
-private extension SignInViewController {
-    func setupAppearence() {
-//        view.backgroundColor = .systemGray5
     }
 }
 
@@ -64,16 +57,6 @@ extension SignInViewController: SignInViewDelegate {
     }
     
     func signInButtonPressed() {
-        print("\(#function) tapped ViewController")
+        viewModel.signIn()
     }
 }
-
-extension SignInViewController {
-    private enum Constants {
-        static let signInViewHeight: CGFloat = 260
-        static let signInViewPadding: CGFloat = 43
-    }
-}
-
-// TODO: Сделать скроллвью после нажатия на текстфилд
-// TODO: Хендлить что написал в текстфилд

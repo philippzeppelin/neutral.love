@@ -12,12 +12,12 @@ protocol SignInViewDelegate: AnyObject {
     func signUpButtonPressed()
 }
 
+/// View for hosting UI elements
 final class SignInView: UIView {
     weak var delegate: SignInViewDelegate?
 
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
-//        scrollView.backgroundColor = .green
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         return scrollView
     }()
@@ -25,8 +25,6 @@ final class SignInView: UIView {
     private let backgroundView: UIView = {
         let view = UIView()
         view.backgroundColor = .systemGray5
-//        view.backgroundColor = .green
-//        view.layer.cornerRadius = 10
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -34,8 +32,7 @@ final class SignInView: UIView {
     private let loginView: UIView = {
         let view = UIView()
         view.backgroundColor = .systemGray4
-//        view.backgroundColor = .red
-        view.layer.cornerRadius = 10
+        view.layer.cornerRadius = Constants.elementsCornerRadius
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -136,6 +133,7 @@ final class SignInView: UIView {
         loginLabelConstraints()
         passwordLabelConstraints()
         dontHaveAccountLabelConstraints()
+        registerKeyBoardNotification()
     }
     
     required init?(coder: NSCoder) {
@@ -143,7 +141,7 @@ final class SignInView: UIView {
     }
 
     deinit {
-//        removeKeyboardNotification()
+        removeKeyboardNotification()
     }
 
     private func addingButtonsToStackView() {
@@ -165,10 +163,65 @@ final class SignInView: UIView {
 // MARK: - Configuring View
 extension SignInView {
     private func setupAppearence() {
-//        backgroundColor = .systemGray4
-//        backgroundColor = .blue
-        layer.cornerRadius = 10
+        layer.cornerRadius = Constants.elementsCornerRadius
         translatesAutoresizingMaskIntoConstraints = false
+    }
+}
+
+extension SignInView: UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        emailTextField.resignFirstResponder()
+        passwordTextField.resignFirstResponder()
+        return true
+    }
+}
+
+// MARK: - Offset content
+private extension SignInView {
+    func registerKeyBoardNotification() {
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillShow),
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+
+        NotificationCenter.default.addObserver(
+            self,
+            selector: #selector(keyboardWillHide),
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil)
+    }
+
+    @objc
+    func keyboardWillShow(notification: Notification) {
+        let userInfo = notification.userInfo
+        guard let keyboardHeight = (
+            userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
+        )?.cgRectValue else {
+            return
+        }
+
+        scrollView.contentOffset = CGPoint(x: 0, y: keyboardHeight.height / 2.5)
+    }
+
+    @objc
+    func keyboardWillHide(notification: Notification) {
+        scrollView.contentOffset = CGPoint.zero
+    }
+
+    func removeKeyboardNotification() {
+        NotificationCenter.default.removeObserver(
+            self,
+            name: UIResponder.keyboardWillShowNotification,
+            object: nil
+        )
+
+        NotificationCenter.default.removeObserver(
+            self,
+            name: UIResponder.keyboardWillHideNotification,
+            object: nil
+        )
     }
 }
 
@@ -195,8 +248,7 @@ private extension SignInView {
             scrollView.bottomAnchor.constraint(equalTo: bottomAnchor)
         ])
     }
-    
-// TODO: Пройтись цветами по одному слою // не получится - по одному добавлять во вью
+
     func backgroundViewConstraints() {
         NSLayoutConstraint.activate([
             backgroundView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
@@ -208,7 +260,7 @@ private extension SignInView {
 
     func loginViewConstraints() {
         NSLayoutConstraint.activate([
-            loginView.heightAnchor.constraint(equalToConstant: Constants.signInViewHeight),
+            loginView.heightAnchor.constraint(equalToConstant: 260),
             loginView.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor),
             loginView.leftAnchor.constraint(equalTo: backgroundView.leftAnchor, constant: Constants.signInViewPadding),
             backgroundView.rightAnchor.constraint(equalTo: loginView.rightAnchor, constant: Constants.signInViewPadding)
@@ -272,49 +324,6 @@ extension SignInView {
         static let labelsTop: CGFloat = -3
         static let elementsCornerRadius: CGFloat = 10
 
-        static let signInViewHeight: CGFloat = 260
         static let signInViewPadding: CGFloat = 43
     }
 }
-
-// // MARK: - Offset content
-// private extension SignInView {
-//    func registerKeyBoardNotification() {
-//        NotificationCenter.default.addObserver(
-//            self,
-//            selector: #selector(keyboardWillShow),
-//            name: UIResponder.keyboardWillShowNotification,
-//            object: nil
-//        )
-//
-//        NotificationCenter.default.addObserver(
-//            self,
-//            selector: #selector(keyboardWillHide),
-//            name: UIResponder.keyboardWillHideNotification,
-//            object: nil)
-//    }
-//
-//    @objc
-//    func keyboardWillShow(notification: Notification) {
-//
-//    }
-//
-//    @objc
-//    func keyboardWillHide(notification: Notification) {
-//        
-//    }
-//
-//    func removeKeyboardNotification() {
-//        NotificationCenter.default.removeObserver(
-//            self,
-//            name: UIResponder.keyboardWillShowNotification,
-//            object: nil
-//        )
-//
-//        NotificationCenter.default.removeObserver(
-//            self,
-//            name: UIResponder.keyboardWillHideNotification,
-//            object: nil
-//        )
-//    }
-//}
