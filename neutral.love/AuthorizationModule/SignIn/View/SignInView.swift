@@ -12,8 +12,33 @@ protocol SignInViewDelegate: AnyObject {
     func signUpButtonPressed()
 }
 
-class SignInView: UIView {
+final class SignInView: UIView {
     weak var delegate: SignInViewDelegate?
+
+    private let scrollView: UIScrollView = {
+        let scrollView = UIScrollView()
+//        scrollView.backgroundColor = .green
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
+        return scrollView
+    }()
+
+    private let backgroundView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemGray5
+//        view.backgroundColor = .green
+//        view.layer.cornerRadius = 10
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+
+    private let loginView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .systemGray4
+//        view.backgroundColor = .red
+        view.layer.cornerRadius = 10
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
 
     private let emailTextField: UITextField = {
         let textField = UITextField()
@@ -101,6 +126,9 @@ class SignInView: UIView {
         super.init(frame: frame)
         setupAppearence()
         embedViews()
+        scrollViewConstraints()
+        backgroundViewConstraints()
+        loginViewConstraints()
         emailTextFieldConstraints()
         passwordTextFieldConstraints()
         signButtonsStackViewConstraints()
@@ -112,6 +140,10 @@ class SignInView: UIView {
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+
+    deinit {
+//        removeKeyboardNotification()
     }
 
     private func addingButtonsToStackView() {
@@ -133,7 +165,8 @@ class SignInView: UIView {
 // MARK: - Configuring View
 extension SignInView {
     private func setupAppearence() {
-        backgroundColor = .systemGray4
+//        backgroundColor = .systemGray4
+//        backgroundColor = .blue
         layer.cornerRadius = 10
         translatesAutoresizingMaskIntoConstraints = false
     }
@@ -142,20 +175,52 @@ extension SignInView {
 // MARK: - Setup View and Constraints
 private extension SignInView {
     func embedViews() {
+        addSubview(scrollView)
+        scrollView.addSubview(backgroundView)
+        backgroundView.addSubview(loginView)
+
         [emailTextField,
          passwordTextField,
          signButtonsStackView,
          emailLabel,
          passwordLabel,
-         dontHaveAccountLabel].forEach { addSubview($0) }
+         dontHaveAccountLabel].forEach { loginView.addSubview($0) }
+    }
+
+    func scrollViewConstraints() {
+        NSLayoutConstraint.activate([
+            scrollView.topAnchor.constraint(equalTo: topAnchor),
+            scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: bottomAnchor)
+        ])
+    }
+    
+// TODO: Пройтись цветами по одному слою // не получится - по одному добавлять во вью
+    func backgroundViewConstraints() {
+        NSLayoutConstraint.activate([
+            backgroundView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            backgroundView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor),
+            backgroundView.heightAnchor.constraint(equalTo: scrollView.heightAnchor),
+            backgroundView.widthAnchor.constraint(equalTo: scrollView.widthAnchor)
+        ])
+    }
+
+    func loginViewConstraints() {
+        NSLayoutConstraint.activate([
+            loginView.heightAnchor.constraint(equalToConstant: Constants.signInViewHeight),
+            loginView.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor),
+            loginView.leftAnchor.constraint(equalTo: backgroundView.leftAnchor, constant: Constants.signInViewPadding),
+            backgroundView.rightAnchor.constraint(equalTo: loginView.rightAnchor, constant: Constants.signInViewPadding)
+        ])
     }
 
     func emailTextFieldConstraints() {
         NSLayoutConstraint.activate([
             emailTextField.heightAnchor.constraint(equalToConstant: Constants.textFieldsHeight),
-            emailTextField.topAnchor.constraint(equalTo: topAnchor, constant: 50),
-            emailTextField.leftAnchor.constraint(equalTo: leftAnchor, constant: Constants.viewElementsPadding),
-            rightAnchor.constraint(equalTo: emailTextField.rightAnchor, constant: Constants.viewElementsPadding)
+            emailTextField.topAnchor.constraint(equalTo: loginView.topAnchor, constant: 50),
+            emailTextField.leftAnchor.constraint(equalTo: loginView.leftAnchor, constant: Constants.viewElementsPadding),
+            loginView.rightAnchor.constraint(equalTo: emailTextField.rightAnchor, constant: Constants.viewElementsPadding)
         ])
     }
 
@@ -163,30 +228,30 @@ private extension SignInView {
         NSLayoutConstraint.activate([
             passwordTextField.heightAnchor.constraint(equalToConstant: Constants.textFieldsHeight),
             passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: Constants.elementsHeightWithEachOther),
-            passwordTextField.leftAnchor.constraint(equalTo: leftAnchor, constant: Constants.viewElementsPadding),
-            rightAnchor.constraint(equalTo: passwordTextField.rightAnchor, constant: Constants.viewElementsPadding)
+            passwordTextField.leftAnchor.constraint(equalTo: loginView.leftAnchor, constant: Constants.viewElementsPadding),
+            loginView.rightAnchor.constraint(equalTo: passwordTextField.rightAnchor, constant: Constants.viewElementsPadding)
         ])
     }
 
     func signButtonsStackViewConstraints() {
         NSLayoutConstraint.activate([
             signButtonsStackView.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: Constants.elementsHeightWithEachOther),
-            signButtonsStackView.leftAnchor.constraint(equalTo: leftAnchor, constant: Constants.viewElementsPadding),
-            rightAnchor.constraint(equalTo: signButtonsStackView.rightAnchor, constant: Constants.viewElementsPadding)
+            signButtonsStackView.leftAnchor.constraint(equalTo: loginView.leftAnchor, constant: Constants.viewElementsPadding),
+            loginView.rightAnchor.constraint(equalTo: signButtonsStackView.rightAnchor, constant: Constants.viewElementsPadding)
         ])
     }
 
     func loginLabelConstraints() {
         NSLayoutConstraint.activate([
             emailLabel.bottomAnchor.constraint(equalTo: emailTextField.topAnchor, constant: Constants.labelsTop),
-            emailLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: Constants.viewElementsPadding)
+            emailLabel.leftAnchor.constraint(equalTo: loginView.leftAnchor, constant: Constants.viewElementsPadding)
         ])
     }
 
     func passwordLabelConstraints() {
         NSLayoutConstraint.activate([
             passwordLabel.bottomAnchor.constraint(equalTo: passwordTextField.topAnchor, constant: Constants.labelsTop),
-            passwordLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: Constants.viewElementsPadding)
+            passwordLabel.leftAnchor.constraint(equalTo: loginView.leftAnchor, constant: Constants.viewElementsPadding)
         ])
     }
 
@@ -206,5 +271,50 @@ extension SignInView {
         static let elementsHeightWithEachOther: CGFloat = 30
         static let labelsTop: CGFloat = -3
         static let elementsCornerRadius: CGFloat = 10
+
+        static let signInViewHeight: CGFloat = 260
+        static let signInViewPadding: CGFloat = 43
     }
 }
+
+// // MARK: - Offset content
+// private extension SignInView {
+//    func registerKeyBoardNotification() {
+//        NotificationCenter.default.addObserver(
+//            self,
+//            selector: #selector(keyboardWillShow),
+//            name: UIResponder.keyboardWillShowNotification,
+//            object: nil
+//        )
+//
+//        NotificationCenter.default.addObserver(
+//            self,
+//            selector: #selector(keyboardWillHide),
+//            name: UIResponder.keyboardWillHideNotification,
+//            object: nil)
+//    }
+//
+//    @objc
+//    func keyboardWillShow(notification: Notification) {
+//
+//    }
+//
+//    @objc
+//    func keyboardWillHide(notification: Notification) {
+//        
+//    }
+//
+//    func removeKeyboardNotification() {
+//        NotificationCenter.default.removeObserver(
+//            self,
+//            name: UIResponder.keyboardWillShowNotification,
+//            object: nil
+//        )
+//
+//        NotificationCenter.default.removeObserver(
+//            self,
+//            name: UIResponder.keyboardWillHideNotification,
+//            object: nil
+//        )
+//    }
+//}

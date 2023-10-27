@@ -35,7 +35,7 @@ class SignInViewController: UIViewController {
 
 private extension SignInViewController {
     func setupAppearence() {
-        view.backgroundColor = .systemGray5
+//        view.backgroundColor = .systemGray5
     }
 }
 
@@ -47,10 +47,10 @@ private extension SignInViewController {
 
     func signInViewConstraints() {
         NSLayoutConstraint.activate([
-            signInView.heightAnchor.constraint(equalToConstant: Constants.signInViewHeight),
-            signInView.centerYAnchor.constraint(equalTo: view.centerYAnchor),
-            signInView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: Constants.signInViewPadding),
-            view.rightAnchor.constraint(equalTo: signInView.rightAnchor, constant: Constants.signInViewPadding)
+            signInView.topAnchor.constraint(equalTo: view.topAnchor),
+            signInView.leftAnchor.constraint(equalTo: view.leftAnchor),
+            signInView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            signInView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
 }
@@ -74,3 +74,6 @@ extension SignInViewController {
         static let signInViewPadding: CGFloat = 43
     }
 }
+
+// TODO: Сделать скроллвью после нажатия на текстфилд
+// TODO: Хендлить что написал в текстфилд
