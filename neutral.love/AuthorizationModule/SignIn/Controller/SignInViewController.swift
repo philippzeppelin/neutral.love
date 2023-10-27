@@ -23,7 +23,7 @@ final class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         embedView()
-        signInViewConstraints()
+        setupConstraints()
         setupDelegate()
     }
 
@@ -38,7 +38,7 @@ private extension SignInViewController {
         view.addSubview(signInView)
     }
 
-    func signInViewConstraints() {
+    func setupConstraints() {
         NSLayoutConstraint.activate([
             signInView.topAnchor.constraint(equalTo: view.topAnchor),
             signInView.leftAnchor.constraint(equalTo: view.leftAnchor),

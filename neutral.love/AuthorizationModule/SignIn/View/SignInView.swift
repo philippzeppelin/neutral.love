@@ -123,16 +123,16 @@ final class SignInView: UIView {
         super.init(frame: frame)
         setupAppearence()
         embedViews()
-        scrollViewConstraints()
-        backgroundViewConstraints()
-        loginViewConstraints()
-        emailTextFieldConstraints()
-        passwordTextFieldConstraints()
-        signButtonsStackViewConstraints()
+        setupScrollViewConstraints()
+        setupBackgroundViewConstraints()
+        setupLoginViewConstraints()
+        setupEmailTextFieldConstraints()
+        setupPasswordTextFieldConstraints()
+        setupSignButtonsStackViewConstraints()
         addingButtonsToStackView()
-        loginLabelConstraints()
-        passwordLabelConstraints()
-        dontHaveAccountLabelConstraints()
+        setupLoginLabelConstraints()
+        setupPasswordLabelConstraints()
+        setupDontHaveAccountLabelConstraints()
         registerKeyBoardNotification()
     }
     
@@ -190,12 +190,14 @@ private extension SignInView {
             self,
             selector: #selector(keyboardWillHide),
             name: UIResponder.keyboardWillHideNotification,
-            object: nil)
+            object: nil
+        )
     }
 
     @objc
     func keyboardWillShow(notification: Notification) {
         let userInfo = notification.userInfo
+
         guard let keyboardHeight = (
             userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue
         )?.cgRectValue else {
@@ -232,15 +234,17 @@ private extension SignInView {
         scrollView.addSubview(backgroundView)
         backgroundView.addSubview(loginView)
 
-        [emailTextField,
-         passwordTextField,
-         signButtonsStackView,
-         emailLabel,
-         passwordLabel,
-         dontHaveAccountLabel].forEach { loginView.addSubview($0) }
+        [
+            emailTextField,
+            passwordTextField,
+            signButtonsStackView,
+            emailLabel,
+            passwordLabel,
+            dontHaveAccountLabel
+        ].forEach { loginView.addSubview($0) }
     }
 
-    func scrollViewConstraints() {
+    func setupScrollViewConstraints() {
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: topAnchor),
             scrollView.leadingAnchor.constraint(equalTo: leadingAnchor),
@@ -249,7 +253,7 @@ private extension SignInView {
         ])
     }
 
-    func backgroundViewConstraints() {
+    func setupBackgroundViewConstraints() {
         NSLayoutConstraint.activate([
             backgroundView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
             backgroundView.centerYAnchor.constraint(equalTo: scrollView.centerYAnchor),
@@ -258,7 +262,7 @@ private extension SignInView {
         ])
     }
 
-    func loginViewConstraints() {
+    func setupLoginViewConstraints() {
         NSLayoutConstraint.activate([
             loginView.heightAnchor.constraint(equalToConstant: 260),
             loginView.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor),
@@ -267,7 +271,7 @@ private extension SignInView {
         ])
     }
 
-    func emailTextFieldConstraints() {
+    func setupEmailTextFieldConstraints() {
         NSLayoutConstraint.activate([
             emailTextField.heightAnchor.constraint(equalToConstant: Constants.textFieldsHeight),
             emailTextField.topAnchor.constraint(equalTo: loginView.topAnchor, constant: 50),
@@ -276,7 +280,7 @@ private extension SignInView {
         ])
     }
 
-    func passwordTextFieldConstraints() {
+    func setupPasswordTextFieldConstraints() {
         NSLayoutConstraint.activate([
             passwordTextField.heightAnchor.constraint(equalToConstant: Constants.textFieldsHeight),
             passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: Constants.elementsHeightWithEachOther),
@@ -285,7 +289,7 @@ private extension SignInView {
         ])
     }
 
-    func signButtonsStackViewConstraints() {
+    func setupSignButtonsStackViewConstraints() {
         NSLayoutConstraint.activate([
             signButtonsStackView.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: Constants.elementsHeightWithEachOther),
             signButtonsStackView.leftAnchor.constraint(equalTo: loginView.leftAnchor, constant: Constants.viewElementsPadding),
@@ -293,21 +297,21 @@ private extension SignInView {
         ])
     }
 
-    func loginLabelConstraints() {
+    func setupLoginLabelConstraints() {
         NSLayoutConstraint.activate([
             emailLabel.bottomAnchor.constraint(equalTo: emailTextField.topAnchor, constant: Constants.labelsTop),
             emailLabel.leftAnchor.constraint(equalTo: loginView.leftAnchor, constant: Constants.viewElementsPadding)
         ])
     }
 
-    func passwordLabelConstraints() {
+    func setupPasswordLabelConstraints() {
         NSLayoutConstraint.activate([
             passwordLabel.bottomAnchor.constraint(equalTo: passwordTextField.topAnchor, constant: Constants.labelsTop),
             passwordLabel.leftAnchor.constraint(equalTo: loginView.leftAnchor, constant: Constants.viewElementsPadding)
         ])
     }
 
-    func dontHaveAccountLabelConstraints() {
+    func setupDontHaveAccountLabelConstraints() {
         NSLayoutConstraint.activate([
             dontHaveAccountLabel.bottomAnchor.constraint(equalTo: signUpButton.topAnchor, constant: Constants.labelsTop),
             dontHaveAccountLabel.leftAnchor.constraint(equalTo: signUpButton.leftAnchor)
