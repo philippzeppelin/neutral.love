@@ -16,11 +16,12 @@ enum Resources {
             static let signUpButtonText: String = "Sign Up"
             static let passwordText: String = "Password"
             static let dontHaveAnAccountText: String = "Don't have an account?"
+        }
 
         enum MainModule {
             static let generateButton = "Generate"
         }
-        
+
         enum GenerateModule {
             static let headerLabel = "Generate"
             static let styleLabel = "Style"
@@ -43,12 +44,13 @@ enum Resources {
 
         enum SignInModule {
             static let signButtonsColor = UIColor(hexString: "5B5B93")
+        }
 
         enum MainModule {
             static let mainCollectionCellBackground = UIColor(hexString: "#D9D9D9")
             static let generateButtonBackground = UIColor(hexString: "#5B5B93")
         }
-        
+
         enum GenerateModule {
             static let textFildTextColor = UIColor(hexString: "#8E8EAC")
             static let textFildBackgroundColor = UIColor(hexString: "#D1D1D6")
@@ -60,13 +62,12 @@ enum Resources {
             static let arial17 = UIFont(name: "Arial", size: 17)
             static let arial12 = UIFont(name: "Arial", size: 12)
         }
-    }
 
-    enum Images {
         enum TabBarModule {
             // Semi-bold
             static let SFProTextSemibold17 = UIFont(name: "SFProText-Semibold", size: 17)
             static let SFProTextSemibold35 = UIFont(name: "SFProText-Semibold", size: 35)
+        }
     }
 
     enum Images {
