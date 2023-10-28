@@ -327,7 +327,6 @@ extension SignInView {
         static let elementsHeightWithEachOther: CGFloat = 30
         static let labelsTop: CGFloat = -3
         static let elementsCornerRadius: CGFloat = 10
-
         static let signInViewPadding: CGFloat = 43
     }
 }
