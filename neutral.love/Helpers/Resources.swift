@@ -43,7 +43,7 @@ enum Resources {
 
         enum SignInModule {
             static let signButtonsColor = UIColor(hexString: "5B5B93")
-        
+
         enum MainModule {
             static let mainCollectionCellBackground = UIColor(hexString: "#D9D9D9")
             static let generateButtonBackground = UIColor(hexString: "#5B5B93")
