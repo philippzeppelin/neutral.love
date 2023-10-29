@@ -7,7 +7,6 @@
 
 import UIKit
 
-/// Custom TextField for Authorization Module
 final class AuthTextField: UITextField {
 
     // MARK: Init
@@ -35,7 +34,6 @@ final class AuthTextField: UITextField {
 
     private func configureTextField() {
         backgroundColor = .secondarySystemBackground
-//        textColor = .label
         layer.cornerRadius = 10
         leftView = UIView(
             frame: CGRect(

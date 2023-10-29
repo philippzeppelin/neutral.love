@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SignUpViewController: UIViewController {
+final class SignUpViewController: UIViewController {
     private let signUpView = SignUpView()
     private let viewModel: SignUpViewModelProtocol
 
@@ -29,6 +29,7 @@ class SignUpViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: Methods
     private func setupDelegate() {
         signUpView.delegate = self
     }

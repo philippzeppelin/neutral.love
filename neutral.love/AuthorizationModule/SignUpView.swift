@@ -11,11 +11,12 @@ protocol SignUpViewDelegate: AnyObject {
     func signUpButtonPressed()
     func backButtonPressed()
 }
-// TODO: Add Labels
+
 /// View for hosting SignUp UI elements
 final class SignUpView: UIView {
     weak var delegate: SignUpViewDelegate?
 
+    // MARK: UI Elements
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -32,7 +33,7 @@ final class SignUpView: UIView {
     private let signUpView: UIView = {
         let view = UIView()
         view.backgroundColor = .systemGray4
-        view.layer.cornerRadius = 10
+        view.layer.cornerRadius = Constants.uiElementsCornerRadius
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -46,7 +47,7 @@ final class SignUpView: UIView {
         button.setTitle("Sign Up", for: .normal)
         button.setTitleColor(.label, for: .normal)
         button.titleLabel?.font = Resources.Fonts.SignInModule.arial17
-        button.layer.cornerRadius = 10
+        button.layer.cornerRadius = Constants.uiElementsCornerRadius
         button.backgroundColor = Resources.Colors.SignInModule.signButtonsColor
         button.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -58,7 +59,7 @@ final class SignUpView: UIView {
         button.setTitle("Back", for: .normal)
         button.setTitleColor(.label, for: .normal)
         button.titleLabel?.font = Resources.Fonts.SignInModule.arial17
-        button.layer.cornerRadius = 10
+        button.layer.cornerRadius = Constants.uiElementsCornerRadius
         button.backgroundColor = Resources.Colors.SignInModule.signButtonsColor
         button.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -106,6 +107,9 @@ final class SignUpView: UIView {
         setupPasswordTextFieldConstraints()
         setupSignUpButtonConstraints()
         setupBackButtonConstraints()
+        setupNameLabelConstraints()
+        setupEmailLabelConstraints()
+        setupPasswordLabelConstraints()
         registerKeyBoardNotification()
     }
 
@@ -117,6 +121,7 @@ final class SignUpView: UIView {
         removeKeyboardNotification()
     }
 
+    // MARK: Methods
     @objc
     private func signUpButtonTapped() {
         delegate?.signUpButtonPressed()
@@ -172,7 +177,12 @@ private extension SignUpView {
             return
         }
 
-        scrollView.contentOffset = CGPoint(x: 0, y: keyboardHeight.height / 2.5)
+        let keyboardShiftAmount = keyboardHeight.height / Constants.keyboardShiftMultiplier
+        
+        scrollView.contentOffset = CGPoint(
+            x: 0,
+            y: keyboardShiftAmount
+        )
     }
 
     @objc
@@ -242,7 +252,7 @@ private extension SignUpView {
 
     func setupSignUpViewConstraints() {
         NSLayoutConstraint.activate([
-            signUpView.heightAnchor.constraint(equalToConstant: 420),
+            signUpView.heightAnchor.constraint(equalToConstant: 405),
             signUpView.centerYAnchor.constraint(equalTo: backgroundView.centerYAnchor),
             signUpView.leftAnchor.constraint(equalTo: backgroundView.leftAnchor, constant: Constants.signUpViewPadding),
             backgroundView.rightAnchor.constraint(equalTo: signUpView.rightAnchor, constant: Constants.signUpViewPadding)
@@ -297,10 +307,28 @@ private extension SignUpView {
     }
 
     func setupNameLabelConstraints() {
-        nameLabel.topAnchor.constraint(equalTo: <#T##NSLayoutAnchor<NSLayoutYAxisAnchor>#>, constant: <#T##CGFloat#>)
+        NSLayoutConstraint.activate([
+            nameLabel.bottomAnchor.constraint(equalTo: nameTextField.topAnchor, constant: Constants.labelsTop),
+            nameLabel.leftAnchor.constraint(equalTo: signUpView.leftAnchor, constant: Constants.uiElementsPadding)
+        ])
+    }
+
+    func setupEmailLabelConstraints() {
+        NSLayoutConstraint.activate([
+            emailLabel.bottomAnchor.constraint(equalTo: emailTextField.topAnchor, constant: Constants.labelsTop),
+            emailLabel.leftAnchor.constraint(equalTo: signUpView.leftAnchor, constant: Constants.uiElementsPadding)
+        ])
+    }
+
+    func setupPasswordLabelConstraints() {
+        NSLayoutConstraint.activate([
+            passwordLabel.bottomAnchor.constraint(equalTo: passwordTextField.topAnchor, constant: Constants.labelsTop),
+            passwordLabel.leftAnchor.constraint(equalTo: signUpView.leftAnchor, constant: Constants.uiElementsPadding)
+        ])
     }
 }
 
+// MARK: - Setting Constants
 extension SignUpView {
     private enum Constants {
         static let uiElementsHeight: CGFloat = 40
@@ -308,5 +336,8 @@ extension SignUpView {
         static let uiElementsPadding: CGFloat = 20
         static let uielementsHeightWithEachOther: CGFloat = 30
         static let backButtonPadding: CGFloat = 75
+        static let uiElementsCornerRadius: CGFloat = 10
+        static let labelsTop: CGFloat = -3
+        static let keyboardShiftMultiplier: CGFloat = 2.5
     }
 }
