@@ -24,6 +24,10 @@
 		E7626D532AE3D11200223037 /* UITextField + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D522AE3D11200223037 /* UITextField + Extensions.swift */; };
 		E7626D562AE7B31800223037 /* SignInAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D552AE7B31800223037 /* SignInAssembly.swift */; };
 		E78258E12AED1DA0000A163B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78258E02AED1DA0000A163B /* ViewController.swift */; };
+		E79EAF942B029E9F0037B5F4 /* FavoritesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EAF932B029E9F0037B5F4 /* FavoritesAssembly.swift */; };
+		E79EAF962B029EAA0037B5F4 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EAF952B029EAA0037B5F4 /* FavoritesView.swift */; };
+		E79EAF982B029EB40037B5F4 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EAF972B029EB40037B5F4 /* FavoritesViewController.swift */; };
+		E79EAF9A2B029EBF0037B5F4 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EAF992B029EBF0037B5F4 /* FavoritesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +52,10 @@
 		E7626D522AE3D11200223037 /* UITextField + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extensions.swift"; sourceTree = "<group>"; };
 		E7626D552AE7B31800223037 /* SignInAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInAssembly.swift; sourceTree = "<group>"; };
 		E78258E02AED1DA0000A163B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E79EAF932B029E9F0037B5F4 /* FavoritesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesAssembly.swift; sourceTree = "<group>"; };
+		E79EAF952B029EAA0037B5F4 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		E79EAF972B029EB40037B5F4 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		E79EAF992B029EBF0037B5F4 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -122,8 +130,9 @@
 				E7007D752ADAC2E4000DCBE0 /* Application */,
 				E7626D2D2ADC14F400223037 /* AuthorizationModule */,
 				E7626D1F2ADC13AC00223037 /* MainModule */,
-				E7626D272ADC13F800223037 /* Helpers */,
+				E78258E42AF02458000A163B /* Favorites */,
 				E7626D222ADC13C200223037 /* TabBarModule */,
+				E7626D272ADC13F800223037 /* Helpers */,
 				E7007D762ADAC2F9000DCBE0 /* Resources */,
 				E74729352ADB03E200348D8A /* .swiftlint.yml */,
 			);
@@ -224,6 +233,49 @@
 				E7626D552AE7B31800223037 /* SignInAssembly.swift */,
 			);
 			path = Assembly;
+			sourceTree = "<group>";
+		};
+		E78258E42AF02458000A163B /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				E79EAF8F2B029E5D0037B5F4 /* Assembly */,
+				E79EAF902B029E6F0037B5F4 /* View */,
+				E79EAF912B029E760037B5F4 /* Controller */,
+				E79EAF922B029E7C0037B5F4 /* ViewModel */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		E79EAF8F2B029E5D0037B5F4 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				E79EAF932B029E9F0037B5F4 /* FavoritesAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		E79EAF902B029E6F0037B5F4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E79EAF952B029EAA0037B5F4 /* FavoritesView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E79EAF912B029E760037B5F4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E79EAF972B029EB40037B5F4 /* FavoritesViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E79EAF922B029E7C0037B5F4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E79EAF992B029EBF0037B5F4 /* FavoritesViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -348,14 +400,18 @@
 				E7626D252ADC13C300223037 /* TabBarAssembly.swift in Sources */,
 				E7626D2B2ADC13F800223037 /* UIColor + Extensions.swift in Sources */,
 				E7626D2C2ADC13F800223037 /* Resources.swift in Sources */,
+				E79EAF962B029EAA0037B5F4 /* FavoritesView.swift in Sources */,
 				E74396F02ACE9FA1003B06B9 /* AppDelegate.swift in Sources */,
+				E79EAF9A2B029EBF0037B5F4 /* FavoritesViewModel.swift in Sources */,
 				E7626D262ADC13C300223037 /* TabBarController.swift in Sources */,
 				E7626D562AE7B31800223037 /* SignInAssembly.swift in Sources */,
 				E78258E12AED1DA0000A163B /* ViewController.swift in Sources */,
+				E79EAF982B029EB40037B5F4 /* FavoritesViewController.swift in Sources */,
 				E7626D4C2AE1394100223037 /* SignInViewModel.swift in Sources */,
 				E7626D332ADC15D300223037 /* SignUpViewController.swift in Sources */,
 				E74396F22ACE9FA1003B06B9 /* SceneDelegate.swift in Sources */,
 				E7626D4F2AE3B19000223037 /* SignInView.swift in Sources */,
+				E79EAF942B029E9F0037B5F4 /* FavoritesAssembly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
