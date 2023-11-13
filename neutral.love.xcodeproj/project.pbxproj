@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		12C7D95152D40D0F416A016A /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C8072C2394E98FD53091A8 /* FavoritesView.swift */; };
+		4C518961B14EEE9528F78E66 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06516B04B6E644A90DDAC18 /* SettingsViewController.swift */; };
 		500BF1B02ADC1A3B00CA5E09 /* UIColor + extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500BF1AE2ADC1A3B00CA5E09 /* UIColor + extensions.swift */; };
 		500BF1B12ADC1A3B00CA5E09 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500BF1AF2ADC1A3B00CA5E09 /* Resources.swift */; };
 		500BF1B62ADC1A4400CA5E09 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500BF1B42ADC1A4400CA5E09 /* TabBarController.swift */; };
@@ -89,6 +90,7 @@
 		E79EAFD62B08A0080037B5F4 /* SignUpViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
 		E79EAFD82B08A0610037B5F4 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
 		E79EAFDA2B08A07D0037B5F4 /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
+		F06516B04B6E644A90DDAC18 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -274,6 +276,14 @@
 			path = Favorites;
 			sourceTree = "<group>";
 		};
+		B37543147E53276C496DB572 /* SettingsModule */ = {
+			isa = PBXGroup;
+			children = (
+				F06516B04B6E644A90DDAC18 /* SettingsViewController.swift */,
+			);
+			path = SettingsModule;
+			sourceTree = "<group>";
+		};
 		B4F28A875BFFF45F524FC6C5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -340,6 +350,7 @@
 				E7007D762ADAC2F9000DCBE0 /* Resources */,
 				E74729352ADB03E200348D8A /* .swiftlint.yml */,
 				A269F15748A992C5378844AE /* Favorites */,
+				B37543147E53276C496DB572 /* SettingsModule */,
 			);
 			path = neutral.love;
 			sourceTree = "<group>";
@@ -597,6 +608,7 @@
 				FA5C2DCC8A6E09F6DA2C53B1 /* FavoritesViewModel.swift in Sources */,
 				6BCE472B4A647BB8231B5EE5 /* FavoritesViewController.swift in Sources */,
 				AF671D2543C8FEBB93CA7788 /* FavoritesAssembly.swift in Sources */,
+				4C518961B14EEE9528F78E66 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

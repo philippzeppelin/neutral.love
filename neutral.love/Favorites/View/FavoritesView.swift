@@ -12,6 +12,7 @@ final class FavoritesView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupAppearence()
+
     }
     
     required init?(coder: NSCoder) {
@@ -22,6 +23,7 @@ final class FavoritesView: UIView {
 extension FavoritesView {
     private func setupAppearence() {
         backgroundColor = .red
+//        tintColor = .black
         translatesAutoresizingMaskIntoConstraints = false
     }
 }

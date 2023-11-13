@@ -15,6 +15,7 @@ final class FavoritesViewController: UIViewController {
         super.viewDidLoad()
         embedView()
         setupfavoritesViewConstraints()
+        
     }
 
     init(viewModel: FavoritesViewModel) {
