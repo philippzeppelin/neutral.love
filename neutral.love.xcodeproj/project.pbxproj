@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12C7D95152D40D0F416A016A /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C8072C2394E98FD53091A8 /* FavoritesView.swift */; };
 		500BF1B02ADC1A3B00CA5E09 /* UIColor + extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500BF1AE2ADC1A3B00CA5E09 /* UIColor + extensions.swift */; };
 		500BF1B12ADC1A3B00CA5E09 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500BF1AF2ADC1A3B00CA5E09 /* Resources.swift */; };
 		500BF1B62ADC1A4400CA5E09 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500BF1B42ADC1A4400CA5E09 /* TabBarController.swift */; };
@@ -25,13 +26,15 @@
 		50B5D4652AE8137500C10CC1 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B5D4642AE8137500C10CC1 /* APIManager.swift */; };
 		50B5D4672AE8150800C10CC1 /* APIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B5D4662AE8150800C10CC1 /* APIModels.swift */; };
 		50B5D4692AEAB3A400C10CC1 /* UIImageView + extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B5D4682AEAB3A400C10CC1 /* UIImageView + extensions.swift */; };
+		6BCE472B4A647BB8231B5EE5 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA215799839B775B2B210D7 /* FavoritesViewController.swift */; };
+		AF671D2543C8FEBB93CA7788 /* FavoritesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = A571A3E27128C83F9FAF48F0 /* FavoritesAssembly.swift */; };
 		E74396F02ACE9FA1003B06B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74396EF2ACE9FA1003B06B9 /* AppDelegate.swift */; };
 		E74396F22ACE9FA1003B06B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74396F12ACE9FA1003B06B9 /* SceneDelegate.swift */; };
 		E74396F92ACE9FA5003B06B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E74396F82ACE9FA5003B06B9 /* Assets.xcassets */; };
 		E74396FC2ACE9FA5003B06B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E74396FA2ACE9FA5003B06B9 /* LaunchScreen.storyboard */; };
 		E74729362ADB03E200348D8A /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = E74729352ADB03E200348D8A /* .swiftlint.yml */; };
-		E79EAFC82B0897410037B5F4 /* (null) in Sources */ = {isa = PBXBuildFile; };
-		E79EAFC92B0897410037B5F4 /* (null) in Sources */ = {isa = PBXBuildFile; };
+		E79EAFC82B0897410037B5F4 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
+		E79EAFC92B0897410037B5F4 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
 		E79EAFCA2B0897410037B5F4 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EAFB72B0897410037B5F4 /* SignUpViewController.swift */; };
 		E79EAFCD2B0897410037B5F4 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EAFBD2B0897410037B5F4 /* SignInViewModel.swift */; };
 		E79EAFCE2B0897410037B5F4 /* SignInAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EAFBF2B0897410037B5F4 /* SignInAssembly.swift */; };
@@ -41,6 +44,7 @@
 		E79EAFD72B08A0080037B5F4 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EAFD62B08A0080037B5F4 /* SignUpViewModel.swift */; };
 		E79EAFD92B08A0610037B5F4 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EAFD82B08A0610037B5F4 /* SignUpView.swift */; };
 		E79EAFDB2B08A07D0037B5F4 /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EAFDA2B08A07D0037B5F4 /* AuthTextField.swift */; };
+		FA5C2DCC8A6E09F6DA2C53B1 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99714CBF9C14AB775B0D862F /* FavoritesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -64,6 +68,10 @@
 		50B5D4662AE8150800C10CC1 /* APIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModels.swift; sourceTree = "<group>"; };
 		50B5D4682AEAB3A400C10CC1 /* UIImageView + extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + extensions.swift"; sourceTree = "<group>"; };
 		5CA9FD68FEBBF1CE66C412E6 /* Pods_neutral_love.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_neutral_love.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		61C8072C2394E98FD53091A8 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		99714CBF9C14AB775B0D862F /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		A571A3E27128C83F9FAF48F0 /* FavoritesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesAssembly.swift; sourceTree = "<group>"; };
+		CAA215799839B775B2B210D7 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		DF88B9BD92F7AC9E5C764B8D /* Pods-neutral.love.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-neutral.love.release.xcconfig"; path = "Target Support Files/Pods-neutral.love/Pods-neutral.love.release.xcconfig"; sourceTree = "<group>"; };
 		E74396EC2ACE9FA1003B06B9 /* neutral.love.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = neutral.love.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E74396EF2ACE9FA1003B06B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -161,6 +169,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		50760BED8FF88D9F599E7D52 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				A571A3E27128C83F9FAF48F0 /* FavoritesAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
 		50B5D4502AE2F31300C10CC1 /* GenerateModule */ = {
 			isa = PBXGroup;
 			children = (
@@ -239,6 +255,41 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		97F9C9C5607A4BCF3A458531 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				99714CBF9C14AB775B0D862F /* FavoritesViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A269F15748A992C5378844AE /* Favorites */ = {
+			isa = PBXGroup;
+			children = (
+				50760BED8FF88D9F599E7D52 /* Assembly */,
+				C521130771B87E8A25B6B2BB /* View */,
+				B4F28A875BFFF45F524FC6C5 /* Controller */,
+				97F9C9C5607A4BCF3A458531 /* ViewModel */,
+			);
+			path = Favorites;
+			sourceTree = "<group>";
+		};
+		B4F28A875BFFF45F524FC6C5 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				CAA215799839B775B2B210D7 /* FavoritesViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		C521130771B87E8A25B6B2BB /* View */ = {
+			isa = PBXGroup;
+			children = (
+				61C8072C2394E98FD53091A8 /* FavoritesView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		E7007D752ADAC2E4000DCBE0 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -288,6 +339,7 @@
 				500BF1AC2ADC1A3B00CA5E09 /* Helpers */,
 				E7007D762ADAC2F9000DCBE0 /* Resources */,
 				E74729352ADB03E200348D8A /* .swiftlint.yml */,
+				A269F15748A992C5378844AE /* Favorites */,
 			);
 			path = neutral.love;
 			sourceTree = "<group>";
@@ -513,10 +565,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				E79EAFCA2B0897410037B5F4 /* SignUpViewController.swift in Sources */,
-				E79EAFC92B0897410037B5F4 /* (null) in Sources */,
+				E79EAFC92B0897410037B5F4 /* BuildFile in Sources */,
 				E79EAFCE2B0897410037B5F4 /* SignInAssembly.swift in Sources */,
 				50B5D4522AE4105800C10CC1 /* GenerateViewController.swift in Sources */,
-				E79EAFC82B0897410037B5F4 /* (null) in Sources */,
+				E79EAFC82B0897410037B5F4 /* BuildFile in Sources */,
 				E79EAFD02B0897410037B5F4 /* SignInView.swift in Sources */,
 				E79EAFD92B08A0610037B5F4 /* SignUpView.swift in Sources */,
 				50696D922ADDB16900E4B1AC /* MainAssembly.swift in Sources */,
@@ -541,6 +593,10 @@
 				50B5D4652AE8137500C10CC1 /* APIManager.swift in Sources */,
 				50B5D4622AE504C100C10CC1 /* GenerateTextField.swift in Sources */,
 				50696D902ADDAE6300E4B1AC /* MainViewModel.swift in Sources */,
+				12C7D95152D40D0F416A016A /* FavoritesView.swift in Sources */,
+				FA5C2DCC8A6E09F6DA2C53B1 /* FavoritesViewModel.swift in Sources */,
+				6BCE472B4A647BB8231B5EE5 /* FavoritesViewController.swift in Sources */,
+				AF671D2543C8FEBB93CA7788 /* FavoritesAssembly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
