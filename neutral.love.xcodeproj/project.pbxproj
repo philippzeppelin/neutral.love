@@ -28,6 +28,7 @@
 		E79EAF962B029EAA0037B5F4 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EAF952B029EAA0037B5F4 /* FavoritesView.swift */; };
 		E79EAF982B029EB40037B5F4 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EAF972B029EB40037B5F4 /* FavoritesViewController.swift */; };
 		E79EAF9A2B029EBF0037B5F4 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EAF992B029EBF0037B5F4 /* FavoritesViewModel.swift */; };
+		E79EAF9D2B02B09A0037B5F4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EAF9C2B02B09A0037B5F4 /* SettingsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -56,6 +57,7 @@
 		E79EAF952B029EAA0037B5F4 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		E79EAF972B029EB40037B5F4 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		E79EAF992B029EBF0037B5F4 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		E79EAF9C2B02B09A0037B5F4 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -131,6 +133,7 @@
 				E7626D2D2ADC14F400223037 /* AuthorizationModule */,
 				E7626D1F2ADC13AC00223037 /* MainModule */,
 				E78258E42AF02458000A163B /* Favorites */,
+				E79EAF9B2B02B0830037B5F4 /* SettingsModule */,
 				E7626D222ADC13C200223037 /* TabBarModule */,
 				E7626D272ADC13F800223037 /* Helpers */,
 				E7007D762ADAC2F9000DCBE0 /* Resources */,
@@ -278,6 +281,14 @@
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
+		E79EAF9B2B02B0830037B5F4 /* SettingsModule */ = {
+			isa = PBXGroup;
+			children = (
+				E79EAF9C2B02B09A0037B5F4 /* SettingsViewController.swift */,
+			);
+			path = SettingsModule;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -412,6 +423,7 @@
 				E74396F22ACE9FA1003B06B9 /* SceneDelegate.swift in Sources */,
 				E7626D4F2AE3B19000223037 /* SignInView.swift in Sources */,
 				E79EAF942B029E9F0037B5F4 /* FavoritesAssembly.swift in Sources */,
+				E79EAF9D2B02B09A0037B5F4 /* SettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
