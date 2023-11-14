@@ -27,6 +27,7 @@
 		50B5D4652AE8137500C10CC1 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B5D4642AE8137500C10CC1 /* APIManager.swift */; };
 		50B5D4672AE8150800C10CC1 /* APIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B5D4662AE8150800C10CC1 /* APIModels.swift */; };
 		50B5D4692AEAB3A400C10CC1 /* UIImageView + extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B5D4682AEAB3A400C10CC1 /* UIImageView + extensions.swift */; };
+		69BDF075F8A5735958EFB1F2 /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D630DAC8C2F885A0808C482 /* FavoritesCell.swift */; };
 		6BCE472B4A647BB8231B5EE5 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA215799839B775B2B210D7 /* FavoritesViewController.swift */; };
 		AF671D2543C8FEBB93CA7788 /* FavoritesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = A571A3E27128C83F9FAF48F0 /* FavoritesAssembly.swift */; };
 		E74396F02ACE9FA1003B06B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74396EF2ACE9FA1003B06B9 /* AppDelegate.swift */; };
@@ -71,6 +72,7 @@
 		5CA9FD68FEBBF1CE66C412E6 /* Pods_neutral_love.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_neutral_love.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		61C8072C2394E98FD53091A8 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		99714CBF9C14AB775B0D862F /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		9D630DAC8C2F885A0808C482 /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
 		A571A3E27128C83F9FAF48F0 /* FavoritesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesAssembly.swift; sourceTree = "<group>"; };
 		CAA215799839B775B2B210D7 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		DF88B9BD92F7AC9E5C764B8D /* Pods-neutral.love.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-neutral.love.release.xcconfig"; path = "Target Support Files/Pods-neutral.love/Pods-neutral.love.release.xcconfig"; sourceTree = "<group>"; };
@@ -296,6 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				61C8072C2394E98FD53091A8 /* FavoritesView.swift */,
+				9D630DAC8C2F885A0808C482 /* FavoritesCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -609,6 +612,7 @@
 				6BCE472B4A647BB8231B5EE5 /* FavoritesViewController.swift in Sources */,
 				AF671D2543C8FEBB93CA7788 /* FavoritesAssembly.swift in Sources */,
 				4C518961B14EEE9528F78E66 /* SettingsViewController.swift in Sources */,
+				69BDF075F8A5735958EFB1F2 /* FavoritesCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

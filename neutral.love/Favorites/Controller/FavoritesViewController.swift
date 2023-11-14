@@ -11,11 +11,11 @@ final class FavoritesViewController: UIViewController {
     private let favoritesView = FavoritesView()
     private let viewModel: FavoritesViewModel
 
+    // MARK: Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
         embedView()
-        setupfavoritesViewConstraints()
-        
+        setupFavoritesViewConstraints()
     }
 
     init(viewModel: FavoritesViewModel) {
@@ -28,12 +28,13 @@ final class FavoritesViewController: UIViewController {
     }
 }
 
+// MARK: - Setup View and Constraints
 private extension FavoritesViewController {
     func embedView() {
         view.addSubview(favoritesView)
     }
 
-    func setupfavoritesViewConstraints() {
+    func setupFavoritesViewConstraints() {
         NSLayoutConstraint.activate([
             favoritesView.topAnchor.constraint(equalTo: view.topAnchor),
             favoritesView.leftAnchor.constraint(equalTo: view.leftAnchor),
