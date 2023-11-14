@@ -29,6 +29,7 @@
 		E79EAF982B029EB40037B5F4 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EAF972B029EB40037B5F4 /* FavoritesViewController.swift */; };
 		E79EAF9A2B029EBF0037B5F4 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EAF992B029EBF0037B5F4 /* FavoritesViewModel.swift */; };
 		E79EAF9D2B02B09A0037B5F4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EAF9C2B02B09A0037B5F4 /* SettingsViewController.swift */; };
+		E79EAF9F2B02B9A70037B5F4 /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EAF9E2B02B9A70037B5F4 /* FavoritesCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,6 +59,7 @@
 		E79EAF972B029EB40037B5F4 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		E79EAF992B029EBF0037B5F4 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
 		E79EAF9C2B02B09A0037B5F4 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		E79EAF9E2B02B9A70037B5F4 /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -261,6 +263,7 @@
 			isa = PBXGroup;
 			children = (
 				E79EAF952B029EAA0037B5F4 /* FavoritesView.swift */,
+				E79EAF9E2B02B9A70037B5F4 /* FavoritesCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				E74396F02ACE9FA1003B06B9 /* AppDelegate.swift in Sources */,
 				E79EAF9A2B029EBF0037B5F4 /* FavoritesViewModel.swift in Sources */,
 				E7626D262ADC13C300223037 /* TabBarController.swift in Sources */,
+				E79EAF9F2B02B9A70037B5F4 /* FavoritesCell.swift in Sources */,
 				E7626D562AE7B31800223037 /* SignInAssembly.swift in Sources */,
 				E78258E12AED1DA0000A163B /* ViewController.swift in Sources */,
 				E79EAF982B029EB40037B5F4 /* FavoritesViewController.swift in Sources */,
