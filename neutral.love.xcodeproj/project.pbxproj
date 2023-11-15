@@ -24,6 +24,10 @@
 		E7626D532AE3D11200223037 /* UITextField + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D522AE3D11200223037 /* UITextField + Extensions.swift */; };
 		E7626D562AE7B31800223037 /* SignInAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D552AE7B31800223037 /* SignInAssembly.swift */; };
 		E78258E12AED1DA0000A163B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78258E02AED1DA0000A163B /* ViewController.swift */; };
+		E79EAFA52B054C640037B5F4 /* SignUpAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EAFA42B054C640037B5F4 /* SignUpAssembly.swift */; };
+		E79EAFA72B054C7C0037B5F4 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EAFA62B054C7C0037B5F4 /* SignUpView.swift */; };
+		E79EAFA92B054C990037B5F4 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EAFA82B054C990037B5F4 /* SignUpViewModel.swift */; };
+		E79EAFAB2B054CAE0037B5F4 /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EAFAA2B054CAE0037B5F4 /* AuthTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +52,10 @@
 		E7626D522AE3D11200223037 /* UITextField + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extensions.swift"; sourceTree = "<group>"; };
 		E7626D552AE7B31800223037 /* SignInAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInAssembly.swift; sourceTree = "<group>"; };
 		E78258E02AED1DA0000A163B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E79EAFA42B054C640037B5F4 /* SignUpAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpAssembly.swift; sourceTree = "<group>"; };
+		E79EAFA62B054C7C0037B5F4 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
+		E79EAFA82B054C990037B5F4 /* SignUpViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
+		E79EAFAA2B054CAE0037B5F4 /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +179,7 @@
 			children = (
 				E7626D2E2ADC14FF00223037 /* SignIn */,
 				E7626D2F2ADC150D00223037 /* SignUp */,
+				E79EAFAA2B054CAE0037B5F4 /* AuthTextField.swift */,
 			);
 			path = AuthorizationModule;
 			sourceTree = "<group>";
@@ -189,7 +198,10 @@
 		E7626D2F2ADC150D00223037 /* SignUp */ = {
 			isa = PBXGroup;
 			children = (
-				E7626D322ADC15D300223037 /* SignUpViewController.swift */,
+				E79EAFA32B054C430037B5F4 /* Assembly */,
+				E79EAFA22B054BCB0037B5F4 /* View */,
+				E79EAFA12B054BBD0037B5F4 /* Controller */,
+				E79EAFA02B054BB70037B5F4 /* ViewModel */,
 			);
 			path = SignUp;
 			sourceTree = "<group>";
@@ -222,6 +234,38 @@
 			isa = PBXGroup;
 			children = (
 				E7626D552AE7B31800223037 /* SignInAssembly.swift */,
+			);
+			path = Assembly;
+			sourceTree = "<group>";
+		};
+		E79EAFA02B054BB70037B5F4 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E79EAFA82B054C990037B5F4 /* SignUpViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E79EAFA12B054BBD0037B5F4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				E7626D322ADC15D300223037 /* SignUpViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		E79EAFA22B054BCB0037B5F4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				E79EAFA62B054C7C0037B5F4 /* SignUpView.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		E79EAFA32B054C430037B5F4 /* Assembly */ = {
+			isa = PBXGroup;
+			children = (
+				E79EAFA42B054C640037B5F4 /* SignUpAssembly.swift */,
 			);
 			path = Assembly;
 			sourceTree = "<group>";
@@ -344,6 +388,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				E7626D532AE3D11200223037 /* UITextField + Extensions.swift in Sources */,
+				E79EAFA72B054C7C0037B5F4 /* SignUpView.swift in Sources */,
+				E79EAFA92B054C990037B5F4 /* SignUpViewModel.swift in Sources */,
 				E7626D512AE3B1A100223037 /* SignInViewController.swift in Sources */,
 				E7626D252ADC13C300223037 /* TabBarAssembly.swift in Sources */,
 				E7626D2B2ADC13F800223037 /* UIColor + Extensions.swift in Sources */,
@@ -356,6 +402,8 @@
 				E7626D332ADC15D300223037 /* SignUpViewController.swift in Sources */,
 				E74396F22ACE9FA1003B06B9 /* SceneDelegate.swift in Sources */,
 				E7626D4F2AE3B19000223037 /* SignInView.swift in Sources */,
+				E79EAFA52B054C640037B5F4 /* SignUpAssembly.swift in Sources */,
+				E79EAFAB2B054CAE0037B5F4 /* AuthTextField.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
