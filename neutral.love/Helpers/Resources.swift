@@ -20,11 +20,12 @@ enum Resources {
         }
 
         enum MainModule {
-            static let generateButton = "Generate"
+            static let generateSettingsButton = "Generate settings"
         }
 
         enum GenerateModule {
             static let headerLabel = "Generate"
+            static let promptLabel = "Prompt"
             static let styleLabel = "Style"
             static let layoutLabel = "Layout"
             static let amountLabel = "Amount"

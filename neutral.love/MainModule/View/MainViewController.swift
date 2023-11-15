@@ -11,7 +11,7 @@ final class MainViewController: UIViewController {
     
     // MARK: - Properties
     
-    private let viewModel: MainViewModelProtocol
+    private var viewModel: MainViewModelProtocol
     
     private let mainCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -47,7 +47,7 @@ final class MainViewController: UIViewController {
         let button = UIButton(type: .system)
         button.backgroundColor = Resources.Colors.MainModule.generateButtonBackground
         button.layer.cornerRadius = Constants.generateButtonCornerRadius
-        button.setTitle(Resources.Strings.MainModule.generateButton, for: .normal)
+        button.setTitle(Resources.Strings.MainModule.generateSettingsButton, for: .normal)
         button.titleLabel?.font = Resources.Fonts.SFProTextSemibold17
         button.tintColor = Resources.Colors.white
         button.addTarget(self, action: #selector(presentGenerateViewController), for: .touchUpInside)
@@ -95,13 +95,13 @@ final class MainViewController: UIViewController {
     }
     
     @objc private func presentGenerateViewController() {
-        let viewController = GenerateAssembly.configure()
+        let viewController = GenerateAssembly.configure(viewModel: viewModel)
         present(viewController, animated: true)
     }
-    
     private func setDelagates() {
         mainCollectionView.dataSource = self
         mainCollectionView.delegate = self
+        viewModel.delegate = self
     }
 }
 
@@ -150,7 +150,7 @@ extension MainViewController: UICollectionViewDelegate {
 extension MainViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        4
+        viewModel.outputs.count > 0 ? viewModel.outputs.count : 4
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -159,6 +159,11 @@ extension MainViewController: UICollectionViewDataSource {
             withReuseIdentifier: .mainCollectionViewCellIdentifier,
             for: indexPath
         ) as? MainCollectionViewCell else { return UICollectionViewCell() }
+        
+        if viewModel.outputs.isNotEmpty {
+            cell.bindImage(urlString: viewModel.outputs[indexPath.row].preview)
+        }
+       
         return cell
     }
 }
@@ -174,6 +179,16 @@ extension MainViewController: UICollectionViewDelegateFlowLayout {
     ) -> CGSize {
         CGSize(width: mainCollectionView.frame.width,
                height: mainCollectionView.frame.height)
+    }
+}
+
+// MARK: - MainViewModelProtocolDelegate
+
+extension MainViewController: MainViewModelProtocolDelegate {
+    func didLoadData() {
+        DispatchQueue.main.async {
+            self.mainCollectionView.reloadData()
+        }
     }
 }
 

@@ -11,7 +11,7 @@ final class GenerateViewController: UIViewController {
     
     // MARK: - Properties
     
-    private let viewModel: GenerateViewModelProtocol
+    private let viewModel: MainViewModelProtocol
     
     private let backgroundViewHeader: UIView = {
         let view = UIView()
@@ -24,6 +24,15 @@ final class GenerateViewController: UIViewController {
         let label = UILabel()
         label.text = Resources.Strings.GenerateModule.headerLabel
         label.font = Resources.Fonts.SFProTextSemibold35
+        label.textColor = Resources.Colors.white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let promptLabel: UILabel = {
+        let label = UILabel()
+        label.text = Resources.Strings.GenerateModule.promptLabel
+        label.font = Resources.Fonts.SFProTextSemibold17
         label.textColor = Resources.Colors.white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -69,16 +78,17 @@ final class GenerateViewController: UIViewController {
         let button = UIButton(type: .system)
         button.backgroundColor = Resources.Colors.MainModule.generateButtonBackground
         button.layer.cornerRadius = 15
-        button.setTitle("Start", for: .normal) // convinience init
+        button.setTitle("Generate image", for: .normal) // convinience init
         button.titleLabel?.font = Resources.Fonts.SFProTextSemibold17
         button.tintColor = Resources.Colors.white
+        button.addTarget(self, action: #selector(generateImages), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
     
     // MARK: - Init
     
-    init(viewModel: GenerateViewModelProtocol) {
+    init(viewModel: MainViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
@@ -88,6 +98,11 @@ final class GenerateViewController: UIViewController {
     }
     
     // MARK: - Methods
+    
+    @objc private func generateImages() {
+        viewModel.fetchData()
+        dismiss(animated: true)
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -107,6 +122,7 @@ final class GenerateViewController: UIViewController {
             backgroundViewHeader,
             headerLabel,
             promptTextField,
+            promptLabel,
             styleLabel,
             styleTextField,
             layoutLabel,
@@ -202,7 +218,10 @@ private extension GenerateViewController {
             headerLabel.centerYAnchor.constraint(equalTo: backgroundViewHeader.centerYAnchor),
             headerLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.spacing),
             
-            promptTextField.topAnchor.constraint(equalTo: backgroundViewHeader.bottomAnchor, constant: 55),
+            promptLabel.topAnchor.constraint(equalTo: backgroundViewHeader.bottomAnchor, constant: 30),
+            promptLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.labelsLead),
+            
+            promptTextField.topAnchor.constraint(equalTo: promptLabel.bottomAnchor, constant: Constants.textFieldsTop),
             promptTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: Constants.spacing),
             promptTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.spacing),
             promptTextField.heightAnchor.constraint(equalToConstant: Constants.textFieldsHeight),
@@ -246,7 +265,7 @@ extension GenerateViewController {
     private enum Constants {
         static let spacing: CGFloat = 20
         static let textFieldsHeight: CGFloat = 70
-        static let labelsTop: CGFloat = 20
+        static let labelsTop: CGFloat = 15
         static let labelsLead: CGFloat = 30
         static let textFieldsTop: CGFloat = 8
     }
