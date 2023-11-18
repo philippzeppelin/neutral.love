@@ -54,7 +54,7 @@ private extension SignUpViewController {
 // MARK: - SignUpViewDelegate
 extension SignUpViewController: SignUpViewDelegate {
     func signUpButtonPressed() {
-        let mainViewController = ViewController()
+        let mainViewController = MainViewController(viewModel: MainViewModel())
         mainViewController.modalPresentationStyle = .fullScreen
         present(mainViewController, animated: true)
     }

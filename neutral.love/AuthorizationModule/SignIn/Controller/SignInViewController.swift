@@ -57,7 +57,7 @@ extension SignInViewController: SignInViewDelegate {
     }
     
     func signInButtonPressed() {
-        let mainViewController = ViewController()
+        let mainViewController = MainViewController(viewModel: MainViewModel())
         mainViewController.modalPresentationStyle = .fullScreen
         present(mainViewController, animated: true)
     }
