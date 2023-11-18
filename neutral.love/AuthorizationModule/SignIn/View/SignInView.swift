@@ -12,7 +12,6 @@ protocol SignInViewDelegate: AnyObject {
     func signUpButtonPressed()
 }
 
-/// View for hosting UI elements
 final class SignInView: UIView {
     weak var delegate: SignInViewDelegate?
 
