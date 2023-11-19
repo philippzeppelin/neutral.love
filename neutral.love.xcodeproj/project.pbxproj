@@ -7,10 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		12C7D95152D40D0F416A016A /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 61C8072C2394E98FD53091A8 /* FavoritesView.swift */; };
-		4C518961B14EEE9528F78E66 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F06516B04B6E644A90DDAC18 /* SettingsViewController.swift */; };
 		500BF1B02ADC1A3B00CA5E09 /* UIColor + extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500BF1AE2ADC1A3B00CA5E09 /* UIColor + extensions.swift */; };
 		500BF1B12ADC1A3B00CA5E09 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500BF1AF2ADC1A3B00CA5E09 /* Resources.swift */; };
+		500BF1B52ADC1A4400CA5E09 /* TabBarAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500BF1B32ADC1A4400CA5E09 /* TabBarAssembly.swift */; };
 		500BF1B62ADC1A4400CA5E09 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500BF1B42ADC1A4400CA5E09 /* TabBarController.swift */; };
 		500BF1B92ADC1A4B00CA5E09 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500BF1B82ADC1A4B00CA5E09 /* MainViewController.swift */; };
 		500BF1C02ADC2A9700CA5E09 /* Pods_neutral_love.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5CA9FD68FEBBF1CE66C412E6 /* Pods_neutral_love.framework */; };
@@ -27,26 +26,30 @@
 		50B5D4652AE8137500C10CC1 /* APIManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B5D4642AE8137500C10CC1 /* APIManager.swift */; };
 		50B5D4672AE8150800C10CC1 /* APIModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B5D4662AE8150800C10CC1 /* APIModels.swift */; };
 		50B5D4692AEAB3A400C10CC1 /* UIImageView + extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 50B5D4682AEAB3A400C10CC1 /* UIImageView + extensions.swift */; };
-		69BDF075F8A5735958EFB1F2 /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D630DAC8C2F885A0808C482 /* FavoritesCell.swift */; };
-		6BCE472B4A647BB8231B5EE5 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAA215799839B775B2B210D7 /* FavoritesViewController.swift */; };
-		AF671D2543C8FEBB93CA7788 /* FavoritesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = A571A3E27128C83F9FAF48F0 /* FavoritesAssembly.swift */; };
 		E74396F02ACE9FA1003B06B9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74396EF2ACE9FA1003B06B9 /* AppDelegate.swift */; };
 		E74396F22ACE9FA1003B06B9 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E74396F12ACE9FA1003B06B9 /* SceneDelegate.swift */; };
 		E74396F92ACE9FA5003B06B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E74396F82ACE9FA5003B06B9 /* Assets.xcassets */; };
 		E74396FC2ACE9FA5003B06B9 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E74396FA2ACE9FA5003B06B9 /* LaunchScreen.storyboard */; };
 		E74729362ADB03E200348D8A /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = E74729352ADB03E200348D8A /* .swiftlint.yml */; };
-		E79EAFC82B0897410037B5F4 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
-		E79EAFC92B0897410037B5F4 /* BuildFile in Sources */ = {isa = PBXBuildFile; };
-		E79EAFCA2B0897410037B5F4 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EAFB72B0897410037B5F4 /* SignUpViewController.swift */; };
-		E79EAFCD2B0897410037B5F4 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EAFBD2B0897410037B5F4 /* SignInViewModel.swift */; };
-		E79EAFCE2B0897410037B5F4 /* SignInAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EAFBF2B0897410037B5F4 /* SignInAssembly.swift */; };
-		E79EAFCF2B0897410037B5F4 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EAFC12B0897410037B5F4 /* SignInViewController.swift */; };
-		E79EAFD02B0897410037B5F4 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EAFC32B0897410037B5F4 /* SignInView.swift */; };
-		E79EAFD42B0897A30037B5F4 /* UITextField + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EAFD32B0897A30037B5F4 /* UITextField + Extensions.swift */; };
-		E79EAFD72B08A0080037B5F4 /* SignUpViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EAFD62B08A0080037B5F4 /* SignUpViewModel.swift */; };
-		E79EAFD92B08A0610037B5F4 /* SignUpView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EAFD82B08A0610037B5F4 /* SignUpView.swift */; };
-		E79EAFDB2B08A07D0037B5F4 /* AuthTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EAFDA2B08A07D0037B5F4 /* AuthTextField.swift */; };
-		FA5C2DCC8A6E09F6DA2C53B1 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99714CBF9C14AB775B0D862F /* FavoritesViewModel.swift */; };
+
+		E7626D252ADC13C300223037 /* TabBarAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D232ADC13C200223037 /* TabBarAssembly.swift */; };
+		E7626D262ADC13C300223037 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D242ADC13C200223037 /* TabBarController.swift */; };
+		E7626D2B2ADC13F800223037 /* UIColor + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D292ADC13F800223037 /* UIColor + Extensions.swift */; };
+		E7626D2C2ADC13F800223037 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D2A2ADC13F800223037 /* Resources.swift */; };
+		E7626D332ADC15D300223037 /* SignUpViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D322ADC15D300223037 /* SignUpViewController.swift */; };
+		E7626D4C2AE1394100223037 /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D4B2AE1394100223037 /* SignInViewModel.swift */; };
+		E7626D4F2AE3B19000223037 /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D4E2AE3B19000223037 /* SignInView.swift */; };
+		E7626D512AE3B1A100223037 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D502AE3B1A100223037 /* SignInViewController.swift */; };
+		E7626D532AE3D11200223037 /* UITextField + Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D522AE3D11200223037 /* UITextField + Extensions.swift */; };
+		E7626D562AE7B31800223037 /* SignInAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7626D552AE7B31800223037 /* SignInAssembly.swift */; };
+		E78258E12AED1DA0000A163B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E78258E02AED1DA0000A163B /* ViewController.swift */; };
+		E79EAF942B029E9F0037B5F4 /* FavoritesAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EAF932B029E9F0037B5F4 /* FavoritesAssembly.swift */; };
+		E79EAF962B029EAA0037B5F4 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EAF952B029EAA0037B5F4 /* FavoritesView.swift */; };
+		E79EAF982B029EB40037B5F4 /* FavoritesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EAF972B029EB40037B5F4 /* FavoritesViewController.swift */; };
+		E79EAF9A2B029EBF0037B5F4 /* FavoritesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EAF992B029EBF0037B5F4 /* FavoritesViewModel.swift */; };
+		E79EAF9D2B02B09A0037B5F4 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EAF9C2B02B09A0037B5F4 /* SettingsViewController.swift */; };
+		E79EAF9F2B02B9A70037B5F4 /* FavoritesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EAF9E2B02B9A70037B5F4 /* FavoritesCell.swift */; };
+
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -70,11 +73,6 @@
 		50B5D4662AE8150800C10CC1 /* APIModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIModels.swift; sourceTree = "<group>"; };
 		50B5D4682AEAB3A400C10CC1 /* UIImageView + extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImageView + extensions.swift"; sourceTree = "<group>"; };
 		5CA9FD68FEBBF1CE66C412E6 /* Pods_neutral_love.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_neutral_love.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		61C8072C2394E98FD53091A8 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
-		99714CBF9C14AB775B0D862F /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
-		9D630DAC8C2F885A0808C482 /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
-		A571A3E27128C83F9FAF48F0 /* FavoritesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesAssembly.swift; sourceTree = "<group>"; };
-		CAA215799839B775B2B210D7 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
 		DF88B9BD92F7AC9E5C764B8D /* Pods-neutral.love.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-neutral.love.release.xcconfig"; path = "Target Support Files/Pods-neutral.love/Pods-neutral.love.release.xcconfig"; sourceTree = "<group>"; };
 		E74396EC2ACE9FA1003B06B9 /* neutral.love.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = neutral.love.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E74396EF2ACE9FA1003B06B9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -83,16 +81,23 @@
 		E74396FB2ACE9FA5003B06B9 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E74396FD2ACE9FA5003B06B9 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E74729352ADB03E200348D8A /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
-		E79EAFB72B0897410037B5F4 /* SignUpViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
-		E79EAFBD2B0897410037B5F4 /* SignInViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
-		E79EAFBF2B0897410037B5F4 /* SignInAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInAssembly.swift; sourceTree = "<group>"; };
-		E79EAFC12B0897410037B5F4 /* SignInViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
-		E79EAFC32B0897410037B5F4 /* SignInView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
-		E79EAFD32B0897A30037B5F4 /* UITextField + Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UITextField + Extensions.swift"; sourceTree = "<group>"; };
-		E79EAFD62B08A0080037B5F4 /* SignUpViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpViewModel.swift; sourceTree = "<group>"; };
-		E79EAFD82B08A0610037B5F4 /* SignUpView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpView.swift; sourceTree = "<group>"; };
-		E79EAFDA2B08A07D0037B5F4 /* AuthTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthTextField.swift; sourceTree = "<group>"; };
-		F06516B04B6E644A90DDAC18 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		E7626D232ADC13C200223037 /* TabBarAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarAssembly.swift; sourceTree = "<group>"; };
+		E7626D242ADC13C200223037 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		E7626D292ADC13F800223037 /* UIColor + Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor + Extensions.swift"; sourceTree = "<group>"; };
+		E7626D2A2ADC13F800223037 /* Resources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
+		E7626D322ADC15D300223037 /* SignUpViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpViewController.swift; sourceTree = "<group>"; };
+		E7626D4B2AE1394100223037 /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
+		E7626D4E2AE3B19000223037 /* SignInView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
+		E7626D502AE3B1A100223037 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		E7626D522AE3D11200223037 /* UITextField + Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extensions.swift"; sourceTree = "<group>"; };
+		E7626D552AE7B31800223037 /* SignInAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInAssembly.swift; sourceTree = "<group>"; };
+		E78258E02AED1DA0000A163B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E79EAF932B029E9F0037B5F4 /* FavoritesAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesAssembly.swift; sourceTree = "<group>"; };
+		E79EAF952B029EAA0037B5F4 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		E79EAF972B029EB40037B5F4 /* FavoritesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewController.swift; sourceTree = "<group>"; };
+		E79EAF992B029EBF0037B5F4 /* FavoritesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesViewModel.swift; sourceTree = "<group>"; };
+		E79EAF9C2B02B09A0037B5F4 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		E79EAF9E2B02B9A70037B5F4 /* FavoritesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -118,7 +123,6 @@
 		500BF1AC2ADC1A3B00CA5E09 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				E79EAFD52B089D750037B5F4 /* CustomUIElements */,
 				50B5D45B2AE4F11200C10CC1 /* Fonts */,
 				500BF1AD2ADC1A3B00CA5E09 /* UIKit */,
 				500BF1AF2ADC1A3B00CA5E09 /* Resources.swift */,
@@ -130,7 +134,6 @@
 		500BF1AD2ADC1A3B00CA5E09 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				E79EAFD32B0897A30037B5F4 /* UITextField + Extensions.swift */,
 				500BF1AE2ADC1A3B00CA5E09 /* UIColor + extensions.swift */,
 				50B5D4682AEAB3A400C10CC1 /* UIImageView + extensions.swift */,
 			);
@@ -168,17 +171,19 @@
 		50696D8E2ADDAE4900E4B1AC /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				E7007D752ADAC2E4000DCBE0 /* Application */,
+				E7626D2D2ADC14F400223037 /* AuthorizationModule */,
+				E7626D1F2ADC13AC00223037 /* MainModule */,
+				E78258E42AF02458000A163B /* Favorites */,
+				E79EAF9B2B02B0830037B5F4 /* SettingsModule */,
+				E7626D222ADC13C200223037 /* TabBarModule */,
+				E7626D272ADC13F800223037 /* Helpers */,
+				E7007D762ADAC2F9000DCBE0 /* Resources */,
+				E74729352ADB03E200348D8A /* .swiftlint.yml */,
+
 				50696D8F2ADDAE6300E4B1AC /* MainViewModel.swift */,
 			);
 			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		50760BED8FF88D9F599E7D52 /* Assembly */ = {
-			isa = PBXGroup;
-			children = (
-				A571A3E27128C83F9FAF48F0 /* FavoritesAssembly.swift */,
-			);
-			path = Assembly;
 			sourceTree = "<group>";
 		};
 		50B5D4502AE2F31300C10CC1 /* GenerateModule */ = {
@@ -259,50 +264,6 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
-		97F9C9C5607A4BCF3A458531 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				99714CBF9C14AB775B0D862F /* FavoritesViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		A269F15748A992C5378844AE /* Favorites */ = {
-			isa = PBXGroup;
-			children = (
-				50760BED8FF88D9F599E7D52 /* Assembly */,
-				C521130771B87E8A25B6B2BB /* View */,
-				B4F28A875BFFF45F524FC6C5 /* Controller */,
-				97F9C9C5607A4BCF3A458531 /* ViewModel */,
-			);
-			path = Favorites;
-			sourceTree = "<group>";
-		};
-		B37543147E53276C496DB572 /* SettingsModule */ = {
-			isa = PBXGroup;
-			children = (
-				F06516B04B6E644A90DDAC18 /* SettingsViewController.swift */,
-			);
-			path = SettingsModule;
-			sourceTree = "<group>";
-		};
-		B4F28A875BFFF45F524FC6C5 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				CAA215799839B775B2B210D7 /* FavoritesViewController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		C521130771B87E8A25B6B2BB /* View */ = {
-			isa = PBXGroup;
-			children = (
-				61C8072C2394E98FD53091A8 /* FavoritesView.swift */,
-				9D630DAC8C2F885A0808C482 /* FavoritesCell.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
 		E7007D752ADAC2E4000DCBE0 /* Application */ = {
 			isa = PBXGroup;
 			children = (
@@ -345,119 +306,66 @@
 			children = (
 				E7007D752ADAC2E4000DCBE0 /* Application */,
 				50B5D4632AE8135B00C10CC1 /* APIManager */,
-				E79EAFAE2B0897410037B5F4 /* AuthorizationModule */,
 				500BF1B22ADC1A4400CA5E09 /* TabBarModule */,
 				500BF1B72ADC1A4B00CA5E09 /* MainModule */,
 				50B5D4502AE2F31300C10CC1 /* GenerateModule */,
 				500BF1AC2ADC1A3B00CA5E09 /* Helpers */,
 				E7007D762ADAC2F9000DCBE0 /* Resources */,
 				E74729352ADB03E200348D8A /* .swiftlint.yml */,
-				A269F15748A992C5378844AE /* Favorites */,
-				B37543147E53276C496DB572 /* SettingsModule */,
 			);
 			path = neutral.love;
 			sourceTree = "<group>";
 		};
-		E79EAFAE2B0897410037B5F4 /* AuthorizationModule */ = {
+		E78258E42AF02458000A163B /* Favorites */ = {
 			isa = PBXGroup;
 			children = (
-				E79EAFB12B0897410037B5F4 /* SignUp */,
-				E79EAFBB2B0897410037B5F4 /* SignIn */,
+				E79EAF8F2B029E5D0037B5F4 /* Assembly */,
+				E79EAF902B029E6F0037B5F4 /* View */,
+				E79EAF912B029E760037B5F4 /* Controller */,
+				E79EAF922B029E7C0037B5F4 /* ViewModel */,
 			);
-			path = AuthorizationModule;
+			path = Favorites;
 			sourceTree = "<group>";
 		};
-		E79EAFB12B0897410037B5F4 /* SignUp */ = {
+		E79EAF8F2B029E5D0037B5F4 /* Assembly */ = {
 			isa = PBXGroup;
 			children = (
-				E79EAFB42B0897410037B5F4 /* Assembly */,
-				E79EAFB82B0897410037B5F4 /* View */,
-				E79EAFB62B0897410037B5F4 /* Controller */,
-				E79EAFB22B0897410037B5F4 /* ViewModel */,
-			);
-			path = SignUp;
-			sourceTree = "<group>";
-		};
-		E79EAFB22B0897410037B5F4 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				E79EAFD62B08A0080037B5F4 /* SignUpViewModel.swift */,
-			);
-			path = ViewModel;
-			sourceTree = "<group>";
-		};
-		E79EAFB42B0897410037B5F4 /* Assembly */ = {
-			isa = PBXGroup;
-			children = (
+				E79EAF932B029E9F0037B5F4 /* FavoritesAssembly.swift */,
 			);
 			path = Assembly;
 			sourceTree = "<group>";
 		};
-		E79EAFB62B0897410037B5F4 /* Controller */ = {
+		E79EAF902B029E6F0037B5F4 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E79EAFB72B0897410037B5F4 /* SignUpViewController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		E79EAFB82B0897410037B5F4 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				E79EAFD82B08A0610037B5F4 /* SignUpView.swift */,
+				E79EAF952B029EAA0037B5F4 /* FavoritesView.swift */,
+				E79EAF9E2B02B9A70037B5F4 /* FavoritesCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
 		};
-		E79EAFBB2B0897410037B5F4 /* SignIn */ = {
+		E79EAF912B029E760037B5F4 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				E79EAFBE2B0897410037B5F4 /* Assembly */,
-				E79EAFC22B0897410037B5F4 /* View */,
-				E79EAFC02B0897410037B5F4 /* Controller */,
-				E79EAFBC2B0897410037B5F4 /* ViewModel */,
+				E79EAF972B029EB40037B5F4 /* FavoritesViewController.swift */,
 			);
-			path = SignIn;
+			path = Controller;
 			sourceTree = "<group>";
 		};
-		E79EAFBC2B0897410037B5F4 /* ViewModel */ = {
+		E79EAF922B029E7C0037B5F4 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				E79EAFBD2B0897410037B5F4 /* SignInViewModel.swift */,
+				E79EAF992B029EBF0037B5F4 /* FavoritesViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
 		};
-		E79EAFBE2B0897410037B5F4 /* Assembly */ = {
+		E79EAF9B2B02B0830037B5F4 /* SettingsModule */ = {
 			isa = PBXGroup;
 			children = (
-				E79EAFBF2B0897410037B5F4 /* SignInAssembly.swift */,
+				E79EAF9C2B02B09A0037B5F4 /* SettingsViewController.swift */,
 			);
-			path = Assembly;
-			sourceTree = "<group>";
-		};
-		E79EAFC02B0897410037B5F4 /* Controller */ = {
-			isa = PBXGroup;
-			children = (
-				E79EAFC12B0897410037B5F4 /* SignInViewController.swift */,
-			);
-			path = Controller;
-			sourceTree = "<group>";
-		};
-		E79EAFC22B0897410037B5F4 /* View */ = {
-			isa = PBXGroup;
-			children = (
-				E79EAFC32B0897410037B5F4 /* SignInView.swift */,
-			);
-			path = View;
-			sourceTree = "<group>";
-		};
-		E79EAFD52B089D750037B5F4 /* CustomUIElements */ = {
-			isa = PBXGroup;
-			children = (
-				E79EAFDA2B08A07D0037B5F4 /* AuthTextField.swift */,
-			);
-			path = CustomUIElements;
+			path = SettingsModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -578,41 +486,40 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E79EAFCA2B0897410037B5F4 /* SignUpViewController.swift in Sources */,
-				E79EAFC92B0897410037B5F4 /* BuildFile in Sources */,
-				E79EAFCE2B0897410037B5F4 /* SignInAssembly.swift in Sources */,
+				E7626D532AE3D11200223037 /* UITextField + Extensions.swift in Sources */,
+				E7626D512AE3B1A100223037 /* SignInViewController.swift in Sources */,
+				E7626D252ADC13C300223037 /* TabBarAssembly.swift in Sources */,
+				E7626D2B2ADC13F800223037 /* UIColor + Extensions.swift in Sources */,
+				E7626D2C2ADC13F800223037 /* Resources.swift in Sources */,
+				E79EAF962B029EAA0037B5F4 /* FavoritesView.swift in Sources */,
+				E74396F02ACE9FA1003B06B9 /* AppDelegate.swift in Sources */,
+				E79EAF9A2B029EBF0037B5F4 /* FavoritesViewModel.swift in Sources */,
+				E7626D262ADC13C300223037 /* TabBarController.swift in Sources */,
+				E79EAF9F2B02B9A70037B5F4 /* FavoritesCell.swift in Sources */,
+				E7626D562AE7B31800223037 /* SignInAssembly.swift in Sources */,
+				E78258E12AED1DA0000A163B /* ViewController.swift in Sources */,
+				E79EAF982B029EB40037B5F4 /* FavoritesViewController.swift in Sources */,
+				E7626D4C2AE1394100223037 /* SignInViewModel.swift in Sources */,
+				E7626D332ADC15D300223037 /* SignUpViewController.swift in Sources */,
+				E74396F22ACE9FA1003B06B9 /* SceneDelegate.swift in Sources */,
+				E7626D4F2AE3B19000223037 /* SignInView.swift in Sources */,
+				E79EAF942B029E9F0037B5F4 /* FavoritesAssembly.swift in Sources */,
+				E79EAF9D2B02B09A0037B5F4 /* SettingsViewController.swift in Sources */,
 				50B5D4522AE4105800C10CC1 /* GenerateViewController.swift in Sources */,
-				E79EAFC82B0897410037B5F4 /* BuildFile in Sources */,
-				E79EAFD02B0897410037B5F4 /* SignInView.swift in Sources */,
-				E79EAFD92B08A0610037B5F4 /* SignUpView.swift in Sources */,
 				50696D922ADDB16900E4B1AC /* MainAssembly.swift in Sources */,
-				E79EAFD42B0897A30037B5F4 /* UITextField + Extensions.swift in Sources */,
 				50B5D45A2AE41AB000C10CC1 /* GenerateAssembly.swift in Sources */,
 				506C30122AFD3F0D00E8B300 /* Array  + extensions.swift in Sources */,
 				500BF1B02ADC1A3B00CA5E09 /* UIColor + extensions.swift in Sources */,
-				E74396F02ACE9FA1003B06B9 /* AppDelegate.swift in Sources */,
-				500BF1B62ADC1A4400CA5E09 /* TabBarController.swift in Sources */,
-				E79EAFD72B08A0080037B5F4 /* SignUpViewModel.swift in Sources */,
-				E79EAFDB2B08A07D0037B5F4 /* AuthTextField.swift in Sources */,
 				506C30142AFE95D600E8B300 /* NetworkingError.swift in Sources */,
-				500BF1B12ADC1A3B00CA5E09 /* Resources.swift in Sources */,
 				50B5D4672AE8150800C10CC1 /* APIModels.swift in Sources */,
 				500BF1B92ADC1A4B00CA5E09 /* MainViewController.swift in Sources */,
 				50B5D4692AEAB3A400C10CC1 /* UIImageView + extensions.swift in Sources */,
 				50696D942ADEFD5E00E4B1AC /* MainCollectionViewCell.swift in Sources */,
 				50B5D4562AE4109400C10CC1 /* GenerateViewModel.swift in Sources */,
-				E79EAFCF2B0897410037B5F4 /* SignInViewController.swift in Sources */,
 				E74396F22ACE9FA1003B06B9 /* SceneDelegate.swift in Sources */,
-				E79EAFCD2B0897410037B5F4 /* SignInViewModel.swift in Sources */,
 				50B5D4652AE8137500C10CC1 /* APIManager.swift in Sources */,
 				50B5D4622AE504C100C10CC1 /* GenerateTextField.swift in Sources */,
 				50696D902ADDAE6300E4B1AC /* MainViewModel.swift in Sources */,
-				12C7D95152D40D0F416A016A /* FavoritesView.swift in Sources */,
-				FA5C2DCC8A6E09F6DA2C53B1 /* FavoritesViewModel.swift in Sources */,
-				6BCE472B4A647BB8231B5EE5 /* FavoritesViewController.swift in Sources */,
-				AF671D2543C8FEBB93CA7788 /* FavoritesAssembly.swift in Sources */,
-				4C518961B14EEE9528F78E66 /* SettingsViewController.swift in Sources */,
-				69BDF075F8A5735958EFB1F2 /* FavoritesCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
