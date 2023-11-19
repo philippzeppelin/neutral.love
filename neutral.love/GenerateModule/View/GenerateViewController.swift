@@ -101,6 +101,7 @@ final class GenerateViewController: UIViewController {
     
     @objc private func generateImages() {
         viewModel.fetchData()
+        viewModel.countdownForGeneratingImages()
         dismiss(animated: true)
     }
     

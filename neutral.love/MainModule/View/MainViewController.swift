@@ -57,7 +57,7 @@ final class MainViewController: UIViewController {
     
     private let progressLabel: UILabel = {
         let label = UILabel()
-        label.text = "0%"
+        label.text = "0 %"
         label.font = Resources.Fonts.SFProTextSemibold17
         label.textColor = Resources.Colors.white
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -66,7 +66,6 @@ final class MainViewController: UIViewController {
     
     private let progressBar: UIProgressView = {
         let progressBar = UIProgressView()
-        
         progressBar.translatesAutoresizingMaskIntoConstraints = false
         return progressBar
     }()
@@ -94,6 +93,8 @@ final class MainViewController: UIViewController {
     
     private func setupViews() {
         view.backgroundColor = Resources.Colors.backgroundGray
+        progressLabel.isHidden = true
+        progressBar.isHidden = true
         
         [
             mainCollectionView,
@@ -118,7 +119,25 @@ final class MainViewController: UIViewController {
     @objc private func presentGenerateViewController() {
         let viewController = GenerateAssembly.configure(viewModel: viewModel)
         present(viewController, animated: true)
+        
+        viewModel.textPercentages.bind { [weak self] in
+            self?.progressLabel.text = $0
+        }
+        
+        viewModel.progresPercentages.bind { [weak self] in
+            self?.progressBar.progress = $0
+        }
+        
+        viewModel.generateButtonIsEnabled.bind { [weak self] in
+            self?.generateSettingsButton.isEnabled = $0
+        }
+        
+        viewModel.progressUIIsHidden.bind { [weak self] in
+            self?.progressLabel.isHidden = $0
+            self?.progressBar.isHidden = $0
+        }
     }
+    
     private func setDelagates() {
         mainCollectionView.dataSource = self
         mainCollectionView.delegate = self
@@ -150,6 +169,7 @@ private extension MainViewController {
             
             progressLabel.topAnchor.constraint(equalTo: pageControl.bottomAnchor, constant: 5),
             progressLabel.leadingAnchor.constraint(equalTo: mainCollectionView.leadingAnchor),
+            progressLabel.widthAnchor.constraint(equalToConstant: 55),
             
             progressBar.centerYAnchor.constraint(equalTo: progressLabel.centerYAnchor),
             progressBar.leadingAnchor.constraint(equalTo: progressLabel.trailingAnchor, constant: 10),
