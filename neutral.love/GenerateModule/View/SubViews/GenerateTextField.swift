@@ -41,7 +41,7 @@ private extension GenerateTextField {
         backgroundColor = Resources.Colors.GenerateModule.textFildBackgroundColor
         layer.cornerRadius = 15
         layer.masksToBounds = true
-        font = Resources.Fonts.SFProTextSemibold35
+        font = Resources.Fonts.GenerateModule.SFProTextSemibold35
         leftView = UIView(
             frame: CGRect(x: 0, y: 0, width: 20, height: 0)
         )

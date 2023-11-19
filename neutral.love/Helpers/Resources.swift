@@ -70,6 +70,12 @@ enum Resources {
             static let SFProTextSemibold17 = UIFont(name: "SFProText-Semibold", size: 17)
             static let SFProTextSemibold35 = UIFont(name: "SFProText-Semibold", size: 35)
         }
+
+        enum GenerateModule {
+            // Semi-bold
+            static let SFProTextSemibold17 = UIFont(name: "SFProText-Semibold", size: 17)
+            static let SFProTextSemibold35 = UIFont(name: "SFProText-Semibold", size: 35)
+        }
     }
 
     enum Images {
