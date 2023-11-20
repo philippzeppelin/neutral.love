@@ -71,18 +71,17 @@ final class MainViewModel: MainViewModelProtocol {
     }
     
     func countdownForGeneratingImages() {
-        
         progressUIIsHidden.value = false
         generateButtonIsEnabled.value = false
-        var timeLeft = 0.1
+        
+        var timeLeft: Float = 0.1
         var progress: Float = 0.0
         var progressPercentages = 0
         
         Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [weak self] timer in
-            
             timeLeft += 0.1
-            progress = Float(timeLeft) / Float(30) // 30 сек. задержка в АПИ
-            progressPercentages = Int((Float(timeLeft) / Float(30)) * 100)
+            progress = timeLeft / Float(30) // 30 сек. задержка в АПИ
+            progressPercentages = Int((timeLeft / Float(30)) * 100)
             
             self?.textPercentages.value = "\(progressPercentages) %"
             self?.progresPercentages.value = progress
