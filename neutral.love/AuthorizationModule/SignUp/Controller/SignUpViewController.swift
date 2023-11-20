@@ -12,6 +12,7 @@ final class SignUpViewController: UIViewController {
     private let viewModel: SignUpViewModelProtocol
 
     // MARK: Lifecycle
+
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDelegate()
@@ -20,6 +21,7 @@ final class SignUpViewController: UIViewController {
     }
 
     // MARK: Init
+
     init(viewModel: SignUpViewModelProtocol) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
@@ -30,12 +32,14 @@ final class SignUpViewController: UIViewController {
     }
 
     // MARK: Methods
+
     private func setupDelegate() {
         signUpView.delegate = self
     }
 }
 
 // MARK: - Setup UI elements and constraints
+
 private extension SignUpViewController {
     func embedView() {
         view.addSubview(signUpView)
@@ -52,6 +56,7 @@ private extension SignUpViewController {
 }
 
 // MARK: - SignUpViewDelegate
+
 extension SignUpViewController: SignUpViewDelegate {
     func signUpButtonPressed() {
         let mainViewController = MainViewController(viewModel: MainViewModel())

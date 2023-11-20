@@ -118,6 +118,8 @@ final class SignInView: UIView {
         return label
     }()
 
+    // MARK: Init
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupAppearence()
@@ -160,6 +162,7 @@ final class SignInView: UIView {
 }
 
 // MARK: - Configuring View
+
 extension SignInView {
     private func setupAppearence() {
         layer.cornerRadius = Constants.elementsCornerRadius
@@ -176,6 +179,7 @@ extension SignInView: UITextFieldDelegate {
 }
 
 // MARK: - Offset content
+
 private extension SignInView {
     func registerKeyBoardNotification() {
         NotificationCenter.default.addObserver(
@@ -227,6 +231,7 @@ private extension SignInView {
 }
 
 // MARK: - Setup View and Constraints
+
 private extension SignInView {
     func embedViews() {
         addSubview(scrollView)
@@ -299,26 +304,27 @@ private extension SignInView {
     func setupLoginLabelConstraints() {
         NSLayoutConstraint.activate([
             emailLabel.bottomAnchor.constraint(equalTo: emailTextField.topAnchor, constant: Constants.labelsTop),
-            emailLabel.leftAnchor.constraint(equalTo: loginView.leftAnchor, constant: Constants.viewElementsPadding)
+            emailLabel.leadingAnchor.constraint(equalTo: loginView.leadingAnchor, constant: Constants.viewElementsPadding)
         ])
     }
 
     func setupPasswordLabelConstraints() {
         NSLayoutConstraint.activate([
             passwordLabel.bottomAnchor.constraint(equalTo: passwordTextField.topAnchor, constant: Constants.labelsTop),
-            passwordLabel.leftAnchor.constraint(equalTo: loginView.leftAnchor, constant: Constants.viewElementsPadding)
+            passwordLabel.leadingAnchor.constraint(equalTo: loginView.leadingAnchor, constant: Constants.viewElementsPadding)
         ])
     }
 
     func setupDontHaveAccountLabelConstraints() {
         NSLayoutConstraint.activate([
             dontHaveAccountLabel.bottomAnchor.constraint(equalTo: signUpButton.topAnchor, constant: Constants.labelsTop),
-            dontHaveAccountLabel.leftAnchor.constraint(equalTo: signUpButton.leftAnchor)
+            dontHaveAccountLabel.leadingAnchor.constraint(equalTo: signUpButton.leadingAnchor)
         ])
     }
 }
 
 // MARK: - Setting Constants
+
 extension SignInView {
     private enum Constants {
         static let textFieldsHeight: CGFloat = 40

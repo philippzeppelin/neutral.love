@@ -20,6 +20,8 @@ final class SignInViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    // MARK: Lyfecycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         embedView()
@@ -33,6 +35,7 @@ final class SignInViewController: UIViewController {
 }
 
 // MARK: - Setup View and Constraints
+
 private extension SignInViewController {
     func embedView() {
         view.addSubview(signInView)
@@ -49,6 +52,7 @@ private extension SignInViewController {
 }
 
 // MARK: - SignInViewDelegate
+
 extension SignInViewController: SignInViewDelegate {
     func signUpButtonPressed() {
         let signUpViewController = SignUpViewController(viewModel: SignUpViewModel())

@@ -12,5 +12,6 @@ protocol SignInViewModelProtocol {}
 final class SignInViewModel: SignInViewModelProtocol {
 
     // MARK: Init
+    
     init() {}
 }
