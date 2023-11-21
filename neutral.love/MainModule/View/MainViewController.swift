@@ -43,7 +43,7 @@ final class MainViewController: UIViewController {
         return control
     }()
     
-    private lazy var generateButton: UIButton = {
+    private lazy var generateSettingsButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = Resources.Colors.MainModule.generateButtonBackground
         button.layer.cornerRadius = Constants.generateButtonCornerRadius
@@ -53,6 +53,21 @@ final class MainViewController: UIViewController {
         button.addTarget(self, action: #selector(presentGenerateViewController), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
+    }()
+    
+    private let progressLabel: UILabel = {
+        let label = UILabel()
+        label.text = "0 %"
+        label.font = Resources.Fonts.SFProTextSemibold17
+        label.textColor = Resources.Colors.white
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let progressBar: UIProgressView = {
+        let progressBar = UIProgressView()
+        progressBar.translatesAutoresizingMaskIntoConstraints = false
+        return progressBar
     }()
     
     // MARK: - Init
@@ -78,9 +93,16 @@ final class MainViewController: UIViewController {
     
     private func setupViews() {
         view.backgroundColor = Resources.Colors.backgroundGray
-        view.addSubview(mainCollectionView)
-        view.addSubview(pageControl)
-        view.addSubview(generateButton)
+        progressLabel.isHidden = true
+        progressBar.isHidden = true
+        
+        [
+            mainCollectionView,
+            pageControl,
+            generateSettingsButton,
+            progressLabel,
+            progressBar
+        ].forEach { view.addSubview($0) }
     }
     
     @objc private func pageControlDidChange(_ sender: UIPageControl) {
@@ -97,7 +119,25 @@ final class MainViewController: UIViewController {
     @objc private func presentGenerateViewController() {
         let viewController = GenerateAssembly.configure(viewModel: viewModel)
         present(viewController, animated: true)
+        
+        viewModel.textPercentages.bind { [weak self] in
+            self?.progressLabel.text = $0
+        }
+        
+        viewModel.progresPercentages.bind { [weak self] in
+            self?.progressBar.progress = $0
+        }
+        
+        viewModel.generateButtonIsEnabled.bind { [weak self] in
+            self?.generateSettingsButton.isEnabled = $0
+        }
+        
+        viewModel.progressUIIsHidden.bind { [weak self] in
+            self?.progressLabel.isHidden = $0
+            self?.progressBar.isHidden = $0
+        }
     }
+    
     private func setDelagates() {
         mainCollectionView.dataSource = self
         mainCollectionView.delegate = self
@@ -127,10 +167,18 @@ private extension MainViewController {
             pageControl.heightAnchor.constraint(equalToConstant: Constants.pageControlHeigth),
             pageControl.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             
-            generateButton.topAnchor.constraint(equalTo: pageControl.bottomAnchor, constant: Constants.generateButtonTop),
-            generateButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            generateButton.heightAnchor.constraint(equalToConstant: Constants.generateButtonHeight),
-            generateButton.widthAnchor.constraint(equalToConstant: Constants.generateButtonWidth)
+            progressLabel.topAnchor.constraint(equalTo: pageControl.bottomAnchor, constant: 5),
+            progressLabel.leadingAnchor.constraint(equalTo: mainCollectionView.leadingAnchor),
+            progressLabel.widthAnchor.constraint(equalToConstant: 55),
+            
+            progressBar.centerYAnchor.constraint(equalTo: progressLabel.centerYAnchor),
+            progressBar.leadingAnchor.constraint(equalTo: progressLabel.trailingAnchor, constant: 10),
+            progressBar.trailingAnchor.constraint(equalTo: mainCollectionView.trailingAnchor),
+            
+            generateSettingsButton.topAnchor.constraint(equalTo: progressLabel.bottomAnchor, constant: Constants.generateButtonTop),
+            generateSettingsButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            generateSettingsButton.heightAnchor.constraint(equalToConstant: Constants.generateButtonHeight),
+            generateSettingsButton.widthAnchor.constraint(equalToConstant: Constants.generateButtonWidth)
         ])
     }
 }
@@ -198,7 +246,7 @@ extension MainViewController {
     
     private enum Constants {
         static let generateButtonCornerRadius: CGFloat = 15
-        static let generateButtonTop: CGFloat = 40
+        static let generateButtonTop: CGFloat = 20
         static let generateButtonHeight: CGFloat = 50
         static let generateButtonWidth: CGFloat = 200
         static let mainCollectionViewSpacing: CGFloat = 20

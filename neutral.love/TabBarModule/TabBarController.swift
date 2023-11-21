@@ -18,7 +18,7 @@ final class TabBarController: UITabBarController {
 
     private func createTabBar() {
         let favouritesVC = UIViewController()
-        let mainVC = MainViewController(viewModel: MainViewModel())
+        let mainVC = MainAssembly.configure()
         let settingsVC = UIViewController()
 
         self.viewControllers = [
