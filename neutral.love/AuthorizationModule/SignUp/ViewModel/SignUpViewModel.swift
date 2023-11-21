@@ -10,7 +10,5 @@ import Foundation
 protocol SignUpViewModelProtocol {}
 
 final class SignUpViewModel: SignUpViewModelProtocol {
-
     init() {}
-    
 }

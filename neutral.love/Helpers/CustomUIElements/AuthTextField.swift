@@ -14,7 +14,7 @@ final class AuthTextField: UITextField {
         super.init(frame: frame)
         configureTextField()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -28,7 +28,7 @@ final class AuthTextField: UITextField {
             attributes: attribute
         )
         attributedPlaceholder = placeholderText
-        
+
         configureTextField()
     }
 

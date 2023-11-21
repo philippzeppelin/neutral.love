@@ -178,7 +178,7 @@ private extension SignUpView {
         }
 
         let keyboardShiftAmount = keyboardHeight.height / Constants.keyboardShiftMultiplier
-        
+
         scrollView.contentOffset = CGPoint(
             x: 0,
             y: keyboardShiftAmount

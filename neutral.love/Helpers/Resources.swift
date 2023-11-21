@@ -12,6 +12,7 @@ enum Resources {
         enum SignInModule {
             static let emailText: String = "Email"
             static let passwordAsterisksText: String = "******"
+            static let nameText: String = "Name"
             static let signInButtonText: String = "Sign In"
             static let signUpButtonText: String = "Sign Up"
             static let passwordText: String = "Password"

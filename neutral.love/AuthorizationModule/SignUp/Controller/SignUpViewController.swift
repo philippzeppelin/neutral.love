@@ -24,7 +24,7 @@ final class SignUpViewController: UIViewController {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -54,10 +54,12 @@ private extension SignUpViewController {
 // MARK: - SignUpViewDelegate
 extension SignUpViewController: SignUpViewDelegate {
     func signUpButtonPressed() {
-        print("\(#function) pressed")
+        let mainViewController = MainViewController(viewModel: MainViewModel())
+        mainViewController.modalPresentationStyle = .fullScreen
+        present(mainViewController, animated: true)
     }
-    
+
     func backButtonPressed() {
-        print("\(#function) pressed")
+        self.dismiss(animated: true)
     }
 }
