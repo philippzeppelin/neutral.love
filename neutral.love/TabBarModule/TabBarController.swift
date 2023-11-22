@@ -17,27 +17,30 @@ final class TabBarController: UITabBarController {
     }
 
     private func createTabBar() {
-        let favouritesVC = UIViewController()
-        let mainVC = MainAssembly.configure()
-        let settingsVC = UIViewController()
+        let favoritesVC = FavoritesViewController(viewModel: FavoritesViewModel())
+        let mainVC = MainViewController(viewModel: MainViewModel())
+        let settingsVC = SettingsViewController()
 
-        self.viewControllers = [
+        setViewControllers([
             generateNavigationController(
-                for: favouritesVC,
-                title: "Favourites",
-                image: Resources.Images.TabBarModule.favourities
+                for: favoritesVC, title: "Favorites",
+                image: Resources.Images.TabBarModule.favourities,
+                tag: 1
             ),
+
             generateNavigationController(
-                for: mainVC,
-                title: "Generate",
-                image: Resources.Images.TabBarModule.main
+                for: mainVC, title: "Generate",
+                image: Resources.Images.TabBarModule.main,
+                tag: 2
             ),
+            
             generateNavigationController(
-                for: settingsVC,
-                title: "Settings",
-                image: Resources.Images.TabBarModule.settings
+                for: settingsVC, title: "Settings",
+                image: Resources.Images.TabBarModule.settings,
+                tag: 3
             )
-        ]
+        ],
+                           animated: true)
     }
 }
 
@@ -45,11 +48,20 @@ private extension TabBarController {
     func generateNavigationController(
         for viewController: UIViewController,
         title: String,
-        image: UIImage
-    ) -> UIViewController {
-        viewController.tabBarItem.title = title
-        viewController.tabBarItem.image = image
-        return viewController
+        image: UIImage,
+        tag: Int
+    ) -> UINavigationController {
+        let navigationController = UINavigationController(rootViewController: viewController)
+        viewController.title = title
+        navigationController.navigationBar.prefersLargeTitles = true
+        navigationController.navigationBar.scrollEdgeAppearance = navigationController.navigationBar.standardAppearance
+        navigationController.tabBarItem = UITabBarItem(
+            title: title,
+            image: image,
+            tag: tag
+        )
+
+        return navigationController
     }
 
     func setupTabBar() {

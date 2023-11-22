@@ -12,11 +12,11 @@ protocol SignUpViewDelegate: AnyObject {
     func backButtonPressed()
 }
 
-/// View for hosting SignUp UI elements
 final class SignUpView: UIView {
     weak var delegate: SignUpViewDelegate?
 
     // MARK: UI Elements
+    
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -94,6 +94,7 @@ final class SignUpView: UIView {
     }()
 
     // MARK: Init
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupAppearence()
@@ -140,6 +141,7 @@ final class SignUpView: UIView {
 }
 
 // MARK: - UITextFieldDelegate
+
 extension SignUpView: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         nameTextField.resignFirstResponder()
@@ -150,6 +152,7 @@ extension SignUpView: UITextFieldDelegate {
 }
 
 // MARK: - Offset content
+
 private extension SignUpView {
     func registerKeyBoardNotification() {
         NotificationCenter.default.addObserver(
@@ -206,6 +209,7 @@ private extension SignUpView {
 }
 
 // MARK: - Setup View
+
 extension SignUpView {
     private func setupAppearence() {
         backgroundColor = .systemGray5
@@ -214,6 +218,7 @@ extension SignUpView {
 }
 
 // MARK: - Setup UI elements and constraints
+
 private extension SignUpView {
     func embedView() {
         addSubview(scrollView)
@@ -309,26 +314,27 @@ private extension SignUpView {
     func setupNameLabelConstraints() {
         NSLayoutConstraint.activate([
             nameLabel.bottomAnchor.constraint(equalTo: nameTextField.topAnchor, constant: Constants.labelsTop),
-            nameLabel.leftAnchor.constraint(equalTo: signUpView.leftAnchor, constant: Constants.uiElementsPadding)
+            nameLabel.leadingAnchor.constraint(equalTo: signUpView.leadingAnchor, constant: Constants.uiElementsPadding)
         ])
     }
 
     func setupEmailLabelConstraints() {
         NSLayoutConstraint.activate([
             emailLabel.bottomAnchor.constraint(equalTo: emailTextField.topAnchor, constant: Constants.labelsTop),
-            emailLabel.leftAnchor.constraint(equalTo: signUpView.leftAnchor, constant: Constants.uiElementsPadding)
+            emailLabel.leadingAnchor.constraint(equalTo: signUpView.leadingAnchor, constant: Constants.uiElementsPadding)
         ])
     }
 
     func setupPasswordLabelConstraints() {
         NSLayoutConstraint.activate([
             passwordLabel.bottomAnchor.constraint(equalTo: passwordTextField.topAnchor, constant: Constants.labelsTop),
-            passwordLabel.leftAnchor.constraint(equalTo: signUpView.leftAnchor, constant: Constants.uiElementsPadding)
+            passwordLabel.leadingAnchor.constraint(equalTo: signUpView.leadingAnchor, constant: Constants.uiElementsPadding)
         ])
     }
 }
 
 // MARK: - Setting Constants
+
 extension SignUpView {
     private enum Constants {
         static let uiElementsHeight: CGFloat = 40
