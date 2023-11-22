@@ -15,7 +15,14 @@ protocol MainViewModelProtocol {
     var amount: [String] { get }
     
     var outputs: [Output] { get set }
+    
+    var textPercentages: Box<String> { get }
+    var progresPercentages: Box<Float> { get }
+    var generateButtonIsEnabled: Box<Bool> { get }
+    var progressUIIsHidden: Box<Bool> { get }
+    
     func fetchData()
+    func countdownForGeneratingImages()
 }
 
 protocol MainViewModelProtocolDelegate: AnyObject {
@@ -26,11 +33,32 @@ final class MainViewModel: MainViewModelProtocol {
     
     weak var delegate: MainViewModelProtocolDelegate?
     
-    var style = ["Photo", "Fantasy", "Anime", "Painting", "Sci-Fi", "Cyberpunk", "Pixelart", "Steampunk", "Synthwave"]
-    var layout = ["Square", "Vertical", "Horizontal"]
+    var style = [
+        "Photo",
+        "Fantasy",
+        "Anime",
+        "Painting",
+        "Sci-Fi",
+        "Cyberpunk",
+        "Pixelart",
+        "Steampunk",
+        "Synthwave"
+    ]
+    
+    var layout = [
+        "Square",
+        "Vertical",
+        "Horizontal"
+    ]
+    
     var amount = ["4", "8", "12"]
     
-    var outputs = [Output]()
+    var textPercentages: Box<String> = Box("0 %")
+    var progresPercentages: Box<Float> = Box(0.0)
+    var generateButtonIsEnabled: Box<Bool> = Box(false)
+    var progressUIIsHidden: Box<Bool> = Box(true)
+    
+    var outputs: [Output] = []
     let apiManager = APIManager()
     
     func fetchData() {
@@ -39,6 +67,30 @@ final class MainViewModel: MainViewModelProtocol {
             outputs = try await apiManager.fetchOrderInfoOutput(orderID: orderID)
             
             delegate?.didLoadData()
+        }
+    }
+    
+    func countdownForGeneratingImages() {
+        progressUIIsHidden.value = false
+        generateButtonIsEnabled.value = false
+        
+        var timeLeft: Float = 0.1
+        var progress: Float = 0.0
+        var progressPercentages = 0
+        
+        Timer.scheduledTimer(withTimeInterval: 0.1, repeats: true) { [weak self] timer in
+            timeLeft += 0.1
+            progress = timeLeft / Float(30) // 30 сек. задержка в АПИ
+            progressPercentages = Int((timeLeft / Float(30)) * 100)
+            
+            self?.textPercentages.value = "\(progressPercentages) %"
+            self?.progresPercentages.value = progress
+            
+            if timeLeft >= 30 {
+                timer.invalidate()
+                self?.generateButtonIsEnabled.value = true
+                self?.progressUIIsHidden.value = true
+            }
         }
     }
 }
