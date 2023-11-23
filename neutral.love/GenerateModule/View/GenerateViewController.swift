@@ -23,7 +23,7 @@ final class GenerateViewController: UIViewController {
     private let headerLabel: UILabel = {
         let label = UILabel()
         label.text = Resources.Strings.GenerateModule.headerLabel
-        label.font = Resources.Fonts.GenerateModule.SFProTextSemibold35
+        label.font = Resources.Fonts.SFProTextSemibold35
         label.textColor = Resources.Colors.white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -32,7 +32,7 @@ final class GenerateViewController: UIViewController {
     private let promptLabel: UILabel = {
         let label = UILabel()
         label.text = Resources.Strings.GenerateModule.promptLabel
-        label.font = Resources.Fonts.GenerateModule.SFProTextSemibold17
+        label.font = Resources.Fonts.SFProTextSemibold17
         label.textColor = Resources.Colors.white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -41,7 +41,7 @@ final class GenerateViewController: UIViewController {
     private let styleLabel: UILabel = {
         let label = UILabel()
         label.text = Resources.Strings.GenerateModule.styleLabel
-        label.font = Resources.Fonts.GenerateModule.SFProTextSemibold17
+        label.font = Resources.Fonts.SFProTextSemibold17
         label.textColor = Resources.Colors.white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -50,7 +50,7 @@ final class GenerateViewController: UIViewController {
     private let layoutLabel: UILabel = {
         let label = UILabel()
         label.text = Resources.Strings.GenerateModule.layoutLabel
-        label.font = Resources.Fonts.GenerateModule.SFProTextSemibold17
+        label.font = Resources.Fonts.SFProTextSemibold17
         label.textColor = Resources.Colors.white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -59,7 +59,7 @@ final class GenerateViewController: UIViewController {
     private let amountLabel: UILabel = {
         let label = UILabel()
         label.text = Resources.Strings.GenerateModule.amountLabel
-        label.font = Resources.Fonts.GenerateModule.SFProTextSemibold17
+        label.font = Resources.Fonts.SFProTextSemibold17
         label.textColor = Resources.Colors.white
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -79,7 +79,7 @@ final class GenerateViewController: UIViewController {
         button.backgroundColor = Resources.Colors.MainModule.generateButtonBackground
         button.layer.cornerRadius = 15
         button.setTitle("Generate image", for: .normal) // convinience init
-        button.titleLabel?.font = Resources.Fonts.GenerateModule.SFProTextSemibold17
+        button.titleLabel?.font = Resources.Fonts.SFProTextSemibold17
         button.tintColor = Resources.Colors.white
         button.addTarget(self, action: #selector(generateImages), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false

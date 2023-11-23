@@ -48,7 +48,7 @@ final class MainViewController: UIViewController {
         button.backgroundColor = Resources.Colors.MainModule.generateButtonBackground
         button.layer.cornerRadius = Constants.generateButtonCornerRadius
         button.setTitle(Resources.Strings.MainModule.generateSettingsButton, for: .normal)
-        button.titleLabel?.font = Resources.Fonts.TabBarModule.SFProTextSemibold17
+        button.titleLabel?.font = Resources.Fonts.SFProTextSemibold17
         button.tintColor = Resources.Colors.white
         button.addTarget(self, action: #selector(presentGenerateViewController), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false

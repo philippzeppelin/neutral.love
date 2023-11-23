@@ -38,7 +38,7 @@ final class SignInView: UIView {
 
     private let emailTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = Resources.Strings.SignInModule.emailText
+        textField.placeholder = Resources.Strings.AuthorizationModule.emailText
         textField.textColor = .label
         textField.layer.cornerRadius = Constants.elementsCornerRadius
         textField.addPaddingToTextField()
@@ -49,7 +49,7 @@ final class SignInView: UIView {
 
     private let passwordTextField: UITextField = {
         let textField = UITextField()
-        textField.placeholder = Resources.Strings.SignInModule.passwordAsterisksText
+        textField.placeholder = Resources.Strings.AuthorizationModule.passwordAsterisksText
         textField.textColor = .label
         textField.layer.cornerRadius = Constants.elementsCornerRadius
         textField.addPaddingToTextField()
@@ -60,11 +60,11 @@ final class SignInView: UIView {
 
     private lazy var signInButton = {
         let button = UIButton()
-        button.setTitle(Resources.Strings.SignInModule.signInButtonText, for: .normal)
+        button.setTitle(Resources.Strings.AuthorizationModule.signInButtonText, for: .normal)
         button.setTitleColor(.label, for: .normal)
-        button.titleLabel?.font = Resources.Fonts.SignInModule.arial17
+        button.titleLabel?.font = Resources.Fonts.arial17
         button.layer.cornerRadius = Constants.elementsCornerRadius
-        button.backgroundColor = Resources.Colors.SignInModule.signButtonsColor
+        button.backgroundColor = Resources.Colors.AuthorizationModule.signButtonsColor
         button.addTarget(self, action: #selector(signInButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -72,11 +72,11 @@ final class SignInView: UIView {
 
     private lazy var signUpButton = {
         let button = UIButton()
-        button.setTitle(Resources.Strings.SignInModule.signUpButtonText, for: .normal)
+        button.setTitle(Resources.Strings.AuthorizationModule.signUpButtonText, for: .normal)
         button.setTitleColor(.label, for: .normal)
-        button.titleLabel?.font = Resources.Fonts.SignInModule.arial17
+        button.titleLabel?.font = Resources.Fonts.arial17
         button.layer.cornerRadius = Constants.elementsCornerRadius
-        button.backgroundColor = Resources.Colors.SignInModule.signButtonsColor
+        button.backgroundColor = Resources.Colors.AuthorizationModule.signButtonsColor
         button.addTarget(nil, action: #selector(signUpButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -93,8 +93,8 @@ final class SignInView: UIView {
 
     private let emailLabel: UILabel = {
         let label = UILabel()
-        label.text = Resources.Strings.SignInModule.emailText
-        label.font = Resources.Fonts.SignInModule.arial17
+        label.text = Resources.Strings.AuthorizationModule.emailText
+        label.font = Resources.Fonts.arial17
         label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -102,8 +102,8 @@ final class SignInView: UIView {
 
     private let passwordLabel: UILabel = {
         let label = UILabel()
-        label.text = Resources.Strings.SignInModule.passwordText
-        label.font = Resources.Fonts.SignInModule.arial17
+        label.text = Resources.Strings.AuthorizationModule.passwordText
+        label.font = Resources.Fonts.arial17
         label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -111,8 +111,8 @@ final class SignInView: UIView {
 
     private let dontHaveAccountLabel: UILabel = {
         let label = UILabel()
-        label.text = Resources.Strings.SignInModule.dontHaveAnAccountText
-        label.font = Resources.Fonts.SignInModule.arial12
+        label.text = Resources.Strings.AuthorizationModule.dontHaveAnAccountText
+        label.font = Resources.Fonts.arial12
         label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label

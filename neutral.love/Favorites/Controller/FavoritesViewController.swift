@@ -39,9 +39,9 @@ private extension FavoritesViewController {
 
     func setupFavoritesViewConstraints() {
         NSLayoutConstraint.activate([
-            favoritesView.topAnchor.constraint(equalTo: view.topAnchor),
-            favoritesView.leftAnchor.constraint(equalTo: view.leftAnchor),
-            favoritesView.rightAnchor.constraint(equalTo: view.rightAnchor),
+            favoritesView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            favoritesView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),
+            favoritesView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
             favoritesView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
