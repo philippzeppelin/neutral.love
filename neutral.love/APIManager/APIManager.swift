@@ -11,18 +11,21 @@ final class APIManager {
     
     private let token = "v1.729f88cb97cb903e3543779cba57a4e6fad127114887e20b32563635af355e2b"
     
-    func fetchOrderID() async throws -> String {
+    func fetchOrderID(prompt: String,
+                      style: String,
+                      layout: String,
+                      amount: String) async throws -> String {
         let parameters = [
-            "style": "PAINTING",
-            "layout": "SQUARE",
-            "amount": 4,
+            "style": style,
+            "layout": layout,
+            "amount": Int(amount) ?? 4,
             "isPublic": true,
             "isPriority": false,
             "isHd": false,
             "steps": 30,
             "cfgScale": 7.5,
             "autoClean": false,
-            "prompt": "a cat"
+            "prompt": prompt
         ] as [String: Any]
         
         let headers = [
@@ -43,7 +46,7 @@ final class APIManager {
         request.httpBody = postData
         
         let (data, response) = try await URLSession.shared.data(for: request)
-                
+        
         guard let httpResponse = response as? HTTPURLResponse, 200...299 ~= httpResponse.statusCode else {
             throw URLError(.badServerResponse)
         }
@@ -68,7 +71,7 @@ final class APIManager {
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = headers
-                
+        
         let (data, response) = try await URLSession.shared.data(for: request)
         
         guard let response = response as? HTTPURLResponse, 200...299 ~= response.statusCode else {
@@ -78,7 +81,7 @@ final class APIManager {
         let result = try JSONDecoder().decode(OrderInfo.self, from: data).output
         
         print("output: \(result)")
-                        
+        
         return result
     }
 }

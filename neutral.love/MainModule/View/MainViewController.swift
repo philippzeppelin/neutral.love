@@ -47,8 +47,8 @@ final class MainViewController: UIViewController {
         let button = UIButton(type: .system)
         button.backgroundColor = Resources.Colors.MainModule.generateButtonBackground
         button.layer.cornerRadius = Constants.generateButtonCornerRadius
-        button.setTitle(Resources.Strings.MainModule.generateSettingsButton, for: .normal)
-        button.titleLabel?.font = Resources.Fonts.TabBarModule.SFProTextSemibold17
+        button.setTitle(Resources.Strings.MainModule.generateSettingsButtonEnabled, for: .normal)
+        button.titleLabel?.font = Resources.Fonts.SFProTextSemibold17
         button.tintColor = Resources.Colors.white
         button.addTarget(self, action: #selector(presentGenerateViewController), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -128,8 +128,20 @@ final class MainViewController: UIViewController {
             self?.progressBar.progress = $0
         }
         
-        viewModel.generateButtonIsEnabled.bind { [weak self] in
-            self?.generateSettingsButton.isEnabled = $0
+        viewModel.generateButtonIsEnabled.bind { [weak self] isEnabled in
+            self?.generateSettingsButton.isEnabled = isEnabled
+            
+            if isEnabled {
+                self?.generateSettingsButton.setTitle(
+                    Resources.Strings.MainModule.generateSettingsButtonEnabled,
+                    for: .normal
+                )
+            } else {
+                self?.generateSettingsButton.setTitle(
+                    Resources.Strings.MainModule.generateSettingsButtonNotEnabled,
+                    for: .normal
+                )
+            }
         }
         
         viewModel.progressUIIsHidden.bind { [weak self] in
