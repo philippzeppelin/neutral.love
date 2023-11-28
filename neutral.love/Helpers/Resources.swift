@@ -39,7 +39,7 @@ enum Resources {
         static let backgroundHeader = UIColor(hexString: "#2D2B2B")
         
         enum TabBarModule {
-            static let tabBarFillColor = UIColor(hexString: "#2D2B2B")
+            static let tabBarFillColor = UIColor.secondarySystemBackground
             static let tabBarTintColor = UIColor.white
             static let tabBarUnselectedItem = UIColor(hexString: "#999898")
         }

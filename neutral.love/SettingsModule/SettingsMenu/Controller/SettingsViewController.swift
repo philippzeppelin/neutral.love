@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SettingsViewController: UIViewController {
+final class SettingsViewController: UIViewController {
     private let viewModel: SettingsViewModel
 
     private let settingsView = SettingsView()
@@ -21,6 +21,7 @@ class SettingsViewController: UIViewController {
     init(viewModel: SettingsViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        settingsView.delegate = self
     }
     
     required init?(coder: NSCoder) {
@@ -40,5 +41,19 @@ private extension SettingsViewController {
             settingsView.rightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.rightAnchor),
             settingsView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
+    }
+}
+
+extension SettingsViewController: SettingsViewDelegate {
+    func profileSettingsButtonPressed() {
+        print("\(#function) pressed")
+    }
+    
+    func themeSettingsButtonPressed() {
+        print("\(#function) pressed")
+    }
+    
+    func languageSettingsButtonPressed() {
+        print("\(#function) pressed")
     }
 }
