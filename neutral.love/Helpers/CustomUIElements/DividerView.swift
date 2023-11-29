@@ -18,7 +18,7 @@ final class DividerView: UIView {
     }
 
     private func configureDividerView() {
-        backgroundColor = .systemGray2
+        backgroundColor = .systemGray2.withAlphaComponent(0.4)
         translatesAutoresizingMaskIntoConstraints = false
     }
 }

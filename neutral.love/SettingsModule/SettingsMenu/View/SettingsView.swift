@@ -7,16 +7,21 @@
 
 import UIKit
 
-protocol SettingsViewDelegate: GeneralSettingsViewDelegate {
+protocol SettingsViewDelegate: GeneralSettingsViewDelegate, AboutUsViewDelegate {
     func profileSettingsButtonPressed()
     func themeSettingsButtonPressed()
     func languageSettingsButtonPressed()
+
+    func projectLinkButtonPressed()
+    func philippLinkButtonPressed()
+    func sergeyLinkButtonPressed()
 }
 
 final class SettingsView: UIView {
-    weak var delegate: SettingsViewDelegate? {
+    weak var settingsViewDelegate: SettingsViewDelegate? {
         didSet {
-            generalSettingsView.delegate = delegate
+            generalSettingsView.delegate = settingsViewDelegate
+            aboutUsView.delegate = settingsViewDelegate
         }
     }
 
@@ -39,7 +44,7 @@ final class SettingsView: UIView {
     }()
 
     private let generalSettingsView = GeneralSettingsView()
-    private let aboutUsView = GeneralSettingsView()
+    private let aboutUsView = AboutUsView()
 
     // MARK: Init
 
@@ -50,6 +55,7 @@ final class SettingsView: UIView {
         setupPortraitImageViewConstraints()
         setupUserNameLabelConstraints()
         setupGeneralSettingsViewConstraints()
+        setupAboutUsViewConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -73,7 +79,8 @@ private extension SettingsView {
         [
             portraitImageView,
             userNameLabel,
-            generalSettingsView
+            generalSettingsView,
+            aboutUsView
         ].forEach { addSubview($0) }
     }
 
@@ -95,10 +102,19 @@ private extension SettingsView {
 
     func setupGeneralSettingsViewConstraints() {
         NSLayoutConstraint.activate([
-            generalSettingsView.heightAnchor.constraint(equalToConstant: 120),
+            generalSettingsView.heightAnchor.constraint(equalToConstant: Constants.settingsViewHeight),
             generalSettingsView.topAnchor.constraint(equalTo: userNameLabel.bottomAnchor, constant: 15),
-            generalSettingsView.leftAnchor.constraint(equalTo: leftAnchor, constant: 25),
-            rightAnchor.constraint(equalTo: generalSettingsView.rightAnchor, constant: 25)
+            generalSettingsView.leftAnchor.constraint(equalTo: leftAnchor, constant: Constants.settingsViewPadding),
+            rightAnchor.constraint(equalTo: generalSettingsView.rightAnchor, constant: Constants.settingsViewPadding)
+        ])
+    }
+
+    func setupAboutUsViewConstraints() {
+        NSLayoutConstraint.activate([
+            aboutUsView.heightAnchor.constraint(equalToConstant: Constants.settingsViewHeight),
+            aboutUsView.leftAnchor.constraint(equalTo: leftAnchor, constant: Constants.settingsViewPadding),
+            rightAnchor.constraint(equalTo: aboutUsView.rightAnchor, constant: Constants.settingsViewPadding),
+            aboutUsView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -35)
         ])
     }
 }
@@ -108,5 +124,7 @@ private extension SettingsView {
 extension SettingsView {
     private enum Constants {
         static let portraitImageViewDiameter: CGFloat = 180
+        static let settingsViewPadding: CGFloat = 25
+        static let settingsViewHeight: CGFloat = 120
     }
 }

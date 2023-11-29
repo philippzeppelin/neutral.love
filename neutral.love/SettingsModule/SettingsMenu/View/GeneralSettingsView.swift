@@ -19,14 +19,14 @@ final class GeneralSettingsView: UIView {
     private let firstDividerView = DividerView()
     private let secondDividerView = DividerView()
 
-    private let view1 = UIView()
-    private let view2 = UIView()
-    private let view3 = UIView()
+    private let profileSettingsView1 = UIView()
+    private let profileSettingsView2 = UIView()
+    private let profileSettingsView3 = UIView()
 
     private let viewsStackView: UIStackView = {
         let stackView = UIStackView()
         stackView.axis = .vertical
-        stackView.spacing = 2
+        stackView.spacing = 1
         stackView.distribution = .fillEqually
         stackView.translatesAutoresizingMaskIntoConstraints = false
         return stackView
@@ -58,9 +58,9 @@ final class GeneralSettingsView: UIView {
     }
 
     private func setupViewsStackView() {
-            viewsStackView.addArrangedSubview(view1)
-            viewsStackView.addArrangedSubview(view2)
-            viewsStackView.addArrangedSubview(view3)
+            viewsStackView.addArrangedSubview(profileSettingsView1)
+            viewsStackView.addArrangedSubview(profileSettingsView2)
+            viewsStackView.addArrangedSubview(profileSettingsView3)
         }
 
     private func setupProfileSettingsButton() {
@@ -106,6 +106,8 @@ final class GeneralSettingsView: UIView {
     }
 }
 
+// MARK: - Setup Appearence
+
 extension GeneralSettingsView {
     private func setupAppearence() {
         backgroundColor = .secondarySystemBackground
@@ -124,22 +126,22 @@ private extension GeneralSettingsView {
             secondDividerView
         ].forEach { addSubview($0) }
 
-        view1.addSubview(profileSettingsButton)
-        view2.addSubview(themeSettingsButton)
-        view3.addSubview(languageSettingsButton)
+        profileSettingsView1.addSubview(profileSettingsButton)
+        profileSettingsView2.addSubview(themeSettingsButton)
+        profileSettingsView3.addSubview(languageSettingsButton)
     }
 
     func setupDividersConstraints() {
         NSLayoutConstraint.activate([
-            firstDividerView.topAnchor.constraint(equalTo: view1.bottomAnchor),
+            firstDividerView.topAnchor.constraint(equalTo: profileSettingsView1.bottomAnchor),
             firstDividerView.leftAnchor.constraint(equalTo: leftAnchor),
             firstDividerView.rightAnchor.constraint(equalTo: rightAnchor),
-            firstDividerView.bottomAnchor.constraint(equalTo: view2.topAnchor),
+            firstDividerView.bottomAnchor.constraint(equalTo: profileSettingsView2.topAnchor),
 
-            secondDividerView.topAnchor.constraint(equalTo: view2.bottomAnchor),
+            secondDividerView.topAnchor.constraint(equalTo: profileSettingsView2.bottomAnchor),
             secondDividerView.leftAnchor.constraint(equalTo: leftAnchor),
             secondDividerView.rightAnchor.constraint(equalTo: rightAnchor),
-            secondDividerView.bottomAnchor.constraint(equalTo: view3.topAnchor)
+            secondDividerView.bottomAnchor.constraint(equalTo: profileSettingsView3.topAnchor)
         ])
     }
 
@@ -154,25 +156,31 @@ private extension GeneralSettingsView {
 
     func setupProfileSettingsButtonConstraints() {
         NSLayoutConstraint.activate([
-            profileSettingsButton.centerYAnchor.constraint(equalTo: view1.centerYAnchor),
-            profileSettingsButton.leftAnchor.constraint(equalTo: view1.leftAnchor, constant: 20),
-            profileSettingsButton.rightAnchor.constraint(equalTo: view1.rightAnchor)
+            profileSettingsButton.centerYAnchor.constraint(equalTo: profileSettingsView1.centerYAnchor),
+            profileSettingsButton.leftAnchor.constraint(equalTo: profileSettingsView1.leftAnchor, constant: Constants.buttonsLeftPadding),
+            profileSettingsButton.rightAnchor.constraint(equalTo: profileSettingsView1.rightAnchor)
         ])
     }
 
     func setupThemeSettingsButtonConstraints() {
         NSLayoutConstraint.activate([
-            themeSettingsButton.centerYAnchor.constraint(equalTo: view2.centerYAnchor),
-            themeSettingsButton.leftAnchor.constraint(equalTo: view2.leftAnchor, constant: 20),
-            themeSettingsButton.rightAnchor.constraint(equalTo: view2.rightAnchor)
+            themeSettingsButton.centerYAnchor.constraint(equalTo: profileSettingsView2.centerYAnchor),
+            themeSettingsButton.leftAnchor.constraint(equalTo: profileSettingsView2.leftAnchor, constant: Constants.buttonsLeftPadding),
+            themeSettingsButton.rightAnchor.constraint(equalTo: profileSettingsView2.rightAnchor)
         ])
     }
 
     func setupLanguageSettingsButtonConstraints() {
         NSLayoutConstraint.activate([
-            languageSettingsButton.centerYAnchor.constraint(equalTo: view3.centerYAnchor),
-            languageSettingsButton.leftAnchor.constraint(equalTo: view3.leftAnchor, constant: 20),
-            languageSettingsButton.rightAnchor.constraint(equalTo: view3.rightAnchor)
+            languageSettingsButton.centerYAnchor.constraint(equalTo: profileSettingsView3.centerYAnchor),
+            languageSettingsButton.leftAnchor.constraint(equalTo: profileSettingsView3.leftAnchor, constant: Constants.buttonsLeftPadding),
+            languageSettingsButton.rightAnchor.constraint(equalTo: profileSettingsView3.rightAnchor)
         ])
+    }
+}
+
+extension GeneralSettingsView {
+    private enum Constants {
+        static let buttonsLeftPadding: CGFloat = 20
     }
 }

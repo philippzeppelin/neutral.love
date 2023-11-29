@@ -77,7 +77,7 @@ final class SignInView: UIView {
         button.titleLabel?.font = Resources.Fonts.arial17
         button.layer.cornerRadius = Constants.elementsCornerRadius
         button.backgroundColor = Resources.Colors.AuthorizationModule.signButtonsColor
-        button.addTarget(nil, action: #selector(signUpButtonTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
     }()
