@@ -1,8 +1,8 @@
 //
 //  Box.swift
-//  MVVM-SwiftBook
+//  neutral.love
 //
-//  Created by Sergei Smirnov on 12.11.2023.
+//  Created by Sergei Smirnov on 26.11.2023.
 //
 
 import Foundation

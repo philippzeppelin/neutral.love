@@ -10,9 +10,9 @@ import Foundation
 protocol MainViewModelProtocol {
     var delegate: MainViewModelProtocolDelegate? { get set }
     
-    var style: [String] { get }
-    var layout: [String] { get }
-    var amount: [String] { get }
+    var styleData: [String] { get }
+    var layoutData: [String] { get }
+    var amountData: [String] { get }
     
     var outputs: [Output] { get set }
     
@@ -20,6 +20,11 @@ protocol MainViewModelProtocol {
     var progresPercentages: Box<Float> { get }
     var generateButtonIsEnabled: Box<Bool> { get }
     var progressUIIsHidden: Box<Bool> { get }
+    
+    var prompt: String { get set }
+    var style: String { get set }
+    var layout: String { get set }
+    var amount: String { get set }
     
     func fetchData()
     func countdownForGeneratingImages()
@@ -33,7 +38,7 @@ final class MainViewModel: MainViewModelProtocol {
     
     weak var delegate: MainViewModelProtocolDelegate?
     
-    var style = [
+    var styleData = [
         "Photo",
         "Fantasy",
         "Anime",
@@ -44,14 +49,17 @@ final class MainViewModel: MainViewModelProtocol {
         "Steampunk",
         "Synthwave"
     ]
-    
-    var layout = [
+    var layoutData = [
         "Square",
         "Vertical",
         "Horizontal"
     ]
+    var amountData = ["4", "8", "12"]
     
-    var amount = ["4", "8", "12"]
+    var prompt: String = "a cat"
+    var style: String = "Painting"
+    var layout: String = "Square"
+    var amount: String = "4"
     
     var textPercentages: Box<String> = Box("0 %")
     var progresPercentages: Box<Float> = Box(0.0)
@@ -63,7 +71,10 @@ final class MainViewModel: MainViewModelProtocol {
     
     func fetchData() {
         Task {
-            let orderID = try await apiManager.fetchOrderID()
+            let orderID = try await apiManager.fetchOrderID(prompt: prompt,
+                                                            style: style,
+                                                            layout: layout,
+                                                            amount: amount)
             outputs = try await apiManager.fetchOrderInfoOutput(orderID: orderID)
             
             delegate?.didLoadData()
