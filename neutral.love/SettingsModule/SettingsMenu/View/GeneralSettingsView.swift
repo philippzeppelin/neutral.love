@@ -52,18 +52,29 @@ final class GeneralSettingsView: UIView {
         setupThemeSettingsButtonConstraints()
         setupLanguageSettingsButtonConstraints()
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
     private func setupViewsStackView() {
-            viewsStackView.addArrangedSubview(profileSettingsView1)
-            viewsStackView.addArrangedSubview(profileSettingsView2)
-            viewsStackView.addArrangedSubview(profileSettingsView3)
-        }
+        viewsStackView.addArrangedSubview(profileSettingsView1)
+        viewsStackView.addArrangedSubview(profileSettingsView2)
+        viewsStackView.addArrangedSubview(profileSettingsView3)
+    }
+
+    private func createShevronToButtons() -> UIButton.Configuration {
+        var config = UIButton.Configuration.borderless()
+        config.image = UIImage(systemName: "chevron.right")
+        config.imagePadding = 5
+        config.imagePlacement = .trailing
+        config.preferredSymbolConfigurationForImage = UIImage.SymbolConfiguration(scale: .medium)
+        return config
+    }
 
     private func setupProfileSettingsButton() {
+        profileSettingsButton.configuration = createShevronToButtons()
+        profileSettingsButton.tintColor = .label
         profileSettingsButton.setTitle("Profile settings", for: .normal)
         profileSettingsButton.titleLabel?.font = Resources.Fonts.arial17
         profileSettingsButton.setTitleColor(.label, for: .normal)
@@ -73,6 +84,8 @@ final class GeneralSettingsView: UIView {
     }
 
     private func setupThemeSettingsButton() {
+        themeSettingsButton.configuration = createShevronToButtons()
+        themeSettingsButton.tintColor = .label
         themeSettingsButton.setTitle("Theme", for: .normal)
         themeSettingsButton.titleLabel?.font = Resources.Fonts.arial17
         themeSettingsButton.setTitleColor(.label, for: .normal)
@@ -82,6 +95,8 @@ final class GeneralSettingsView: UIView {
     }
 
     private func setupLanguageSettingsButton() {
+        languageSettingsButton.configuration = createShevronToButtons()
+        languageSettingsButton.tintColor = .label
         languageSettingsButton.setTitle("Language", for: .normal)
         languageSettingsButton.titleLabel?.font = Resources.Fonts.arial17
         languageSettingsButton.setTitleColor(.label, for: .normal)
@@ -181,6 +196,6 @@ private extension GeneralSettingsView {
 
 extension GeneralSettingsView {
     private enum Constants {
-        static let buttonsLeftPadding: CGFloat = 20
+        static let buttonsLeftPadding: CGFloat = 8
     }
 }

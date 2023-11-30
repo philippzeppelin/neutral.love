@@ -46,6 +46,15 @@ final class SettingsView: UIView {
     private let generalSettingsView = GeneralSettingsView()
     private let aboutUsView = AboutUsView()
 
+    private let aboutUsLabel: UILabel = {
+        let label = UILabel()
+        label.font = Resources.Fonts.arial17
+        label.textColor = .label
+        label.text = "About us"
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
     // MARK: Init
 
     override init(frame: CGRect) {
@@ -56,6 +65,7 @@ final class SettingsView: UIView {
         setupUserNameLabelConstraints()
         setupGeneralSettingsViewConstraints()
         setupAboutUsViewConstraints()
+        setupAboutUsLabel()
     }
     
     required init?(coder: NSCoder) {
@@ -80,7 +90,8 @@ private extension SettingsView {
             portraitImageView,
             userNameLabel,
             generalSettingsView,
-            aboutUsView
+            aboutUsView,
+            aboutUsLabel
         ].forEach { addSubview($0) }
     }
 
@@ -117,6 +128,13 @@ private extension SettingsView {
             aboutUsView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -35)
         ])
     }
+
+    func setupAboutUsLabel() {
+        NSLayoutConstraint.activate([
+            aboutUsLabel.bottomAnchor.constraint(equalTo: aboutUsView.topAnchor, constant: -3),
+            aboutUsLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: Constants.aboutUsLabelLeftPadding)
+        ])
+    }
 }
 
 // MARK: - Setting Constants
@@ -126,5 +144,6 @@ extension SettingsView {
         static let portraitImageViewDiameter: CGFloat = 180
         static let settingsViewPadding: CGFloat = 25
         static let settingsViewHeight: CGFloat = 120
+        static let aboutUsLabelLeftPadding = Constants.settingsViewPadding + 5
     }
 }
