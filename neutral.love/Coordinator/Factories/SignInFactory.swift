@@ -8,10 +8,10 @@
 import UIKit
 
 struct SignInFactory {
-    let appDIContainer: AppDIContainer?
+    let appDIContainer: AppDIContainer
     
     func makeSignInViewControler(coordinator: SignInViewControllerCoordinator) -> UIViewController {
-        SignInViewController(viewModel: SignInViewModel(logInAuth: appDIContainer?.auth),
+        SignInViewController(viewModel: SignInViewModel(logInAuth: appDIContainer.auth),
                              coordinator: coordinator)
     }
 }

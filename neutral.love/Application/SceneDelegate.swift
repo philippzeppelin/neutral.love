@@ -16,7 +16,8 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     func scene(_ scene: UIScene,
                willConnectTo session: UISceneSession,
                options connectionOptions: UIScene.ConnectionOptions) {
-        guard let windowScene = (scene as? UIWindowScene) else { return }
+        guard let windowScene = (scene as? UIWindowScene),
+              var appDIContainer else { return }
         
         window = UIWindow(windowScene: windowScene)
         appDIContainer = AppDIContainer()
@@ -24,7 +25,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         appCoordinator = AppCoordinator(navigation: UINavigationController(),
                                         window: window,
                                         factory: appFactory,
-                                        auth: appDIContainer?.auth)
+                                        auth: appDIContainer.auth)
         appCoordinator?.start()
     }
 }

@@ -8,5 +8,5 @@
 import Foundation
 
 struct AppDIContainer {
-    var auth = AuthMock()
+    var auth = Auth()
 }

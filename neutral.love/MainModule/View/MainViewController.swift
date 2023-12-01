@@ -123,8 +123,6 @@ final class MainViewController: UIViewController {
     }
     
     @objc private func presentGenerateViewController() {
-//        let viewController = GenerateAssembly.configure(viewModel: viewModel)
-//        present(viewController, animated: true)
         coordinator?.didTapGenerateSettingsButton()
         
         viewModel.textPercentages.bind { [weak self] in

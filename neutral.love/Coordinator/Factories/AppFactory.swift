@@ -8,7 +8,7 @@
 import UIKit
 
 struct AppFactory {
-    let appDIContainer: AppDIContainer?
+    let appDIContainer: AppDIContainer
     
     func makeSignInCoordinator(navigation: UINavigationController, 
                                delegate: SignInCoordinatorDelegate) -> Coordinator {
