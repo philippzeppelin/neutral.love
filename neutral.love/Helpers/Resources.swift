@@ -31,6 +31,12 @@ enum Resources {
             static let layoutLabel = "Layout"
             static let amountLabel = "Amount"
         }
+        
+        enum TabBarModule {
+            static let settings = "Settings"
+            static let main = "Generate"
+            static let favorites = "Favorites"
+        }
     }
     
     enum Colors {
@@ -73,7 +79,7 @@ enum Resources {
     
     enum Images {
         enum TabBarModule {
-            static let favourities = UIImage(systemName: "star.fill") ?? UIImage()
+            static let favourites = UIImage(systemName: "star.fill") ?? UIImage()
             static let main = UIImage(systemName: "plus") ?? UIImage()
             static let settings = UIImage(systemName: "gear") ?? UIImage()
         }

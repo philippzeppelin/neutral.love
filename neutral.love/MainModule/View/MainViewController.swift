@@ -7,11 +7,16 @@
 
 import UIKit
 
+protocol MainViewControllerCoordinator: AnyObject {
+    func didTapGenerateSettingsButton()
+}
+
 final class MainViewController: UIViewController {
     
     // MARK: - Properties
     
     private var viewModel: MainViewModelProtocol
+    private weak var coordinator: MainViewControllerCoordinator?
     
     private let mainCollectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -72,8 +77,9 @@ final class MainViewController: UIViewController {
     
     // MARK: - Init
     
-    init(viewModel: MainViewModelProtocol) {
+    init(viewModel: MainViewModelProtocol, coordinator: MainViewControllerCoordinator) {
         self.viewModel = viewModel
+        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -117,8 +123,9 @@ final class MainViewController: UIViewController {
     }
     
     @objc private func presentGenerateViewController() {
-        let viewController = GenerateAssembly.configure(viewModel: viewModel)
-        present(viewController, animated: true)
+//        let viewController = GenerateAssembly.configure(viewModel: viewModel)
+//        present(viewController, animated: true)
+        coordinator?.didTapGenerateSettingsButton()
         
         viewModel.textPercentages.bind { [weak self] in
             self?.progressLabel.text = $0
@@ -172,7 +179,7 @@ private extension MainViewController {
             mainCollectionView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
             mainCollectionView.topAnchor.constraint(
                 equalTo: view.safeAreaLayoutGuide.topAnchor,
-                constant: view.frame.height / 7
+                constant: view.frame.height / 9
             ),
             
             pageControl.topAnchor.constraint(equalTo: mainCollectionView.bottomAnchor),

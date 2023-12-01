@@ -74,7 +74,7 @@ final class GenerateViewController: UIViewController {
     private let layoutTextField = GenerateTextField(placeholder: "Choose a layout")
     private let amountTextField = GenerateTextField(placeholder: "Choose an amount")
     
-    private lazy var startButton: UIButton = { // вынести в отдельную кнопку для майн и генерат вью контроллеров
+    private lazy var generateImageButton: UIButton = { // вынести в отдельную кнопку для майн и генерат вью контроллеров
         let button = UIButton(type: .system)
         button.backgroundColor = Resources.Colors.MainModule.generateButtonBackground
         button.layer.cornerRadius = 15
@@ -135,7 +135,7 @@ final class GenerateViewController: UIViewController {
             layoutTextField,
             amountLabel,
             amountTextField,
-            startButton
+            generateImageButton
         ].forEach { view.addSubview($0) }
         
         styleTextField.inputView = stylePikerView
@@ -145,10 +145,13 @@ final class GenerateViewController: UIViewController {
     
     private func setupDelagates() {
         promptTextField.delegate = self
+        
         stylePikerView.delegate = self
         stylePikerView.dataSource = self
+        
         layoutPikerView.delegate = self
         layoutPikerView.dataSource = self
+        
         amountPikerView.delegate = self
         amountPikerView.dataSource = self
         
@@ -256,10 +259,10 @@ private extension GenerateViewController {
             amountTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -Constants.spacing),
             amountTextField.heightAnchor.constraint(equalToConstant: Constants.textFieldsHeight),
             
-            startButton.topAnchor.constraint(equalTo: amountTextField.bottomAnchor, constant: 40),
-            startButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
-            startButton.heightAnchor.constraint(equalToConstant: 50),
-            startButton.widthAnchor.constraint(equalToConstant: 200)
+            generateImageButton.topAnchor.constraint(equalTo: amountTextField.bottomAnchor, constant: 40),
+            generateImageButton.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+            generateImageButton.heightAnchor.constraint(equalToConstant: 50),
+            generateImageButton.widthAnchor.constraint(equalToConstant: 200)
         ])
     }
 }

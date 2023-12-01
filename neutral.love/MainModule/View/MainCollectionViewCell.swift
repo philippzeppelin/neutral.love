@@ -61,7 +61,7 @@ extension MainCollectionViewCell {
     
     private func configure() {
         contentView.backgroundColor = Resources.Colors.MainModule.mainCollectionCellBackground
-        layer.cornerRadius = Constants.cornerRadius
+        layer.cornerRadius = 10
         clipsToBounds = true
     }
 }
@@ -76,14 +76,7 @@ extension MainCollectionViewCell {
     }
 }
 
-// MARK: - Constants
-
-extension MainCollectionViewCell {
-    
-    private enum Constants {
-        static let cornerRadius: CGFloat = 10
-    }
-}
+// MARK: - mainCollectionViewCellIdentifier
 
 extension String {
     static let mainCollectionViewCellIdentifier = "MainCollectionViewCell"

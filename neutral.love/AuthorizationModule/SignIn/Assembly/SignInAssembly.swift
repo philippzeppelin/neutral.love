@@ -8,9 +8,9 @@
 import Foundation
 
 final class SignInAssembly {
-    static func configure() -> SignInViewController {
-        let viewModel = SignInViewModel()
-        let viewController = SignInViewController(viewModel: viewModel)
-        return viewController
-    }
+//    static func configure() -> SignInViewController {
+//        let viewModel = SignInViewModel()
+//        let viewController = SignInViewController(viewModel: viewModel)
+//        return viewController
+//    }
 }

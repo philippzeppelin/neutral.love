@@ -7,11 +7,22 @@
 
 import Foundation
 
-protocol SignInViewModelProtocol {}
+protocol SignInViewModelProtocol {
+    var logInAuth: LogInAuth? { get set }
+    func logIn()
+}
 
 final class SignInViewModel: SignInViewModelProtocol {
+    
+    var logInAuth: LogInAuth?
 
     // MARK: Init
     
-    init() {}
+    init(logInAuth: LogInAuth?) {
+        self.logInAuth = logInAuth
+    }
+    
+    func logIn() {
+        logInAuth?.logIn()
+    }
 }
