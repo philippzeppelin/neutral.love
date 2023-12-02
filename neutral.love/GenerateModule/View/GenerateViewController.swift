@@ -11,7 +11,7 @@ final class GenerateViewController: UIViewController {
     
     // MARK: - Properties
     
-    private let viewModel: MainViewModelProtocol
+    private var viewModel: MainViewModelProtocol
     
     private let backgroundViewHeader: UIView = {
         let view = UIView()
@@ -100,6 +100,11 @@ final class GenerateViewController: UIViewController {
     // MARK: - Methods
     
     @objc private func generateImages() {
+        viewModel.prompt = promptTextField.text ?? ""
+        viewModel.style = viewModel.styleData[stylePikerView.selectedRow(inComponent: 0)]
+        viewModel.layout = viewModel.layoutData[layoutPikerView.selectedRow(inComponent: 0)]
+        viewModel.amount = viewModel.amountData[amountPikerView.selectedRow(inComponent: 0)]
+        
         viewModel.fetchData()
         viewModel.countdownForGeneratingImages()
         dismiss(animated: true)
@@ -158,18 +163,18 @@ final class GenerateViewController: UIViewController {
 extension GenerateViewController: UIPickerViewDelegate {
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         switch pickerView.tag {
-        case 1: return viewModel.style[row]
-        case 2: return viewModel.layout[row]
-        case 3: return viewModel.amount[row]
+        case 1: return viewModel.styleData[row]
+        case 2: return viewModel.layoutData[row]
+        case 3: return viewModel.amountData[row]
         default: return "Data not found"
         }
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         switch pickerView.tag {
-        case 1: styleTextField.text = viewModel.style[row]
-        case 2: layoutTextField.text = viewModel.layout[row]
-        case 3: amountTextField.text = viewModel.amount[row]
+        case 1: styleTextField.text = viewModel.styleData[row]
+        case 2: layoutTextField.text = viewModel.layoutData[row]
+        case 3: amountTextField.text = viewModel.amountData[row]
         default: return
         }
         styleTextField.resignFirstResponder()
@@ -187,9 +192,9 @@ extension GenerateViewController: UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch pickerView.tag {
-        case 1: return viewModel.style.count
-        case 2: return viewModel.layout.count
-        case 3: return viewModel.amount.count
+        case 1: return viewModel.styleData.count
+        case 2: return viewModel.layoutData.count
+        case 3: return viewModel.amountData.count
         default: return 1
         }
     }

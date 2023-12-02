@@ -20,7 +20,8 @@ enum Resources {
         }
         
         enum MainModule {
-            static let generateSettingsButton = "Generate settings"
+            static let generateSettingsButtonEnabled = "Generate settings"
+            static let generateSettingsButtonNotEnabled = "Generating..."
         }
         
         enum GenerateModule {
