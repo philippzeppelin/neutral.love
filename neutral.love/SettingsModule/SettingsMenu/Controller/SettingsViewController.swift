@@ -13,7 +13,7 @@ final class SettingsViewController: UIViewController {
     private let settingsView = SettingsView()
 
     // MARK: Lifecycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         embedView()
@@ -28,7 +28,7 @@ final class SettingsViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
 
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -60,11 +60,11 @@ extension SettingsViewController: SettingsViewDelegate {
     func profileSettingsButtonPressed() {
         print("\(#function) pressed")
     }
-    
+
     func themeSettingsButtonPressed() {
         print("\(#function) pressed")
     }
-    
+
     func languageSettingsButtonPressed() {
         print("\(#function) pressed")
     }
@@ -73,11 +73,11 @@ extension SettingsViewController: SettingsViewDelegate {
         print("\(#function) pressed")
     }
 
-    func philippLinkButtonPressed() {
+    func firstContributorLinkButtonPressed() {
         print("\(#function) pressed")
     }
 
-    func sergeyLinkButtonPressed() {
+    func secondContributorLinkButtonPressed() {
         print("\(#function) pressed")
     }
 }

@@ -99,7 +99,7 @@ final class SignUpView: UIView {
         super.init(frame: frame)
         setupAppearence()
         setupDelegates()
-        embedView()
+        embedViews()
         setupScrollViewConstraints()
         setupBackgroundViewConstraints()
         setupSignUpViewConstraints()
@@ -220,7 +220,7 @@ extension SignUpView {
 // MARK: - Setup UI elements and constraints
 
 private extension SignUpView {
-    func embedView() {
+    func embedViews() {
         addSubview(scrollView)
         scrollView.addSubview(backgroundView)
         backgroundView.addSubview(signUpView)

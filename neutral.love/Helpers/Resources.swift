@@ -30,6 +30,17 @@ enum Resources {
             static let layoutLabel = "Layout"
             static let amountLabel = "Amount"
         }
+
+        enum SettingsModule {
+            static let usernameLabel = "Philipp"
+            static let aboutUsLabel = "About us"
+            static let profileSettingsButtonTitle = "Profile settings"
+            static let themeButtonTitle = "Theme"
+            static let languageButtonTitle = "Language"
+            static let projectLinkButtonTitle = "Project link"
+            static let firstContributorButtonTitle = "Philipp"
+            static let secondContributorButtonTitle = "Sergey"
+        }
     }
     
     enum Colors {
@@ -57,6 +68,10 @@ enum Resources {
             static let textFildTextColor = UIColor(hexString: "#8E8EAC")
             static let textFildBackgroundColor = UIColor(hexString: "#D1D1D6")
         }
+
+        enum SettingsModule {
+            static let buttonsLabelColor = UIColor.label
+        }
     }
     
     enum Fonts {
@@ -74,6 +89,11 @@ enum Resources {
             static let favourities = UIImage(systemName: "star.fill") ?? UIImage()
             static let main = UIImage(systemName: "plus") ?? UIImage()
             static let settings = UIImage(systemName: "gear") ?? UIImage()
+        }
+
+        enum SettingsModule {
+            static let personCircleFill = UIImage(systemName: "person.circle.fill")
+            static let chevronRight = UIImage(systemName: "chevron.right")
         }
     }
 }

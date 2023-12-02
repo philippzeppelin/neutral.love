@@ -9,12 +9,13 @@ import UIKit
 
 protocol AboutUsViewDelegate: AnyObject {
     func projectLinkButtonPressed()
-    func philippLinkButtonPressed()
-    func sergeyLinkButtonPressed()
+    func firstContributorLinkButtonPressed()
+    func secondContributorLinkButtonPressed()
 }
 
 final class AboutUsView: UIView {
-    weak var delegate: AboutUsViewDelegate?
+
+    // MARK: UI Elements
 
     private let firstDividerView = DividerView()
     private let secondDividerView = DividerView()
@@ -33,61 +34,68 @@ final class AboutUsView: UIView {
     }()
 
     private let profileLinkButton = UIButton()
-    private let philippLinkButton = UIButton()
-    private let sergeyLinkButton = UIButton()
+    private let firstContributorLinkButton = UIButton()
+    private let secondContributorLinkButton = UIButton()
+
+    // MARK: Properties
+
+    weak var delegate: AboutUsViewDelegate?
+
+    // MARK: Init
 
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupAppearence()
-        embedView()
-
         setupViewsStackView()
         setupProjectLinkButton()
-        setupPhilippLinkButton()
-        setupSergeyLinkButton()
+        setupFirstContributorLinkButton()
+        setupSecondContributorLinkButton()
 
+        setupAppearence()
+        embedViews()
         setupDividersConstraints()
         setupDividersStackViewConstraints()
         setupProfileSettingsButtonConstraints()
-        setupThemeSettingsButtonConstraints()
-        setupLanguageSettingsButtonConstraints()
+        setupFirstContributorButtonConstraints()
+        setupSecondContributorButtonConstraints()
     }
 
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 
+    // MARK: Methods
+
     private func setupViewsStackView() {
-            viewsStackView.addArrangedSubview(projectLinkView1)
-            viewsStackView.addArrangedSubview(projectLinkView2)
-            viewsStackView.addArrangedSubview(projectLinkView3)
-        }
+        viewsStackView.addArrangedSubview(projectLinkView1)
+        viewsStackView.addArrangedSubview(projectLinkView2)
+        viewsStackView.addArrangedSubview(projectLinkView3)
+    }
 
     private func setupProjectLinkButton() {
-        profileLinkButton.setTitle("Project link", for: .normal)
+        profileLinkButton.setTitle(Resources.Strings.SettingsModule.profileSettingsButtonTitle, for: .normal)
         profileLinkButton.titleLabel?.font = Resources.Fonts.arial17
-        profileLinkButton.setTitleColor(.label, for: .normal)
+        profileLinkButton.setTitleColor(Resources.Colors.SettingsModule.buttonsLabelColor, for: .normal)
         profileLinkButton.contentHorizontalAlignment = .left
         profileLinkButton.addTarget(self, action: #selector(projectLinkButtonPressed), for: .touchUpInside)
         profileLinkButton.translatesAutoresizingMaskIntoConstraints = false
     }
 
-    private func setupPhilippLinkButton() {
-        philippLinkButton.setTitle("Philipp", for: .normal)
-        philippLinkButton.titleLabel?.font = Resources.Fonts.arial17
-        philippLinkButton.setTitleColor(.label, for: .normal)
-        philippLinkButton.contentHorizontalAlignment = .left
-        philippLinkButton.addTarget(self, action: #selector(philippLinkButtonPressed), for: .touchUpInside)
-        philippLinkButton.translatesAutoresizingMaskIntoConstraints = false
+    private func setupFirstContributorLinkButton() {
+        firstContributorLinkButton.setTitle(Resources.Strings.SettingsModule.firstContributorButtonTitle, for: .normal)
+        firstContributorLinkButton.titleLabel?.font = Resources.Fonts.arial17
+        firstContributorLinkButton.setTitleColor(Resources.Colors.SettingsModule.buttonsLabelColor, for: .normal)
+        firstContributorLinkButton.contentHorizontalAlignment = .left
+        firstContributorLinkButton.addTarget(self, action: #selector(firstContributorLinkButtonPressed), for: .touchUpInside)
+        firstContributorLinkButton.translatesAutoresizingMaskIntoConstraints = false
     }
 
-    private func setupSergeyLinkButton() {
-        sergeyLinkButton.setTitle("Sergey", for: .normal)
-        sergeyLinkButton.titleLabel?.font = Resources.Fonts.arial17
-        sergeyLinkButton.setTitleColor(.label, for: .normal)
-        sergeyLinkButton.contentHorizontalAlignment = .left
-        sergeyLinkButton.addTarget(self, action: #selector(sergeyLinkButtonPressed), for: .touchUpInside)
-        sergeyLinkButton.translatesAutoresizingMaskIntoConstraints = false
+    private func setupSecondContributorLinkButton() {
+        secondContributorLinkButton.setTitle(Resources.Strings.SettingsModule.secondContributorButtonTitle, for: .normal)
+        secondContributorLinkButton.titleLabel?.font = Resources.Fonts.arial17
+        secondContributorLinkButton.setTitleColor(Resources.Colors.SettingsModule.buttonsLabelColor, for: .normal)
+        secondContributorLinkButton.contentHorizontalAlignment = .left
+        secondContributorLinkButton.addTarget(self, action: #selector(secondContributorLinkButtonPressed), for: .touchUpInside)
+        secondContributorLinkButton.translatesAutoresizingMaskIntoConstraints = false
     }
 
     @objc
@@ -96,13 +104,13 @@ final class AboutUsView: UIView {
     }
 
     @objc
-    private func philippLinkButtonPressed() {
-        delegate?.philippLinkButtonPressed()
+    private func firstContributorLinkButtonPressed() {
+        delegate?.firstContributorLinkButtonPressed()
     }
 
     @objc
-    private func sergeyLinkButtonPressed() {
-        delegate?.sergeyLinkButtonPressed()
+    private func secondContributorLinkButtonPressed() {
+        delegate?.secondContributorLinkButtonPressed()
     }
 }
 
@@ -119,7 +127,7 @@ extension AboutUsView {
 // MARK: - Setup Constraints and View
 
 private extension AboutUsView {
-    func embedView() {
+    func embedViews() {
         [
             viewsStackView,
             firstDividerView,
@@ -127,8 +135,8 @@ private extension AboutUsView {
         ].forEach { addSubview($0) }
 
         projectLinkView1.addSubview(profileLinkButton)
-        projectLinkView2.addSubview(philippLinkButton)
-        projectLinkView3.addSubview(sergeyLinkButton)
+        projectLinkView2.addSubview(firstContributorLinkButton)
+        projectLinkView3.addSubview(secondContributorLinkButton)
     }
 
     func setupDividersConstraints() {
@@ -162,22 +170,24 @@ private extension AboutUsView {
         ])
     }
 
-    func setupThemeSettingsButtonConstraints() {
+    func setupFirstContributorButtonConstraints() {
         NSLayoutConstraint.activate([
-            philippLinkButton.centerYAnchor.constraint(equalTo: projectLinkView2.centerYAnchor),
-            philippLinkButton.leftAnchor.constraint(equalTo: projectLinkView2.leftAnchor, constant: Constants.buttonsLeftPadding),
-            philippLinkButton.rightAnchor.constraint(equalTo: projectLinkView2.rightAnchor)
+            firstContributorLinkButton.centerYAnchor.constraint(equalTo: projectLinkView2.centerYAnchor),
+            firstContributorLinkButton.leftAnchor.constraint(equalTo: projectLinkView2.leftAnchor, constant: Constants.buttonsLeftPadding),
+            firstContributorLinkButton.rightAnchor.constraint(equalTo: projectLinkView2.rightAnchor)
         ])
     }
 
-    func setupLanguageSettingsButtonConstraints() {
+    func setupSecondContributorButtonConstraints() {
         NSLayoutConstraint.activate([
-            sergeyLinkButton.centerYAnchor.constraint(equalTo: projectLinkView3.centerYAnchor),
-            sergeyLinkButton.leftAnchor.constraint(equalTo: projectLinkView3.leftAnchor, constant: Constants.buttonsLeftPadding),
-            sergeyLinkButton.rightAnchor.constraint(equalTo: projectLinkView3.rightAnchor)
+            secondContributorLinkButton.centerYAnchor.constraint(equalTo: projectLinkView3.centerYAnchor),
+            secondContributorLinkButton.leftAnchor.constraint(equalTo: projectLinkView3.leftAnchor, constant: Constants.buttonsLeftPadding),
+            secondContributorLinkButton.rightAnchor.constraint(equalTo: projectLinkView3.rightAnchor)
         ])
     }
 }
+
+// MARK: - Constants
 
 extension AboutUsView {
     private enum Constants {

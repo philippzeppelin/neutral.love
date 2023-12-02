@@ -11,13 +11,48 @@ protocol SettingsViewDelegate: GeneralSettingsViewDelegate, AboutUsViewDelegate 
     func profileSettingsButtonPressed()
     func themeSettingsButtonPressed()
     func languageSettingsButtonPressed()
-
+    
     func projectLinkButtonPressed()
-    func philippLinkButtonPressed()
-    func sergeyLinkButtonPressed()
+    func firstContributorLinkButtonPressed()
+    func secondContributorLinkButtonPressed()
 }
 
 final class SettingsView: UIView {
+
+    // MARK: UI Elements
+    
+    private let portraitImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = Resources.Images.SettingsModule.personCircleFill
+        imageView.tintColor = .systemGray4
+        imageView.layer.cornerRadius = Constants.portraitImageViewDiameter / 2
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        return imageView
+    }()
+    
+    private let usernameLabel: UILabel = {
+        let label = UILabel()
+        label.text = Resources.Strings.SettingsModule.usernameLabel
+        label.font = Resources.Fonts.arialBold30
+        label.textColor = .label
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    private let generalSettingsView = GeneralSettingsView()
+    private let aboutUsView = AboutUsView()
+    
+    private let aboutUsLabel: UILabel = {
+        let label = UILabel()
+        label.font = Resources.Fonts.arial17
+        label.textColor = .label
+        label.text = Resources.Strings.SettingsModule.aboutUsLabel
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+
+    // MARK: Properties
+
     weak var settingsViewDelegate: SettingsViewDelegate? {
         didSet {
             generalSettingsView.delegate = settingsViewDelegate
@@ -25,42 +60,12 @@ final class SettingsView: UIView {
         }
     }
 
-    private let portraitImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = UIImage(systemName: "person.circle.fill")
-        imageView.tintColor = .systemGray4
-        imageView.layer.cornerRadius = Constants.portraitImageViewDiameter / 2
-        imageView.translatesAutoresizingMaskIntoConstraints = false
-        return imageView
-    }()
-
-    private let userNameLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Philipp"
-        label.font = Resources.Fonts.arialBold30
-        label.textColor = .label
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-
-    private let generalSettingsView = GeneralSettingsView()
-    private let aboutUsView = AboutUsView()
-
-    private let aboutUsLabel: UILabel = {
-        let label = UILabel()
-        label.font = Resources.Fonts.arial17
-        label.textColor = .label
-        label.text = "About us"
-        label.translatesAutoresizingMaskIntoConstraints = false
-        return label
-    }()
-
     // MARK: Init
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupAppearence()
-        embedView()
+        embedViews()
         setupPortraitImageViewConstraints()
         setupUserNameLabelConstraints()
         setupGeneralSettingsViewConstraints()
@@ -85,16 +90,16 @@ extension SettingsView {
 // MARK: - Setup Constraints and View
 
 private extension SettingsView {
-    func embedView() {
+    func embedViews() {
         [
             portraitImageView,
-            userNameLabel,
+            usernameLabel,
             generalSettingsView,
             aboutUsView,
             aboutUsLabel
         ].forEach { addSubview($0) }
     }
-
+    
     func setupPortraitImageViewConstraints() {
         NSLayoutConstraint.activate([
             portraitImageView.topAnchor.constraint(equalTo: topAnchor, constant: 15),
@@ -103,23 +108,23 @@ private extension SettingsView {
             portraitImageView.widthAnchor.constraint(equalToConstant: Constants.portraitImageViewDiameter)
         ])
     }
-
+    
     func setupUserNameLabelConstraints() {
         NSLayoutConstraint.activate([
-            userNameLabel.topAnchor.constraint(equalTo: portraitImageView.bottomAnchor, constant: 10),
-            userNameLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
+            usernameLabel.topAnchor.constraint(equalTo: portraitImageView.bottomAnchor, constant: 10),
+            usernameLabel.centerXAnchor.constraint(equalTo: centerXAnchor)
         ])
     }
-
+    
     func setupGeneralSettingsViewConstraints() {
         NSLayoutConstraint.activate([
             generalSettingsView.heightAnchor.constraint(equalToConstant: Constants.settingsViewHeight),
-            generalSettingsView.topAnchor.constraint(equalTo: userNameLabel.bottomAnchor, constant: 15),
+            generalSettingsView.topAnchor.constraint(equalTo: usernameLabel.bottomAnchor, constant: 15),
             generalSettingsView.leftAnchor.constraint(equalTo: leftAnchor, constant: Constants.settingsViewPadding),
             rightAnchor.constraint(equalTo: generalSettingsView.rightAnchor, constant: Constants.settingsViewPadding)
         ])
     }
-
+    
     func setupAboutUsViewConstraints() {
         NSLayoutConstraint.activate([
             aboutUsView.heightAnchor.constraint(equalToConstant: Constants.settingsViewHeight),
@@ -128,11 +133,11 @@ private extension SettingsView {
             aboutUsView.bottomAnchor.constraint(equalTo: safeAreaLayoutGuide.bottomAnchor, constant: -35)
         ])
     }
-
+    
     func setupAboutUsLabel() {
         NSLayoutConstraint.activate([
             aboutUsLabel.bottomAnchor.constraint(equalTo: aboutUsView.topAnchor, constant: -3),
-            aboutUsLabel.leftAnchor.constraint(equalTo: leftAnchor, constant: Constants.aboutUsLabelLeftPadding)
+            aboutUsLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.aboutUsLabelLeftPadding)
         ])
     }
 }
