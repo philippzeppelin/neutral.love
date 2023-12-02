@@ -66,11 +66,7 @@ final class SettingsView: UIView {
         super.init(frame: frame)
         setupAppearence()
         embedViews()
-        setupPortraitImageViewConstraints()
-        setupUserNameLabelConstraints()
-        setupGeneralSettingsViewConstraints()
-        setupAboutUsViewConstraints()
-        setupAboutUsLabel()
+        setupConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -99,7 +95,15 @@ private extension SettingsView {
             aboutUsLabel
         ].forEach { addSubview($0) }
     }
-    
+
+    func setupConstraints() {
+        setupPortraitImageViewConstraints()
+        setupUserNameLabelConstraints()
+        setupGeneralSettingsViewConstraints()
+        setupAboutUsViewConstraints()
+        setupAboutUsLabelConstraints()
+    }
+
     func setupPortraitImageViewConstraints() {
         NSLayoutConstraint.activate([
             portraitImageView.topAnchor.constraint(equalTo: topAnchor, constant: 15),
@@ -134,7 +138,7 @@ private extension SettingsView {
         ])
     }
     
-    func setupAboutUsLabel() {
+    func setupAboutUsLabelConstraints() {
         NSLayoutConstraint.activate([
             aboutUsLabel.bottomAnchor.constraint(equalTo: aboutUsView.topAnchor, constant: -3),
             aboutUsLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: Constants.aboutUsLabelLeftPadding)

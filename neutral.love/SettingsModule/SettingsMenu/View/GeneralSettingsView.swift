@@ -44,19 +44,14 @@ final class GeneralSettingsView: UIView {
     // MARK: Init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        setupAppearence()
-        embedView()
-        
         setupViewsStackView()
         setupProfileSettingsButton()
         setupThemeSettingsButton()
         setupLanguageSettingsButton()
-        
-        setupDividersConstraints()
-        setupDividersStackViewConstraints()
-        setupProfileSettingsButtonConstraints()
-        setupThemeSettingsButtonConstraints()
-        setupLanguageSettingsButtonConstraints()
+
+        setupAppearence()
+        embedView()
+        setupConstraints()
     }
     
     required init?(coder: NSCoder) {
@@ -154,6 +149,14 @@ private extension GeneralSettingsView {
         profileSettingsView3.addSubview(languageSettingsButton)
     }
     
+    func setupConstraints() {
+        setupDividersConstraints()
+        setupDividersStackViewConstraints()
+        setupProfileSettingsButtonConstraints()
+        setupThemeSettingsButtonConstraints()
+        setupLanguageSettingsButtonConstraints()
+    }
+
     func setupDividersConstraints() {
         NSLayoutConstraint.activate([
             firstDividerView.topAnchor.constraint(equalTo: profileSettingsView1.bottomAnchor),

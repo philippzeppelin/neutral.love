@@ -17,7 +17,7 @@ final class SettingsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         embedView()
-        setupSettingsViewConstraints()
+        setupConstraints()
         setupDelegates()
     }
 
@@ -44,7 +44,7 @@ private extension SettingsViewController {
         view.addSubview(settingsView)
     }
 
-    func setupSettingsViewConstraints() {
+    func setupConstraints() {
         NSLayoutConstraint.activate([
             settingsView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             settingsView.leftAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leftAnchor),

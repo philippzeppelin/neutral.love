@@ -52,11 +52,7 @@ final class AboutUsView: UIView {
 
         setupAppearence()
         embedViews()
-        setupDividersConstraints()
-        setupDividersStackViewConstraints()
-        setupProfileSettingsButtonConstraints()
-        setupFirstContributorButtonConstraints()
-        setupSecondContributorButtonConstraints()
+        setupConstraints()
     }
 
     required init?(coder: NSCoder) {
@@ -137,6 +133,14 @@ private extension AboutUsView {
         projectLinkView1.addSubview(profileLinkButton)
         projectLinkView2.addSubview(firstContributorLinkButton)
         projectLinkView3.addSubview(secondContributorLinkButton)
+    }
+
+    func setupConstraints() {
+        setupDividersConstraints()
+        setupDividersStackViewConstraints()
+        setupProfileSettingsButtonConstraints()
+        setupFirstContributorButtonConstraints()
+        setupSecondContributorButtonConstraints()
     }
 
     func setupDividersConstraints() {
