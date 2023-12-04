@@ -46,7 +46,6 @@ final class MainViewController: UIViewController {
     private lazy var generateSettingsButton: UIButton = {
         let button = UIButton(type: .system)
         button.backgroundColor = Resources.Colors.MainModule.generateButtonBackground
-        button.layer.cornerRadius = Constants.generateButtonCornerRadius
         button.setTitle(Resources.Strings.MainModule.generateSettingsButtonEnabled, for: .normal)
         button.titleLabel?.font = Resources.Fonts.SFProTextSemibold17
         button.tintColor = Resources.Colors.white

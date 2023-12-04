@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class AuthTextField: UITextField {
+final class CustomTextField: UITextField {
 
     // MARK: Init
     override init(frame: CGRect) {

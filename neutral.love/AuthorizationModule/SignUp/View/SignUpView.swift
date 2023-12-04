@@ -38,17 +38,17 @@ final class SignUpView: UIView {
         return view
     }()
 
-    private let nameTextField = AuthTextField(placeholder: "Name")
-    private let emailTextField = AuthTextField(placeholder: "Email")
-    private let passwordTextField = AuthTextField(placeholder: "Password")
+    private let nameTextField = CustomTextField(placeholder: "Name")
+    private let emailTextField = CustomTextField(placeholder: "Email")
+    private let passwordTextField = CustomTextField(placeholder: "Password")
 
     private lazy var signUpButton: UIButton = {
         let button = UIButton()
         button.setTitle("Sign Up", for: .normal)
         button.setTitleColor(.label, for: .normal)
-        button.titleLabel?.font = Resources.Fonts.SignInModule.arial17
+        button.titleLabel?.font = Resources.Fonts.arial17
         button.layer.cornerRadius = Constants.uiElementsCornerRadius
-        button.backgroundColor = Resources.Colors.SignInModule.signButtonsColor
+        button.backgroundColor = Resources.Colors.AuthorizationModule.signButtonsColor
         button.addTarget(self, action: #selector(signUpButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -58,9 +58,9 @@ final class SignUpView: UIView {
         let button = UIButton()
         button.setTitle("Back", for: .normal)
         button.setTitleColor(.label, for: .normal)
-        button.titleLabel?.font = Resources.Fonts.SignInModule.arial17
+        button.titleLabel?.font = Resources.Fonts.arial17
         button.layer.cornerRadius = Constants.uiElementsCornerRadius
-        button.backgroundColor = Resources.Colors.SignInModule.signButtonsColor
+        button.backgroundColor = Resources.Colors.AuthorizationModule.signButtonsColor
         button.addTarget(self, action: #selector(backButtonTapped), for: .touchUpInside)
         button.translatesAutoresizingMaskIntoConstraints = false
         return button
@@ -68,8 +68,8 @@ final class SignUpView: UIView {
 
     private let nameLabel: UILabel = {
         let label = UILabel()
-        label.text = Resources.Strings.SignInModule.nameText
-        label.font = Resources.Fonts.SignInModule.arial17
+        label.text = Resources.Strings.AuthorizationModule.nameText
+        label.font = Resources.Fonts.arial17
         label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -77,8 +77,8 @@ final class SignUpView: UIView {
 
     private let emailLabel: UILabel = {
         let label = UILabel()
-        label.text = Resources.Strings.SignInModule.emailText
-        label.font = Resources.Fonts.SignInModule.arial17
+        label.text = Resources.Strings.AuthorizationModule.emailText
+        label.font = Resources.Fonts.arial17
         label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -86,8 +86,8 @@ final class SignUpView: UIView {
 
     private let passwordLabel: UILabel = {
         let label = UILabel()
-        label.text = Resources.Strings.SignInModule.passwordText
-        label.font = Resources.Fonts.SignInModule.arial17
+        label.text = Resources.Strings.AuthorizationModule.passwordText
+        label.font = Resources.Fonts.arial17
         label.textColor = .label
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
@@ -99,7 +99,7 @@ final class SignUpView: UIView {
         super.init(frame: frame)
         setupAppearence()
         setupDelegates()
-        embedView()
+        embedViews()
         setupScrollViewConstraints()
         setupBackgroundViewConstraints()
         setupSignUpViewConstraints()
@@ -220,7 +220,7 @@ extension SignUpView {
 // MARK: - Setup UI elements and constraints
 
 private extension SignUpView {
-    func embedView() {
+    func embedViews() {
         addSubview(scrollView)
         scrollView.addSubview(backgroundView)
         backgroundView.addSubview(signUpView)
@@ -276,7 +276,7 @@ private extension SignUpView {
     func setupEmailTextFieldConstraints() {
         NSLayoutConstraint.activate([
             emailTextField.heightAnchor.constraint(equalToConstant: Constants.uiElementsHeight),
-            emailTextField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: Constants.uielementsHeightWithEachOther),
+            emailTextField.topAnchor.constraint(equalTo: nameTextField.bottomAnchor, constant: Constants.uiElementsHeightWithEachOther),
             emailTextField.leftAnchor.constraint(equalTo: signUpView.leftAnchor, constant: Constants.uiElementsPadding),
             signUpView.rightAnchor.constraint(equalTo: emailTextField.rightAnchor, constant: Constants.uiElementsPadding)
         ])
@@ -285,7 +285,7 @@ private extension SignUpView {
     func setupPasswordTextFieldConstraints() {
         NSLayoutConstraint.activate([
             passwordTextField.heightAnchor.constraint(equalToConstant: Constants.uiElementsHeight),
-            passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: Constants.uielementsHeightWithEachOther),
+            passwordTextField.topAnchor.constraint(equalTo: emailTextField.bottomAnchor, constant: Constants.uiElementsHeightWithEachOther),
             passwordTextField.leftAnchor.constraint(equalTo: signUpView.leftAnchor, constant: Constants.uiElementsPadding),
             signUpView.rightAnchor.constraint(equalTo: passwordTextField.rightAnchor, constant: Constants.uiElementsPadding)
         ])
@@ -294,7 +294,7 @@ private extension SignUpView {
     func setupSignUpButtonConstraints() {
         NSLayoutConstraint.activate([
             signUpButton.heightAnchor.constraint(equalToConstant: Constants.uiElementsHeight),
-            signUpButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: Constants.uielementsHeightWithEachOther),
+            signUpButton.topAnchor.constraint(equalTo: passwordTextField.bottomAnchor, constant: Constants.uiElementsHeightWithEachOther),
             signUpButton.centerXAnchor.constraint(equalTo: signUpView.centerXAnchor),
             signUpButton.leftAnchor.constraint(equalTo: signUpView.leftAnchor, constant: Constants.uiElementsPadding),
             signUpView.rightAnchor.constraint(equalTo: signUpButton.rightAnchor, constant: Constants.uiElementsPadding)
@@ -304,7 +304,7 @@ private extension SignUpView {
     func setupBackButtonConstraints() {
         NSLayoutConstraint.activate([
             backButton.heightAnchor.constraint(equalToConstant: Constants.uiElementsHeight),
-            backButton.topAnchor.constraint(equalTo: signUpButton.bottomAnchor, constant: Constants.uielementsHeightWithEachOther),
+            backButton.topAnchor.constraint(equalTo: signUpButton.bottomAnchor, constant: Constants.uiElementsHeightWithEachOther),
             backButton.centerXAnchor.constraint(equalTo: signUpView.centerXAnchor),
             backButton.leftAnchor.constraint(equalTo: signUpView.leftAnchor, constant: Constants.backButtonPadding),
             signUpView.rightAnchor.constraint(equalTo: backButton.rightAnchor, constant: Constants.backButtonPadding)
@@ -340,7 +340,7 @@ extension SignUpView {
         static let uiElementsHeight: CGFloat = 40
         static let signUpViewPadding: CGFloat = 43
         static let uiElementsPadding: CGFloat = 20
-        static let uielementsHeightWithEachOther: CGFloat = 30
+        static let uiElementsHeightWithEachOther: CGFloat = 30
         static let backButtonPadding: CGFloat = 75
         static let uiElementsCornerRadius: CGFloat = 10
         static let labelsTop: CGFloat = -3
