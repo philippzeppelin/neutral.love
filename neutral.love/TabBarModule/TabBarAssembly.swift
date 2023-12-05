@@ -10,7 +10,7 @@ import UIKit
 final class TabBarAssembly {
     static func configure() -> TabBarController {
         let tabController = TabBarController()
-        tabController.selectedIndex = 1
+        tabController.selectedIndex = 2 // 1
         return tabController
     }
 }
