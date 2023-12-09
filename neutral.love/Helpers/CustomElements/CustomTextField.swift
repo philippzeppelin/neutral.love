@@ -55,6 +55,7 @@ final class CustomTextField: UITextField {
             )
         )
         rightViewMode = .always
+        autocapitalizationType = .none
         translatesAutoresizingMaskIntoConstraints = false
     }
 }

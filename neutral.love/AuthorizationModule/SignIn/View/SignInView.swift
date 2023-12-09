@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 protocol SignInViewDelegate: AnyObject {
     func signInButtonPressed()
@@ -13,8 +14,6 @@ protocol SignInViewDelegate: AnyObject {
 }
 
 final class SignInView: UIView {
-    weak var delegate: SignInViewDelegate?
-
     private let scrollView: UIScrollView = {
         let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -118,6 +117,9 @@ final class SignInView: UIView {
         return label
     }()
 
+    weak var delegate: SignInViewDelegate?
+    weak var parentVC: SignInViewController?
+
     // MARK: Init
 
     override init(frame: CGRect) {
@@ -135,6 +137,9 @@ final class SignInView: UIView {
         setupPasswordLabelConstraints()
         setupDontHaveAccountLabelConstraints()
         registerKeyBoardNotification()
+
+        // current user log out
+        isCurrentUserFunc()
     }
     
     required init?(coder: NSCoder) {
@@ -145,6 +150,23 @@ final class SignInView: UIView {
         removeKeyboardNotification()
     }
 
+    // current user or not
+    private func isCurrentUserFunc() {
+        if FirebaseAuth.Auth.auth().currentUser != nil {
+            // labels and textifelds off
+
+            // сюда добавляет кнопку Log out, чтобы выйти
+        }
+    }
+
+    private func logOut() {
+        do {
+            try FirebaseAuth.Auth.auth().signOut()
+        } catch {
+            print("An error occured", #function)
+        }
+    }
+
     private func addingButtonsToStackView() {
         signButtonsStackView.addArrangedSubview(signInButton)
         signButtonsStackView.addArrangedSubview(signUpButton)
@@ -152,12 +174,77 @@ final class SignInView: UIView {
 
     @objc
     private func signInButtonTapped() {
-        delegate?.signInButtonPressed()
+        guard let email = emailTextField.text, !email.isEmpty,
+              let password = passwordTextField.text, !password.isEmpty else {
+            
+            return
+        }
+
+        FirebaseAuth.Auth.auth().signIn(withEmail: email, password: password) { [weak self] result, error in
+            guard let strongSelf = self else { return }
+
+            guard error == nil else {
+                // show account creation
+                strongSelf.showCreateAccount(email: email, password: password)
+                return
+            }
+
+            strongSelf.emailTextField.resignFirstResponder()
+            strongSelf.passwordTextField.resignFirstResponder()
+
+            print("You have signed in")
+        }
     }
 
     @objc
     private func signUpButtonTapped() {
         delegate?.signUpButtonPressed()
+    }
+
+    private func showCreateAccount(email: String, password: String) {
+        let alert = UIAlertController(
+            title: "Account not registered", // Аккаунт не зарегистрирован
+            message: "Would you like to create an account?", // Хотите зарегистрировать аккаунт? *и перенести на регистрацию*
+            preferredStyle: .alert
+        )
+        /* TODO: Переделать регистрацию на Sign In
+        Сделать ошибку, что пользователь не найден. Будет предупреждение User not found. Would you like to sign up? и после ок перекинуть на окно регистрации
+         Сделать кастомный алёрт */
+
+        alert.addAction(UIAlertAction(
+                title: "Register",
+                style: .default,
+                handler: { [weak self] _ in
+                    self?.delegate?.signUpButtonPressed()
+//                    FirebaseAuth.Auth.auth().createUser(
+//                        withEmail: email,
+//                        password: password
+//                    ) { [weak self] result, error in
+//                        guard let strongSelf = self else { return }
+//
+//                        guard error == nil else {
+//                            // show account creation
+//                            print("Account creation failed", #function)
+//                            return
+//                        }
+//
+//                        print("You have signed in")
+                    }
+                )
+        )
+
+        alert.addAction(UIAlertAction(
+                title: "Cancel",
+                style: .cancel,
+                handler: { _ in
+                })
+        )
+
+        if let parentVC = parentVC {
+            parentVC.present(alert, animated: true)
+        } else {
+            print("Error. Parent SignInVC is nil. Unable to present UIAlertController")
+        }
     }
 }
 

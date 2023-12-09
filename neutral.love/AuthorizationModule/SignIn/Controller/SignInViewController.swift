@@ -31,6 +31,7 @@ final class SignInViewController: UIViewController {
 
     private func setupDelegate() {
         signInView.delegate = self
+        signInView.parentVC = self
     }
 }
 
