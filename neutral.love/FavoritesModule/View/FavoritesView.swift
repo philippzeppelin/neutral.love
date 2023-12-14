@@ -112,6 +112,7 @@ extension FavoritesView: UICollectionViewDataSource {
 extension FavoritesView: UICollectionViewDelegate {}
 
 // MARK: - String extension
+
 extension String {
     static let favoritesCellIdentifier = "FavoritesCell"
 }

@@ -16,7 +16,7 @@ final class SignUpViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupDelegate()
-        embedView()
+        embedViews()
         setupConstraints()
     }
 
@@ -41,7 +41,7 @@ final class SignUpViewController: UIViewController {
 // MARK: - Setup UI elements and constraints
 
 private extension SignUpViewController {
-    func embedView() {
+    func embedViews() {
         view.addSubview(signUpView)
     }
 
