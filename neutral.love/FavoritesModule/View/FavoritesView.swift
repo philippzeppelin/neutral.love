@@ -65,7 +65,8 @@ final class FavoritesView: UIView {
 
 extension FavoritesView {
     private func setupAppearence() {
-        backgroundColor = .systemBackground
+        backgroundColor = Resources.Colors.backgroundGray
+        collectionView.backgroundColor = Resources.Colors.backgroundGray
         translatesAutoresizingMaskIntoConstraints = false
     }
 }

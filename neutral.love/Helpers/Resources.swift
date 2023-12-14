@@ -9,7 +9,7 @@ import UIKit
 
 enum Resources {
     enum Strings {
-        enum AuthorizationModule {
+        enum SignInModule {
             static let emailText: String = "Email"
             static let passwordAsterisksText: String = "******"
             static let nameText: String = "Name"
@@ -31,16 +31,11 @@ enum Resources {
             static let layoutLabel = "Layout"
             static let amountLabel = "Amount"
         }
-
-        enum SettingsModule {
-            static let usernameLabel = "Philipp"
-            static let aboutUsLabel = "About us"
-            static let profileSettingsButtonTitle = "Profile settings"
-            static let themeButtonTitle = "Theme"
-            static let languageButtonTitle = "Language"
-            static let projectLinkButtonTitle = "Project link"
-            static let firstContributorButtonTitle = "Philipp"
-            static let secondContributorButtonTitle = "Sergey"
+        
+        enum TabBarModule {
+            static let settings = "Settings"
+            static let main = "Generate"
+            static let favorites = "Favorites"
         }
     }
     
@@ -51,12 +46,12 @@ enum Resources {
         static let backgroundHeader = UIColor(hexString: "#2D2B2B")
         
         enum TabBarModule {
-            static let tabBarFillColor = UIColor.secondarySystemBackground
+            static let tabBarFillColor = UIColor(hexString: "#2D2B2B")
             static let tabBarTintColor = UIColor.white
             static let tabBarUnselectedItem = UIColor(hexString: "#999898")
         }
         
-        enum AuthorizationModule {
+        enum SignInModule {
             static let signButtonsColor = UIColor(hexString: "5B5B93")
         }
         
@@ -69,32 +64,24 @@ enum Resources {
             static let textFildTextColor = UIColor(hexString: "#8E8EAC")
             static let textFildBackgroundColor = UIColor(hexString: "#D1D1D6")
         }
-
-        enum SettingsModule {
-            static let buttonsLabelColor = UIColor.label
-        }
     }
     
     enum Fonts {
-        static let arial17 = UIFont(name: "Arial", size: 17)
-        static let arial12 = UIFont(name: "Arial", size: 12)
-        static let arialBold30 = UIFont(name: "Arial Bold", size: 30)
-
+        enum SignInModule {
+            static let arial17 = UIFont(name: "Arial", size: 17)
+            static let arial12 = UIFont(name: "Arial", size: 12)
+        }
+        
         // Semi-bold
         static let SFProTextSemibold17 = UIFont(name: "SFProText-Semibold", size: 17)
         static let SFProTextSemibold35 = UIFont(name: "SFProText-Semibold", size: 35)
     }
-
+    
     enum Images {
         enum TabBarModule {
-            static let favourities = UIImage(systemName: "star.fill") ?? UIImage()
+            static let favourites = UIImage(systemName: "star.fill") ?? UIImage()
             static let main = UIImage(systemName: "plus") ?? UIImage()
             static let settings = UIImage(systemName: "gear") ?? UIImage()
-        }
-
-        enum SettingsModule {
-            static let personCircleFill = UIImage(systemName: "person.circle.fill")
-            static let chevronRight = UIImage(systemName: "chevron.right")
         }
     }
 }

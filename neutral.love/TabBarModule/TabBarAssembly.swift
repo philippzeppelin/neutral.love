@@ -9,8 +9,8 @@ import UIKit
 
 final class TabBarAssembly {
     static func configure() -> TabBarController {
-        let tabController = TabBarController()
-        tabController.selectedIndex = 1
-        return tabController
+        let tabBarController = TabBarController()
+        tabBarController.viewControllers = []
+        return tabBarController
     }
 }

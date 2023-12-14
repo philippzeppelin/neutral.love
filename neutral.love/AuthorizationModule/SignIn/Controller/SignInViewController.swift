@@ -7,12 +7,19 @@
 
 import UIKit
 
+protocol SignInViewControllerCoordinator: AnyObject {
+    func didFinish()
+}
+
 final class SignInViewController: UIViewController {
     private let signInView = SignInView()
     private let viewModel: SignInViewModelProtocol
+    private weak var coordinator: SignInViewControllerCoordinator?
 
-    init(viewModel: SignInViewModelProtocol) {
+    init(viewModel: SignInViewModelProtocol, 
+         coordinator: SignInViewControllerCoordinator?) {
         self.viewModel = viewModel
+        self.coordinator = coordinator
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -54,15 +61,10 @@ private extension SignInViewController {
 // MARK: - SignInViewDelegate
 
 extension SignInViewController: SignInViewDelegate {
-    func signUpButtonPressed() {
-        let signUpViewController = SignUpViewController(viewModel: SignUpViewModel())
-        signUpViewController.modalPresentationStyle = .fullScreen
-        present(signUpViewController, animated: true)
-    }
+    func signUpButtonPressed() {}
     
     func signInButtonPressed() {
-        let mainViewController = MainViewController(viewModel: MainViewModel())
-        mainViewController.modalPresentationStyle = .fullScreen
-        present(mainViewController, animated: true)
+        viewModel.logIn()
+        coordinator?.didFinish()
     }
 }

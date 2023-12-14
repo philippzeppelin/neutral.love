@@ -8,9 +8,11 @@
 import UIKit
 
 final class MainAssembly {
-    static func configure() -> MainViewController {
-        let viewModel = MainViewModel()
-        let viewController = MainViewController(viewModel: viewModel)
+    static func configure(coordinator: MainViewControllerCoordinator, 
+                          viewModel: MainViewModelProtocol) -> MainViewController {
+        
+        let viewController = MainViewController(viewModel: viewModel, 
+                                                coordinator: coordinator)
         return viewController
     }
 }

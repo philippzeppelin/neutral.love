@@ -63,7 +63,7 @@ final class MainViewModel: MainViewModelProtocol {
     
     var textPercentages: Box<String> = Box("0 %")
     var progresPercentages: Box<Float> = Box(0.0)
-    var generateButtonIsEnabled: Box<Bool> = Box(false)
+    var generateButtonIsEnabled: Box<Bool> = Box(true)
     var progressUIIsHidden: Box<Bool> = Box(true)
     
     var outputs: [Output] = []
