@@ -25,7 +25,7 @@ final class MainCollectionViewCell: UICollectionViewCell {
     
     // MARK: - Private properties
     
-    private let generatedImage: UIImageView = {
+    private var generatedImage: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(systemName: "photo.on.rectangle.angled")
         image.contentMode = .scaleAspectFit
@@ -39,8 +39,19 @@ final class MainCollectionViewCell: UICollectionViewCell {
 
 extension MainCollectionViewCell {
     
-    func bindImage(urlString: String) {
-        generatedImage.load(urlString: urlString)
+    func bindImage(_ collectionView: UICollectionView,
+                   withURL urlString: String,
+                   atIndexPath indexPath: IndexPath,
+                   viewModel: MainViewModelProtocol) {
+        viewModel.imageProvider.downloadImage(
+            collectionView,
+            withURL: urlString,
+            atIndexPath: indexPath
+        ) { [weak self] image in
+            guard let image else { return }
+            
+            self?.generatedImage.image = image
+        }
     }
 }
 
