@@ -9,6 +9,16 @@ import UIKit
 
 enum Resources {
     enum Strings {
+        enum AuthorizationModule {
+                    static let emailText: String = "Email"
+                    static let passwordAsterisksText: String = "******"
+                    static let nameText: String = "Name"
+                    static let signInButtonText: String = "Sign In"
+                    static let signUpButtonText: String = "Sign Up"
+                    static let passwordText: String = "Password"
+                    static let dontHaveAnAccountText: String = "Don't have an account?"
+                }
+        
         enum SignInModule {
             static let emailText: String = "Email"
             static let passwordAsterisksText: String = "******"
