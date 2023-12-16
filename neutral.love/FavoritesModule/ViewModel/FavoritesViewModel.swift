@@ -7,6 +7,25 @@
 
 import Foundation
 
-protocol FavoritesViewModelProtocol {}
+protocol FavoritesViewModelDelegate: AnyObject {
+    func didLoadImages()
+}
 
-final class FavoritesViewModel: FavoritesViewModelProtocol {}
+protocol FavoritesViewModelProtocol {
+    var coreDataManager: CoreDataManager { get set }
+    var imagesFromDatabase: [GenerateImage] { get set }
+    var delegate: FavoritesViewModelDelegate? { get set }
+    
+    func reloadDatabase()
+}
+
+final class FavoritesViewModel: FavoritesViewModelProtocol {
+    var imagesFromDatabase: [GenerateImage] = []
+    var coreDataManager = CoreDataManager.shared
+    weak var delegate: FavoritesViewModelDelegate?
+    
+    func reloadDatabase() {
+        imagesFromDatabase = coreDataManager.obtainSavedImages()
+        delegate?.didLoadImages()
+    }
+}
