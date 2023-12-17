@@ -9,7 +9,7 @@ import UIKit
 
 enum Resources {
     enum Strings {
-        enum SignInModule {
+        enum AuthorizationModule {
             static let emailText: String = "Email"
             static let passwordAsterisksText: String = "******"
             static let nameText: String = "Name"
@@ -51,7 +51,7 @@ enum Resources {
             static let tabBarUnselectedItem = UIColor(hexString: "#999898")
         }
         
-        enum SignInModule {
+        enum AuthorizationModule {
             static let signButtonsColor = UIColor(hexString: "5B5B93")
         }
         
@@ -67,10 +67,9 @@ enum Resources {
     }
     
     enum Fonts {
-        enum SignInModule {
-            static let arial17 = UIFont(name: "Arial", size: 17)
-            static let arial12 = UIFont(name: "Arial", size: 12)
-        }
+        
+        static let arial17 = UIFont(name: "Arial", size: 17)
+        static let arial12 = UIFont(name: "Arial", size: 12)
         
         // Semi-bold
         static let SFProTextSemibold17 = UIFont(name: "SFProText-Semibold", size: 17)
