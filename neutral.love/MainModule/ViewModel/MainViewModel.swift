@@ -26,6 +26,8 @@ protocol MainViewModelProtocol {
     var layout: String { get set }
     var amount: String { get set }
     
+    var imageProvider: ImageProvider { get set }
+    
     func fetchData()
     func countdownForGeneratingImages()
 }
@@ -67,7 +69,9 @@ final class MainViewModel: MainViewModelProtocol {
     var progressUIIsHidden: Box<Bool> = Box(true)
     
     var outputs: [Output] = []
+    
     let apiManager = APIManager()
+    var imageProvider = ImageProvider()
     
     func fetchData() {
         Task {
