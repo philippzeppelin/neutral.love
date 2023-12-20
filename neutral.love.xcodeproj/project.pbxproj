@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5005540B2B32011F0033F8AC /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5005540A2B32011F0033F8AC /* ImageProvider.swift */; };
 		500BF1B02ADC1A3B00CA5E09 /* UIColor + extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500BF1AE2ADC1A3B00CA5E09 /* UIColor + extensions.swift */; };
 		500BF1B12ADC1A3B00CA5E09 /* Resources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500BF1AF2ADC1A3B00CA5E09 /* Resources.swift */; };
 		500BF1B62ADC1A4400CA5E09 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 500BF1B42ADC1A4400CA5E09 /* TabBarController.swift */; };
@@ -74,6 +75,7 @@
 
 /* Begin PBXFileReference section */
 		0B065168D66AB05BED2EE776 /* Pods-neutral.love.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-neutral.love.debug.xcconfig"; path = "Target Support Files/Pods-neutral.love/Pods-neutral.love.debug.xcconfig"; sourceTree = "<group>"; };
+		5005540A2B32011F0033F8AC /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
 		500BF1AE2ADC1A3B00CA5E09 /* UIColor + extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor + extensions.swift"; sourceTree = "<group>"; };
 		500BF1AF2ADC1A3B00CA5E09 /* Resources.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Resources.swift; sourceTree = "<group>"; };
 		500BF1B42ADC1A4400CA5E09 /* TabBarController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				500BF1AD2ADC1A3B00CA5E09 /* UIKit */,
 				50301AEE2B2DC4D500B1759A /* Array  + extensions.swift */,
 				500BF1AF2ADC1A3B00CA5E09 /* Resources.swift */,
+				5005540A2B32011F0033F8AC /* ImageProvider.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -736,6 +739,7 @@
 				504A91292B28D7D5006647E6 /* SettingsCoordinator.swift in Sources */,
 				50696D942ADEFD5E00E4B1AC /* MainCollectionViewCell.swift in Sources */,
 				50B5D4562AE4109400C10CC1 /* GenerateViewModel.swift in Sources */,
+				5005540B2B32011F0033F8AC /* ImageProvider.swift in Sources */,
 				504A912B2B28D7D5006647E6 /* SignInCoordinator.swift in Sources */,
 				504A914E2B28D81D006647E6 /* SettingsViewModel.swift in Sources */,
 				504A91432B28D7E5006647E6 /* FavoritesCell.swift in Sources */,

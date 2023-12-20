@@ -225,7 +225,11 @@ extension MainViewController: UICollectionViewDataSource {
         ) as? MainCollectionViewCell else { return UICollectionViewCell() }
         
         if viewModel.outputs.isNotEmpty {
-            cell.bindImage(urlString: viewModel.outputs[indexPath.row].preview)
+            let urlString = viewModel.outputs[indexPath.row].preview
+            cell.bindImage(collectionView,
+                           withURL: urlString,
+                           atIndexPath: indexPath,
+                           viewModel: viewModel)
         }
        
         return cell
