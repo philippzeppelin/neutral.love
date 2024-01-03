@@ -1,14 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="22522" systemVersion="22G91" minimumToolsVersion="Automatic" sourceLanguage="Swift" usedWithSwiftData="YES" userDefinedModelVersionIdentifier="">
     <entity name="GenerateImage" representedClassName="GenerateImage" syncable="YES">
-<<<<<<<< HEAD:neutral.love/Managers/CoreDataManager/CoreData.xcdatamodeld/CoreData.xcdatamodel/contents
         <attribute name="caption" optional="YES" attributeType="String"/>
         <attribute name="full" optional="YES" attributeType="Binary"/>
         <attribute name="preview" optional="YES" attributeType="Binary"/>
-========
-        <attribute name="caption" attributeType="String"/>
-        <attribute name="full" attributeType="Binary"/>
-        <attribute name="preview" attributeType="Binary"/>
->>>>>>>> 9450561 (add core data):neutral.love/Managers/CoreDataManager/Models/CoreData.xcdatamodeld/CoreData.xcdatamodel/contents
     </entity>
 </model>
