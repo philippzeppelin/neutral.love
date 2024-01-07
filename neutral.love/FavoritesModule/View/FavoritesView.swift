@@ -107,7 +107,7 @@ extension FavoritesView: UICollectionViewDataSource {
         }
         
         let previewImageData = viewModel?.imagesFromDatabase[indexPath.row].preview
-        cell.bindImage(imageData: previewImageData)
+        cell.bind(image: previewImageData)
 
         return cell
     }

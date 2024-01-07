@@ -34,9 +34,10 @@ class FavoritesCell: UICollectionViewCell {
     
     // MARK: - Bind image
     
-    func bindImage(imageData: Data?) {
-        guard let imageData else { return }
-        savedImage.image = UIImage(data: imageData)
+    func bind(image: Data?) {
+        guard let image else { return }
+        
+        savedImage.image = UIImage(data: image)
     }
 }
 

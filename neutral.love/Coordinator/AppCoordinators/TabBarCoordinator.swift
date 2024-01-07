@@ -51,8 +51,8 @@ extension TabBarCoordinator: SettingsCoordinatorDelegate {
 
 // MARK: - Constants
 
-private extension TabBarCoordinator {
-    enum Constants {
+extension TabBarCoordinator {
+     private enum Constants {
         static let selectedMainModule: Int = 1
     }
 }
